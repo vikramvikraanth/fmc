@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="adapter"
+                type="com.kotlintest.app.view.adapter.BenifitstepAdapter" />
+        <variable
+                name="title"
+                type="String" />
+
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/White"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="match_parent"
+                android:textAppearance="@style/TextViewCustomFont_bold"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_2sdp"
+                android:text="@{title}"
+                android:textColor="@color/Black"
+                android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                load_allLead="@{adapter}"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                tools:listitem="@layout/benefit_step_adapter"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="wrap_content"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@color/Gainsboro"
+                android:layout_height="@dimen/_1sdp"/>
+
+
+    </LinearLayout>
+</layout>

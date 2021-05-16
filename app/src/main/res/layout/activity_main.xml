@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.activity.MainActivity">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_above="@+id/fooder"
+                android:layout_marginBottom="-30dp"
+                android:background="@drawable/bg"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:layout_width="@dimen/_210sdp"
+                    android:src="@drawable/ic_applogo"
+                    android:layout_centerInParent="true"
+                    android:layout_height="@dimen/_120sdp"
+                    android:contentDescription="TODO" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/rounded_corners_shape"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/fooder"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_margin="@dimen/_20sdp"
+                        android:src="@drawable/ic_translate"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="@dimen/_80sdp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/header"
+                        android:text="Choose your Language"
+                        android:textAppearance="@style/TextViewCustomFont_medium"
+                        android:textSize="@dimen/_20sdp"
+                        android:textColor="@android:color/white"
+                        android:layout_height="wrap_content" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                    <Space
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="wrap_content" />
+
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:text="English"
+                            android:onClick="@{click::onClick}"
+
+                            android:padding="@dimen/_5sdp"
+                            android:textColor="@color/White"
+                            android:textAllCaps="false"
+                            android:backgroundTint="@color/blue"
+                            android:layout_height="wrap_content" />
+
+                    <Space
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="wrap_content" />
+
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:text="عربى"
+                            android:onClick="@{click::onClick}"
+
+                            android:padding="@dimen/_5sdp"
+                            android:textColor="@color/Black"
+                            android:backgroundTint="@color/Gainsboro"
+                            android:layout_height="wrap_content" />
+
+                    <Space
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>

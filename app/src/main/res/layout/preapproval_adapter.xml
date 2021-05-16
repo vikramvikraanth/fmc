@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+                name="data"
+                type="com.kotlintest.app.model.responseModel.PreApprovalModel.PreApprovalDetailsResponse" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:orientation="horizontal">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:text="12/3/2021"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_weight="1"
+                        android:text="Approved"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_approvals"
+                        android:gravity="end"
+                        process_type="@{data.approvalStatus}"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/greencolor"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:orientation="horizontal">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:text="Provider"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableStart="@drawable/ic_provider"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_weight="1"
+                        android:text="@{data.providerName}"
+                        android:padding="@dimen/_2sdp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:orientation="horizontal">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:text="Service Type"
+                        android:drawableStart="@drawable/ic_service_type"
+
+                        android:drawablePadding="@dimen/_5sdp"
+
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_weight="1"
+                        android:text="@{data.service.serviceType}"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:orientation="horizontal">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:text="Amount"
+                        android:drawableStart="@drawable/ic_money"
+
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_weight="1"
+                        android:text="250 AED"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="horizontal">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:text="Reference Number"
+                        android:drawableStart="@drawable/ic_referal_number"
+
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_weight="1"
+                        android:text="@{data.memberid}"
+                        android:padding="@dimen/_2sdp"
+                        android:textColor="@color/Black"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

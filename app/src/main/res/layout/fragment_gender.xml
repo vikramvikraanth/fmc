@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+        <variable
+                name="title"
+                type="String" />
+
+    </data>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corners_shape"
+            tools:context=".view.bottomSheet.ReportBottomSheetFragment" >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <View
+                    android:layout_width="@dimen/_100sdp"
+                    android:background="@color/grays"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="@dimen/_2sdp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Gender"
+
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextViewCustomFont_bold"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_14sdp" />
+            <View
+                    android:layout_width="match_parent"
+                    android:background="@color/grays"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_1sdp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Select your gender?"
+                    android:textAppearance="@style/TextViewCustomFont_bold"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_14sdp" />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Male"
+                    android:onClick="@{click::onClick}"
+                    android:id="@+id/male_txt"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_14sdp" />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Female"
+                    android:onClick="@{click::onClick}"
+                    android:id="@+id/female_txt"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_14sdp" />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:onClick="@{click::onClick}"
+                    android:id="@+id/others_txt"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Others"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_14sdp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+</layout>

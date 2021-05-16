@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="mainmenuAdapter"
+                type="com.kotlintest.app.view.adapter.MainMenuAdapter" />
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/White"
+            android:clickable="true"
+            android:focusable="true"
+            tools:context=".view.activity.HomeActivity">
+
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="@dimen/_10sdp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_toEndOf="@+id/menu_img"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:gravity="start"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Home"
+                            android:textAppearance="@style/TextViewCustomFont_bold"
+                            android:textColor="@color/Black"
+                            android:textSize="@dimen/_16sdp" />
+
+                    <ImageView
+                            android:id="@+id/menu_img"
+                            android:onClick="@{click::onClick}"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:src="@drawable/ic_menu" />
+
+                </RelativeLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:backgroundTint="@color/greens" />
+
+                <FrameLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/home_conter"
+                        android:layout_height="match_parent">
+                <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                        <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp">
+
+                            <ImageView
+                                    android:id="@+id/profile_img"
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_60sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:src="@drawable/ic_profile"
+                                    app:tint="@color/Black" />
+
+                            <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:layout_toEndOf="@+id/profile_img"
+                                    android:orientation="vertical">
+
+                                <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/welcomes"
+                                        android:textColor="@color/Black"
+                                        android:textSize="@dimen/_16sdp" />
+
+                                <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:text="John Walker"
+                                        android:textAppearance="@style/TextViewCustomFont_bold"
+                                        android:textColor="@color/Black"
+                                        android:textSize="@dimen/_20sdp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                                load_allLead="@{mainmenuAdapter}"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:nestedScrollingEnabled="false"
+                                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                                app:spanCount="2"
+                                tools:listitem="@layout/main_menu_adapter" />
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+                </FrameLayout>
+
+
+            </LinearLayout>
+        <fragment
+                android:id="@+id/fragment_navigation_drawer"
+                android:name="com.kotlintest.app.view.fragment.navigation.FragmentDrawer"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                app:layout="@layout/fragment_navigation_drawer"
+                tools:layout="@layout/fragment_navigation_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
