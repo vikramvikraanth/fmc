@@ -67,7 +67,8 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
         if(bottomSheet!=null && bottomSheet!!.isAdded){
             bottomSheet!!.dismiss()
         }
-      //  commonFunction.dismissLoader()
+
+        commonFunction.dismissLoader()
     }
 
     fun glideApp(imagePath: String, Images: ImageView) {
@@ -113,5 +114,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
                 activity.finishAffinity()
         }
     }
+
+
 
 }

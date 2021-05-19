@@ -43,8 +43,8 @@ class LoginViewModel(var commonApi: CommonApi,var commonFunction: CommonFunction
         commonApi.registerApiCall(response, disable, loginRegisterModel)
     }
     fun forgotPassswordApiCall(loginRegisterModel: ForgotPasswordModel) {
-        commonFunction.commonToast("Thank you for submiting")
-       // commonApi.forgotPasswordApiCall(response, disable, loginRegisterModel)
+       // commonFunction.commonToast("Thank you for submiting")
+        commonApi.forgotPasswordApiCall(response, disable, loginRegisterModel)
     }
     fun logoutApiCall() {
 

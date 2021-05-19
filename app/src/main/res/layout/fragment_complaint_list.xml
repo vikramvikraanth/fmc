@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="adapter"
+                type="com.kotlintest.app.view.adapter.ComplaintsListAdapter" />
+
+    </data>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@color/White"
+            tools:context=".view.fragment.complaints.ComplaintListFragment">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+            android:orientation="vertical"
+            load_allLead="@{adapter}"
+            tools:listitem="@layout/complaints_list_adapter"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="match_parent"/>
+    </FrameLayout>
+</layout>

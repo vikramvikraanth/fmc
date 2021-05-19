@@ -99,9 +99,14 @@ class CommonApi constructor(
             .compose(schedulersFacade.applyAsync())
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
+
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitForgotPasswordResponse").optString("MobSubmitForgotPasswordResult")
                 val itemType = object : TypeToken<ArrayList<LoginResponseModel>>() {}.type
                 val itemList = gson.fromJson<ArrayList<LoginResponseModel>>(
-                    ForgotPasswordReponse(it),
+                    data,
                     itemType
                 )
                 response.value = Response.success(itemList)

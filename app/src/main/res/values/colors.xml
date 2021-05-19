@@ -162,6 +162,8 @@
     <color name="Semi_Black">#252525</color>
     <color name="transparent">#00000000</color>
     <color name="grays">#CCCCCC</color>
+    <color name="light_black">#3A3A3A</color>
+    <color name="shadow_color">#0000002B</color>
 
 
 </resources>
