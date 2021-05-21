@@ -27,7 +27,8 @@
                     android:text="@string/compliant_type"
                     android:textAppearance="@style/TextViewCustomFont_bold"
                     android:textColor="@color/light_black"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    />
 
             <EditText
                     android:layout_width="match_parent"
@@ -38,6 +39,7 @@
                     android:focusableInTouchMode="false"
                     android:cursorVisible="false"
                     android:elevation="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:shadowColor="@color/shadow_color"
                     android:hint="@string/select_compliant_type"
                     android:textColorHint="@color/light_black"
@@ -54,9 +56,11 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:text="@string/subject"
+                    android:textSize="@dimen/_12sdp"
+
                     android:textAppearance="@style/TextViewCustomFont_bold"
                     android:textColor="@color/Black"
-                    android:textSize="@dimen/_14sdp" />
+                    />
 
             <EditText
                     android:layout_width="match_parent"
@@ -65,6 +69,8 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:elevation="@dimen/_5sdp"
                     android:gravity="top"
+                    android:textSize="@dimen/_12sdp"
+
                     android:shadowColor="@color/shadow_color"
                     android:hint="@string/enter_your_subject"
                     android:textColorHint="@color/Gainsboro"
@@ -81,7 +87,7 @@
                     android:text="@string/compliant"
                     android:textAppearance="@style/TextViewCustomFont_bold"
                     android:textColor="@color/Black"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_12sdp" />
 
             <EditText
                     android:layout_width="match_parent"
@@ -92,6 +98,7 @@
                     android:gravity="top"
                     android:shadowColor="@color/shadow_color"
                     android:hint="@string/enter_you_compliant"
+                    android:textSize="@dimen/_12sdp"
                     android:textColorHint="@color/Gainsboro"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:background="@drawable/ic_square_box"

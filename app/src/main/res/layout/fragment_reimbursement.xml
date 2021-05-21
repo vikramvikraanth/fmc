@@ -30,8 +30,8 @@
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/category"
                         android:textAppearance="@style/TextViewCustomFont_bold"
-                        android:textColor="@color/Black"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
 
                 <EditText
                         android:layout_width="match_parent"
@@ -39,6 +39,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:focusable="false"
+                        android:textSize="@dimen/_12sdp"
                         android:focusableInTouchMode="false"
                         android:cursorVisible="false"
                         android:elevation="@dimen/_5sdp"
@@ -58,8 +59,9 @@
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/medical_facility_country"
                         android:textAppearance="@style/TextViewCustomFont_bold"
-                        android:textColor="@color/Black"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp"
+         />
 
                 <EditText
                         android:layout_width="match_parent"
@@ -70,6 +72,8 @@
                         android:focusableInTouchMode="false"
                         android:cursorVisible="false"
                         android:elevation="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+
                         android:shadowColor="@color/shadow_color"
                         android:hint="@string/select_medical_facility_country"
                         android:textColorHint="@color/light_black"
@@ -85,9 +89,10 @@
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/currency"
+
          android:textAppearance="@style/TextViewCustomFont_bold"
-         android:textColor="@color/Black"
-                        android:textSize="@dimen/_14sdp" />
+         android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
 
                 <EditText
                         android:layout_width="match_parent"
@@ -98,6 +103,8 @@
                         android:focusableInTouchMode="false"
                         android:cursorVisible="false"
                         android:elevation="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+
                         android:shadowColor="@color/shadow_color"
                         android:hint="@string/select_currency"
                         android:textColorHint="@color/light_black"
@@ -114,8 +121,9 @@
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/amount"
                         android:textAppearance="@style/TextViewCustomFont_bold"
-                        android:textColor="@color/Black"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textColor="@color/light_black"
+                             android:textSize="@dimen/_12sdp"
+                             />
 
                 <EditText
                         android:layout_width="match_parent"
@@ -127,6 +135,8 @@
                         android:hint="@string/enter_amount"
                         android:textColorHint="@color/Gainsboro"
                         android:layout_marginEnd="@dimen/_15sdp"
+                        android:textSize="@dimen/_12sdp"
+
                         android:background="@drawable/ic_square_box"
                         android:padding="@dimen/_10sdp"
                         android:textColor="@color/light_black" />
@@ -137,9 +147,11 @@
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/i_ban_number"
+        android:textSize="@dimen/_12sdp"
+
         android:textAppearance="@style/TextViewCustomFont_bold"
-        android:textColor="@color/Black"
-                        android:textSize="@dimen/_14sdp" />
+        android:textColor="@color/light_black"
+                         />
 
                 <EditText
                         android:layout_width="match_parent"
@@ -147,6 +159,8 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:elevation="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+
                         android:shadowColor="@color/shadow_color"
                         android:hint="@string/enter_your_i_ban_number"
                         android:textColorHint="@color/Gainsboro"
@@ -161,9 +175,11 @@
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/beneficiary_name"
+        android:textSize="@dimen/_12sdp"
+
         android:textAppearance="@style/TextViewCustomFont_bold"
-        android:textColor="@color/Black"
-                        android:textSize="@dimen/_14sdp" />
+        android:textColor="@color/light_black"
+                       />
 
                 <EditText
                         android:layout_width="match_parent"
@@ -171,6 +187,8 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:elevation="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+
                         android:shadowColor="@color/shadow_color"
                         android:hint="@string/enter_your_beneficiary_name"
                         android:textColorHint="@color/Gainsboro"
@@ -186,7 +204,7 @@
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/upload_documents"
                         android:textAppearance="@style/TextViewCustomFont_bold"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/light_black"
                         android:textSize="@dimen/_14sdp" />
 
                 <LinearLayout
