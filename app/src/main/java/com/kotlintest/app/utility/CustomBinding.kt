@@ -41,7 +41,8 @@ object CustomBinding {
     fun loadUsers(recyclerView: RecyclerView, adapter: Any?) {
         when (adapter) {
 
-            is BenifitAdapter, is BenifitstepAdapter, is PreAppovalsAdapter,is LocationListAdapter, is ReimbursementAdapter , is ComplaintsListAdapter-> {
+            is BenifitAdapter, is BenifitstepAdapter, is PreAppovalsAdapter,is LocationListAdapter,
+            is ReimbursementAdapter , is ComplaintsListAdapter, is FaqListAdapter-> {
                 recyclerView.adapter = adapter as RecyclerView.Adapter<*>?
 
             }

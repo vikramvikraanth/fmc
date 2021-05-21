@@ -5,12 +5,17 @@
 
     <data>
 
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+
     </data>
 
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/White"
+            android:id="@+id/provider_container"
             android:clickable="true"
             android:focusable="true"
             tools:context=".view.fragment.medicalProvider.MedicalProviderFragment">
@@ -115,6 +120,8 @@
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:padding="@dimen/_5sdp"
+                        android:onClick="@{click::onClick}"
+                        android:id="@+id/reset_btn"
                         android:text="@string/reset"
                         android:layout_height="wrap_content"/>
                 <Space
@@ -124,6 +131,8 @@
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:padding="@dimen/_5sdp"
+                        android:onClick="@{click::onClick}"
+                        android:id="@+id/search_btn"
                         android:text="@string/search"
                         app:backgroundTint="@color/greens"
                         android:layout_height="wrap_content"/>

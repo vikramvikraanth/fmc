@@ -8,40 +8,41 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseAdapter
-import com.kotlintest.app.databinding.BenefitAdapterBinding
-import com.kotlintest.app.databinding.MainMenuAdapterBinding
-import com.kotlintest.app.databinding.PreapprovalAdapterBinding
-import com.kotlintest.app.databinding.ReimbursementAdapterBinding
-import com.kotlintest.app.model.responseModel.PreApprovalModel
-import com.kotlintest.app.utility.`interface`.Commoninterface
+import com.kotlintest.app.databinding.FaqListAdapterBinding
+import com.kotlintest.app.model.localModel.FaqModel
 
 
-class ReimbursementAdapter(val documentModel: ArrayList<String>,val commoninterface: Commoninterface) : BaseAdapter<String>(documentModel) {
+class FaqListAdapter(val documentModel: ArrayList<FaqModel>) : BaseAdapter<FaqModel>(documentModel) {
 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as ViewHolder).getBinding()
    //     binding.adapter = ImagePreviewAdapter(data)
-        holder.itemView.setOnClickListener {
-            commoninterface.onCallback(holder.absoluteAdapterPosition)
-        }
+
         if(documentModel.isEmpty()){
             return
         }
+        binding.data = documentModel.get(position)
+        binding.titleTxt.setOnClickListener {
+            documentModel.get(holder.absoluteAdapterPosition).state = ! documentModel.get(holder.absoluteAdapterPosition).state
+            binding.data = documentModel.get(holder.absoluteAdapterPosition)
+        }
+
+
 
     }
     override fun onCreateViewHolderBase(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.reimbursement_adapter, parent, false))
+                .inflate(R.layout.faq_list_adapter, parent, false))
     }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var databding: ReimbursementAdapterBinding? = null
+        var databding: FaqListAdapterBinding? = null
 
         init {
-            databding = DataBindingUtil.bind<ViewDataBinding>(itemView) as ReimbursementAdapterBinding
+            databding = DataBindingUtil.bind<ViewDataBinding>(itemView) as FaqListAdapterBinding
         }
-        fun getBinding(): ReimbursementAdapterBinding {
+        fun getBinding(): FaqListAdapterBinding {
             return databding!!
         }
 

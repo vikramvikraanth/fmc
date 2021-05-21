@@ -26,14 +26,17 @@ class FamilyFragment : BaseFragment<FragmentFamilyBinding>() {
                 when(value as Int){
                     0->{
                         event.post(NavigateEvent("ecard"))
+                        moveTOFragment(ECardFragment(),R.id.family_container)
 
                     }
                     1->{
                         event.post(NavigateEvent("benifite"))
+                        moveTOFragment(BenefitsFragment(),R.id.family_container)
 
                     }
                     2->{
                         event.post(NavigateEvent("preappointment"))
+                        moveTOFragment(PreApprovalsFragment(),R.id.family_container)
 
                     }
                 }

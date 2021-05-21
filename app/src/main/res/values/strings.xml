@@ -87,8 +87,9 @@
     <string name="enter_your_subject">Enter your subject</string>
     <string name="compliant">Compliant</string>
     <string name="enter_you_compliant">Enter you compliant</string>
-    <string name="subject">Subject</string>
     <string name="complaint_type">Complaint Type</string>
     <string name="reference_number">Reference Number</string>
     <string name="view">View</string>
+    <string name="home">Home</string>
+    <string name="contact_us">Contact Us</string>
 </resources>

@@ -78,6 +78,11 @@ class MainMenuAdapter(val documentModel: ArrayList<String>,val commoninterface: 
                 binding.description = ""
 
             }
+            10->{
+                binding.imageMenu.setImageResource(R.drawable.ic_about)
+                binding.description = ""
+
+            }
         }
 
 

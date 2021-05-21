@@ -107,7 +107,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     protected fun moveTOFragment(fragment: Fragment, ids : Int){
         val fragmentTransaction = fragmentManager?.beginTransaction()
         fragmentTransaction?.replace(ids, fragment)
-        fragmentTransaction?.addToBackStack(null)
+        fragmentTransaction?.addToBackStack(fragment.javaClass.canonicalName)
         fragmentTransaction?.commitAllowingStateLoss()
 
     }

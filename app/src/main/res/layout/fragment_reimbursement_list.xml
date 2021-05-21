@@ -15,6 +15,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="true"
+            android:id="@+id/reimbursement_containter"
             android:background="@color/White"
             tools:context=".view.fragment.reimbursement.ReimbursementListFragment">
         <RelativeLayout

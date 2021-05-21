@@ -6,25 +6,25 @@
     <data>
         <variable
                 name="adapter"
-                type="com.kotlintest.app.view.adapter.FamilyAdapter" />
+                type="com.kotlintest.app.view.adapter.FaqListAdapter" />
+
     </data>
 
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:focusable="true"
             android:background="@color/White"
-            android:id="@+id/family_container"
-            tools:context=".view.fragment.FamilyFragment">
+            android:clickable="true"
+            tools:context=".view.fragment.faq.FAQFragment">
+
         <androidx.recyclerview.widget.RecyclerView
-                load_allLead="@{adapter}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2"
-                tools:listitem="@layout/main_menu_adapter" />
+                tools:listitem="@layout/faq_list_adapter"
+                load_allLead="@{adapter}"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
     </FrameLayout>

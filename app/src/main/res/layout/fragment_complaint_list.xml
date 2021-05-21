@@ -16,6 +16,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="true"
+            android:id="@+id/complaints_containt"
             android:background="@color/White"
             tools:context=".view.fragment.complaints.ComplaintListFragment">
     <androidx.recyclerview.widget.RecyclerView

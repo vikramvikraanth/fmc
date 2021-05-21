@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="data"
+                type="com.kotlintest.app.model.localModel.FaqModel" />
+
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:drawableEnd="@{data.state? @drawable/ic_up : @drawable/ic_down}"
+                android:padding="@dimen/_2sdp"
+                android:textAppearance="@style/TextViewCustomFont_bold"
+                android:id="@+id/title_txt"
+                android:text="@{data.title}"
+                android:textColor="@color/light_black"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:textSize="@dimen/_12sdp"
+                android:text="@{data.description}"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:lineSpacingExtra="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_2sdp"
+                android:textColor="@color/light_black"
+                android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+</layout>

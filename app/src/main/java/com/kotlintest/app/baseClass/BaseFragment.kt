@@ -28,6 +28,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
     lateinit var disposable: CompositeDisposable
     lateinit var activity: Activity
     var fragmentManagers: FragmentManager? = null
+    var childFragmentManage: FragmentManager? = null
     lateinit var views:View
     protected lateinit var binding: B
 
@@ -48,6 +49,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
         activity = getActivity()!!
         event = EventBus.getDefault()
         fragmentManagers = fragmentManager!!
+        childFragmentManage= childFragmentManager
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -96,10 +98,11 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
     protected fun moveTOFragment(fragment: Fragment,ids : Int){
         val fragmentTransaction = fragmentManagers?.beginTransaction()
         fragmentTransaction?.replace(ids, fragment)
-        fragmentTransaction?.addToBackStack(null)
+        fragmentTransaction?.addToBackStack(fragment.javaClass.canonicalName)
         fragmentTransaction?.commitAllowingStateLoss()
 
     }
+
     fun setIntent(cObjection: Class<*>, isFrom: Int) {
         startActivity(Intent(activity, cObjection))
         when (isFrom) {
