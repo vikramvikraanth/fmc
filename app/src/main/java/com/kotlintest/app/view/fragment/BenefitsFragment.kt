@@ -8,6 +8,7 @@ import com.kotlintest.app.databinding.FragmentBenefitsBinding
 import com.kotlintest.app.model.localModel.BenefitiesListModel
 import com.kotlintest.app.model.responseModel.BenefitiesModel
 import com.kotlintest.app.model.responseModel.EcardModel
+import com.kotlintest.app.model.responseModel.UserInfoModel
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.view.adapter.BenifitAdapter
 import com.kotlintest.app.viewModel.FamilyViewModel
@@ -32,6 +33,10 @@ class BenefitsFragment : BaseFragment<FragmentBenefitsBinding>() {
             processResponse(it)
         })
         familyViewModel.getBenefitiesApiCall()
+        val data =  commonFunction.gsonToModel(sharedHelper.getFromUser("user_info"),
+            UserInfoModel::class.java)
+        binding.userInfo = data as UserInfoModel?
+
     }
 
     private fun processResponse(response: Response){

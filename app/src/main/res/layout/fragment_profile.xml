@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
-                name="data"
-                type="com.kotlintest.app.model.responseModel.ComplaintListModel" />
+                name="datas"
+                type="com.kotlintest.app.model.responseModel.UserInfoModel" />
 
     </data>
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_margin="@dimen/_10sdp"
-            android:layout_height="wrap_content">
+            android:clickable="true"
+            android:background="@color/White"
+            android:focusable="true"
+            android:layout_height="match_parent"
+            tools:context=".view.fragment.ProfileFragment">
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    app:navigationIcon="@drawable/ic_back"
+                    android:elevation="@dimen/_5sdp"
+                    android:id="@+id/toolbar"
+                    app:title="Profile"
+                    android:layout_height="wrap_content"/>
+
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:orientation="horizontal">
                 <TextView
                         android:layout_width="match_parent"
-                        android:textSize="@dimen/_10sdp"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="@{data.complaintDate}"
+                        android:text="@string/name"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="@{data.status}"
-                        android:gravity="end"
+                        android:text="@{datas.name}"
                         android:padding="@dimen/_2sdp"
-                        android:textColor="@color/red"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
@@ -52,23 +65,20 @@
                     android:orientation="horizontal">
                 <TextView
                         android:layout_width="match_parent"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="ComplaintNo"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:drawableStart="@drawable/ic_complaint_type"
-                        android:textColor="@color/light_black"
+                        android:text="@string/email"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="@{data.complaintNo}"
+                        android:text="@{datas.email}"
                         android:padding="@dimen/_2sdp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:textColor="@color/light_black"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
@@ -81,92 +91,77 @@
                     android:orientation="horizontal">
                 <TextView
                         android:layout_width="match_parent"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="@string/subject"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:drawableStart="@drawable/ic_subject"
-                        android:textColor="@color/light_black"
+                        android:text="@string/date_of_birth"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="@{data.subject}"
+                        android:text="@{datas.dob}"
                         android:padding="@dimen/_2sdp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:textColor="@color/light_black"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:orientation="horizontal">
                 <TextView
                         android:layout_width="match_parent"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="@string/data_of_visit"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:drawableStart="@drawable/ic_subject"
-                        android:textColor="@color/light_black"
+                        android:text="@string/card_number"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="@{data.dataOfVisit}"
+                        android:text="@{datas.cardNumber}"
                         android:padding="@dimen/_2sdp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:textColor="@color/light_black"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
                     android:orientation="horizontal">
                 <TextView
                         android:layout_width="match_parent"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="@string/providername"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:drawableStart="@drawable/ic_subject"
-                        android:textColor="@color/light_black"
+                        android:text="@string/gender"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="@{data.providerName}"
+                        android:text="@{datas.gender}"
                         android:padding="@dimen/_2sdp"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:textColor="@color/light_black"
+                        android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
             </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:text="@string/view"
-                    android:visibility="visible"
-                    android:textAllCaps="false"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:layout_gravity="center_horizontal"
-                    android:padding="@dimen/_5sdp"
-                    app:backgroundTint="@color/greens"
-                    android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
 </layout>

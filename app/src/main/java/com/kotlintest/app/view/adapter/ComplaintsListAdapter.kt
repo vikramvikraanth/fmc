@@ -1,6 +1,5 @@
 package com.kotlintest.app.view.adapter
 
-import android.location.Location
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +8,11 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseAdapter
-import com.kotlintest.app.databinding.BenefitAdapterBinding
 import com.kotlintest.app.databinding.ComplaintsListAdapterBinding
-import com.kotlintest.app.databinding.LocationListAdapterBinding
-import com.kotlintest.app.databinding.MainMenuAdapterBinding
-import com.kotlintest.app.model.localModel.BenefitiesListModel
+import com.kotlintest.app.model.responseModel.ComplaintListModel
 
 
-class ComplaintsListAdapter(val documentModel: ArrayList<String>) : BaseAdapter<String>(documentModel) {
+class ComplaintsListAdapter(val documentModel: ArrayList<ComplaintListModel>) : BaseAdapter<ComplaintListModel>(documentModel) {
 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {

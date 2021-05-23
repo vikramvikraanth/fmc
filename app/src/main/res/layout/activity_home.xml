@@ -21,6 +21,10 @@
                 name="click"
                 type="android.view.View.OnClickListener" />
 
+        <variable
+                name="datas"
+                type="com.kotlintest.app.model.responseModel.UserInfoModel" />
+
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -100,6 +104,8 @@
                         <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:onClick="@{click::onClick}"
+                                android:id="@+id/profile_relativ_rly"
                                 android:layout_marginTop="@dimen/_10sdp">
 
                             <ImageView
@@ -108,6 +114,7 @@
                                     android:layout_height="@dimen/_60sdp"
                                     android:layout_centerVertical="true"
                                     android:layout_marginStart="@dimen/_10sdp"
+                                    android:clickable="false"
                                     android:src="@drawable/ic_profile"
                                     app:tint="@color/Black" />
 
@@ -116,6 +123,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_10sdp"
                                     android:layout_marginEnd="@dimen/_10sdp"
+                                    android:clickable="false"
                                     android:layout_toEndOf="@+id/profile_img"
                                     android:orientation="vertical">
 
@@ -123,6 +131,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="@string/welcomes"
+                                        android:clickable="false"
                                         android:textColor="@color/Black"
                                         android:textSize="@dimen/_16sdp" />
 
@@ -130,7 +139,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/_10sdp"
-                                        android:text="John Walker"
+                                        android:text="@{datas.name}"
+                                        android:clickable="false"
                                         android:textAppearance="@style/TextViewCustomFont_bold"
                                         android:textColor="@color/Black"
                                         android:textSize="@dimen/_20sdp" />

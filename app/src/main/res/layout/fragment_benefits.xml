@@ -10,6 +10,9 @@
         <variable
                 name="data"
                 type="com.kotlintest.app.model.responseModel.BenefitiesModel" />
+        <variable
+                name="userInfo"
+                type="com.kotlintest.app.model.responseModel.UserInfoModel" />
     </data>
 
     <FrameLayout
@@ -100,7 +103,7 @@
                            android:layout_width="match_parent"
                            android:textSize="@dimen/_12sdp"
                             android:layout_weight="1"
-                            android:text="14/04/1994"
+                            android:text="@{userInfo.dob}"
                             android:padding="@dimen/_2sdp"
                            android:textColor="@color/Black"
                            android:layout_height="wrap_content"/>

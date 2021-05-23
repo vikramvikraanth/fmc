@@ -33,6 +33,22 @@ interface ApiInterface {
     @POST("MobileApi.svc/")
     fun getBeneitiesApi(@Body body: RequestBody): Observable<ResponseBody>
 
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetComplaintList")
+    @POST("MobileApi.svc/")
+    fun getComplaintTypelistApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetUserInfo")
+    @POST("MobileApi.svc/")
+    fun getUserInfoApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetComplaintList")
+    @POST("MobileApi.svc/")
+    fun getComplaintListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitMemberComplaint")
+    @POST("MobileApi.svc/")
+    fun getComplainAddApi(@Body body: RequestBody): Observable<ResponseBody>
+
     @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitLogOut")
     @POST("MobileApi.svc/")
     fun getLogoutApi(@Body body: RequestBody): Observable<ResponseBody>

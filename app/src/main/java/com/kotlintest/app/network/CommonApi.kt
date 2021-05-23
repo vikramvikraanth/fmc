@@ -5,11 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.kotlintest.app.model.localModel.*
-import com.kotlintest.app.model.responseModel.BenefitiesModel
-import com.kotlintest.app.model.responseModel.EcardModel
-import com.kotlintest.app.model.responseModel.LoginResponseModel
-import com.kotlintest.app.model.responseModel.PreApprovalModel
-import com.kotlintest.app.network.ResponseParse.ForgotPasswordReponse
+import com.kotlintest.app.model.responseModel.*
 import com.kotlintest.app.network.ResponseParse.LogingetReponse
 import com.kotlintest.app.utility.SharedHelper
 import com.kotlintest.app.utility.rx.SchedulersFacade
@@ -222,7 +218,7 @@ fun ECardApiCall(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
-                "            <MemberID>2078342</MemberID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobGetFMCECard>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -260,7 +256,7 @@ fun ECardApiCall(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
-                "            <MemberID>2078342</MemberID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "            <FromDate>01/01/2019</FromDate>\n" +
                 "            <ToDate>01/04/2021</ToDate>\n" +
                 "        </MobGetPreApprovalDetails>\n" +
@@ -299,7 +295,7 @@ fun ECardApiCall(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
-                "            <MemberID>2078342</MemberID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobGetBenefitDetails>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -318,6 +314,171 @@ fun ECardApiCall(
                     data,
                     itemType
                 )
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getUserInfoApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobGetUserInfo xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "        </MobGetUserInfo>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getUserInfoApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetUserInfoResponse").optString("MobGetUserInfoResult")
+                val itemType = object : TypeToken<ArrayList<UserInfoModel>>() {}.type
+                val itemList = gson.fromJson<ArrayList<UserInfoModel>>(
+                    data,
+                    itemType
+                )
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getComplaintTypelistApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobGetComplaintTypeList xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "        </MobGetComplaintTypeList>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getComplaintTypelistApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetComplaintTypeListResponse").optString("MobGetComplaintTypeListResult")
+                val itemType = object : TypeToken<ArrayList<ComplaintTypeListModel>>() {}.type
+                val itemList = gson.fromJson<ArrayList<ComplaintTypeListModel>>(
+                    data,
+                    itemType
+                )
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getComplaintListApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobGetComplaintList xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "        </MobGetComplaintList>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getComplaintListApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetComplaintListResponse").optString("MobGetComplaintListResult")
+                val itemType = object : TypeToken<ArrayList<ComplaintListModel>>() {}.type
+                val itemList = gson.fromJson<ArrayList<ComplaintListModel>>(
+                    data,
+                    itemType
+                )
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getComplainAddApi(complaintModel: ComplaintModel,
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+      val data : UserInfoModel  =  gson.fromJson(sharedHelper.getFromUser("user_info"), UserInfoModel::class.java)
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobSubmitMemberComplaint xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "            <CardNumber>"+data.getCardNumber()+"</CardNumber>\n" +
+                "            <ComplaintBy>vikram</ComplaintBy>\n" +
+                "            <Subject>"+complaintModel.subject+"</Subject>\n" +
+                "            <Message>"+complaintModel.complaint+"</Message>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "            <DataOfVisit>"+complaintModel.datevistor+"</DataOfVisit>\n" +
+                "            <ProviderName>"+complaintModel.providerName+"</ProviderName>\n" +
+                "        </MobSubmitMemberComplaint>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getComplainAddApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitMemberComplaintResponse").optString("MobSubmitMemberComplaintResult")
+                val itemList = gson.fromJson(data.toString(), ComplaintResponseModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)

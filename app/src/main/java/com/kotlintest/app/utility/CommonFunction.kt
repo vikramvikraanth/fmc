@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.gson.Gson
 import com.kaopiz.kprogresshud.KProgressHUD
 import timber.log.Timber
 
@@ -101,5 +102,17 @@ class CommonFunction  constructor(private val application: Application) {
             }
         } catch (e: Exception) {
         }
+    }
+
+    fun modelToGson(cObjection: Any): String? {
+        val gson = Gson()
+        val Json = gson.toJson(cObjection)  //see firstly above above
+        return Json
+    }
+
+    fun gsonToModel(value: String, cObjection: Class<*>): Any? {
+        val gson = Gson()
+        return gson.fromJson(value, cObjection)
+
     }
 }

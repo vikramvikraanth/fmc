@@ -32,7 +32,7 @@
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_10sdp"
                         android:layout_weight="1"
-                        android:text="12/3/2021"
+                        android:text="@{data.date}"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
                 <TextView
@@ -119,7 +119,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Amount"
+                        android:text="ServiceName"
                         android:drawableStart="@drawable/ic_money"
 
                         android:drawablePadding="@dimen/_5sdp"
@@ -129,7 +129,7 @@
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="250 AED"
+                        android:text="@{data.service.ServiceName}"
                         android:padding="@dimen/_2sdp"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
@@ -144,7 +144,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Reference Number"
+                        android:text="CardNumber"
                         android:drawableStart="@drawable/ic_referal_number"
 
                         android:drawablePadding="@dimen/_5sdp"
@@ -154,7 +154,7 @@
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="@{data.memberid}"
+                        android:text="@{data.cardNumber}"
                         android:padding="@dimen/_2sdp"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>

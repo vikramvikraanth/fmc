@@ -7,6 +7,7 @@ import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseActivity.BaseActivity
 import com.kotlintest.app.databinding.ActivityLoginBinding
 import com.kotlintest.app.model.responseModel.LoginResponseModel
+import com.kotlintest.app.model.responseModel.UserInfoModel
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.view.fragment.BenefitsFragment
 import com.kotlintest.app.view.fragment.ForgotPasswordFragment
@@ -48,12 +49,29 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), View.OnClickListener
             Status.SUCCESS -> {
                 when (response.data) {
                      is ArrayList<*> ->{
-                      val data : ArrayList<LoginResponseModel> = response.data as ArrayList<LoginResponseModel>
-                         data[0].apiResponse!!.message?.let { commonFunction.commonToast(it) }
-                        if(data.get(0).apiResponse!!.statusCode.equals("1")){
-                            data[0].userId?.let { sharedHelper.putInUser("user_id", it) }
-                            setIntent(HomeActivity::class.java,0)
-                        }
+                         when(response.data[0]){
+                             is LoginResponseModel ->{
+                                 val data : ArrayList<LoginResponseModel> = response.data as ArrayList<LoginResponseModel>
+                                 data[0].apiResponse!!.message?.let { commonFunction.commonToast(it) }
+                                 if(data.get(0).apiResponse!!.statusCode.equals("1")){
+                                     data[0].userId?.let { sharedHelper.putInUser("user_id", it) }
+                                     loginViewModel.getUserInfoApi()
+                                 }
+                             }
+                             is UserInfoModel -> {
+                                 val data : ArrayList<UserInfoModel> = response.data as ArrayList<UserInfoModel>
+                                 sharedHelper.putInUser("member_id", data[0].getMemberID())
+                                 commonFunction.modelToGson(data.get(0))?.let {
+                                     sharedHelper.putInUser(
+                                         "user_info",
+                                         it
+                                     )
+                                 }
+                                 setIntent(HomeActivity::class.java,0)
+
+                             }
+                         }
+
                      }
 
                 }

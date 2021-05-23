@@ -4,6 +4,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
+        <variable
+                name="isvisible"
+                type="Boolean" />
 
     </data>
 
@@ -19,6 +23,14 @@
                 android:layout_centerInParent="true"
                 android:layout_height="@dimen/_120sdp"
                 android:contentDescription="TODO" />
+        <ProgressBar
+                android:id="@+id/pbHeaderProgress"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="@{isvisible?View.VISIBLE : View.GONE}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+        </ProgressBar>
 
     </RelativeLayout>
 </layout>

@@ -11,13 +11,11 @@ import com.kotlintest.app.baseClass.BaseActivity.BaseActivity
 import com.kotlintest.app.databinding.ActivityHomeBinding
 import com.kotlintest.app.model.eventBus.NavigateEvent
 import com.kotlintest.app.model.responseModel.LoginResponseModel
+import com.kotlintest.app.model.responseModel.UserInfoModel
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.utility.`interface`.Commoninterface
 import com.kotlintest.app.view.adapter.MainMenuAdapter
-import com.kotlintest.app.view.fragment.BenefitsFragment
-import com.kotlintest.app.view.fragment.ECardFragment
-import com.kotlintest.app.view.fragment.FamilyFragment
-import com.kotlintest.app.view.fragment.PreApprovalsFragment
+import com.kotlintest.app.view.fragment.*
 import com.kotlintest.app.view.fragment.aboutUs.AboutUsFragment
 import com.kotlintest.app.view.fragment.complaints.ComplaintListFragment
 import com.kotlintest.app.view.fragment.complaints.ComplaintsFragment
@@ -56,7 +54,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         binding.title ="Home"
         binding.iconstate = true
         binding.isvisible = false
-
+      val data =  commonFunction.gsonToModel(sharedHelper.getFromUser("user_info"),UserInfoModel::class.java)
+        binding.datas = data as UserInfoModel?
 
         // preparing navigation drawer items
         for (i in titles!!.indices) {
@@ -206,12 +205,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 binding.title =getString(R.string.health_tips)
                 binding.isvisible = false
             }
-            11 -> {
+           /* 11 -> {
                 moveTOFragment(ContactUsFragment(), R.id.home_conter)
                 binding.title =getString(R.string.contact_us)
                 binding.isvisible = false
-            }
-            12 -> {
+            }*/
+            11 -> {
                 Logout()
             }
         }
@@ -244,6 +243,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
 
                     }
                 }
+
+            }
+            R.id.profile_relativ_rly->{
+                moveTOFragment(ProfileFragment(), R.id.drawer_layout)
 
             }
         }

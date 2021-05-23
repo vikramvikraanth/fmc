@@ -50,4 +50,8 @@ class LoginViewModel(var commonApi: CommonApi,var commonFunction: CommonFunction
 
         commonApi.logoutApiCall(response, disable)
     }
+    fun getUserInfoApi() {
+
+        commonApi.getUserInfoApi(response, disable)
+    }
 }

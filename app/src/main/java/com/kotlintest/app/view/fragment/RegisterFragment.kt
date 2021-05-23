@@ -7,6 +7,7 @@ import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseFragment
 import com.kotlintest.app.databinding.FragmentRegisterBinding
 import com.kotlintest.app.model.responseModel.LoginResponseModel
+import com.kotlintest.app.model.responseModel.UserInfoModel
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.utility.`interface`.Commoninterface
 import com.kotlintest.app.view.activity.HomeActivity
@@ -68,11 +69,30 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
             Status.SUCCESS -> {
                 when (response.data) {
                     is ArrayList<*> ->{
-                        val data : ArrayList<LoginResponseModel> = response.data as ArrayList<LoginResponseModel>
-                        data[0].apiResponse!!.details?.let { commonFunction.commonToast(it) }
-                        if(data.get(0).apiResponse!!.statusCode.equals("1")){
-                            setIntent(HomeActivity::class.java,0)
+                        when(response.data[0]){
+                            is LoginResponseModel ->{
+                                val data : ArrayList<LoginResponseModel> = response.data as ArrayList<LoginResponseModel>
+                                data[0].apiResponse!!.details?.let { commonFunction.commonToast(it) }
+                                if(data.get(0).apiResponse!!.statusCode.equals("1")){
+                                    data[0].userId?.let { sharedHelper.putInUser("user_id", it) }
+                                    loginViewModel.getUserInfoApi()
+                                }
+                            }
+                            is UserInfoModel -> {
+                                val data : ArrayList<UserInfoModel> = response.data as ArrayList<UserInfoModel>
+                                sharedHelper.putInUser("member_id", data[0].getMemberID())
+
+                                commonFunction.modelToGson(data.get(0))?.let {
+                                    sharedHelper.putInUser(
+                                        "user_info",
+                                        it
+                                    )
+                                }
+                                setIntent(HomeActivity::class.java,0)
+
+                            }
                         }
+
                     }
 
                 }
@@ -89,6 +109,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         }
 
     }
+
 
     private fun datePicker(){
         val now: Calendar = Calendar.getInstance()
