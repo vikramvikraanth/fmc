@@ -47,6 +47,7 @@
         <item>@string/about_us</item>
         <item>@string/language</item>
         <item>@string/health_tips</item>
+        <item>@string/contact_us</item>
         <item>@string/logout</item>
     </string-array>
 

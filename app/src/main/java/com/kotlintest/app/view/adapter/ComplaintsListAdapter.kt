@@ -17,7 +17,7 @@ class ComplaintsListAdapter(val documentModel: ArrayList<ComplaintListModel>) : 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as ViewHolder).getBinding()
-   //     binding.adapter = ImagePreviewAdapter(data)
+        binding.data = documentModel[position]
 
         if(documentModel.isEmpty()){
             return

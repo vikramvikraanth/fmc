@@ -49,6 +49,30 @@ interface ApiInterface {
     @POST("MobileApi.svc/")
     fun getComplainAddApi(@Body body: RequestBody): Observable<ResponseBody>
 
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetCountryList")
+    @POST("MobileApi.svc/")
+    fun getCountryListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetStateList")
+    @POST("MobileApi.svc/")
+    fun getStateListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetCityList")
+    @POST("MobileApi.svc/")
+    fun getCityListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetProviderTypeList")
+    @POST("MobileApi.svc/")
+    fun getProviderListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetSpecialityList")
+    @POST("MobileApi.svc/")
+    fun getSpecialityListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitMedicalProviderSearch")
+    @POST("MobileApi.svc/")
+    fun getProviderLocationListApi(@Body body: RequestBody): Observable<ResponseBody>
+
     @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitLogOut")
     @POST("MobileApi.svc/")
     fun getLogoutApi(@Body body: RequestBody): Observable<ResponseBody>

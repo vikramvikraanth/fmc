@@ -205,12 +205,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 binding.title =getString(R.string.health_tips)
                 binding.isvisible = false
             }
-           /* 11 -> {
+            11 -> {
                 moveTOFragment(ContactUsFragment(), R.id.home_conter)
                 binding.title =getString(R.string.contact_us)
                 binding.isvisible = false
-            }*/
-            11 -> {
+            }
+            12 -> {
                 Logout()
             }
         }

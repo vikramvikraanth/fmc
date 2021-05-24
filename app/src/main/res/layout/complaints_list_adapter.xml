@@ -158,7 +158,7 @@
             <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:text="@string/view"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:textAllCaps="false"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:layout_gravity="center_horizontal"

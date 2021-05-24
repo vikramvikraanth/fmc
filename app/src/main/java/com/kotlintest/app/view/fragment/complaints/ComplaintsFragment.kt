@@ -27,6 +27,8 @@ class ComplaintsFragment : BaseFragment<FragmentComplaintsBinding>(),
 
     override fun initView(mViewDataBinding: ViewDataBinding?) {
 
+        binding.viewModel = complaintViewModel
+
         complaintViewModel.response().observe(this,{
             processResponse(it)
         })
@@ -75,13 +77,26 @@ class ComplaintsFragment : BaseFragment<FragmentComplaintsBinding>(),
 
     override fun onDateSet(view: DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
         val datemonth= 1+monthOfYear
-        val date = "$dayOfMonth/$datemonth/$year"
-        complaintViewModel.complaintmodel.value?.datevistor = date
-        complaintViewModel.complaintmodel.value =complaintViewModel.complaintmodel.value
+        val date = "$datemonth/$dayOfMonth/$year"
+        complaintViewModel.complaintmodel.datevistor = date
+        binding.viewModel =complaintViewModel
+
 
     }
 
     override fun onClick(v: View?) {
-        datePicker()
+        when(v?.id){
+            R.id.reset_btn->{
+                complaintViewModel.complaintmodel.complaint =""
+                complaintViewModel.complaintmodel.datevistor =""
+                complaintViewModel.complaintmodel.providerName=""
+                complaintViewModel.complaintmodel.subject=""
+                binding.viewModel =complaintViewModel
+            }
+            R.id.visit_date_edt->{
+                datePicker()
+            }
+        }
+
     }
 }

@@ -12,6 +12,7 @@ import com.kotlintest.app.utility.rx.SchedulersFacade
 import com.kotlintest.app.viewModel.ComplaintViewModel
 import com.kotlintest.app.viewModel.FamilyViewModel
 import com.kotlintest.app.viewModel.LoginViewModel
+import com.kotlintest.app.viewModel.MedicalProviderViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -34,6 +35,7 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get(),get()) }
     viewModel { FamilyViewModel(get(),get()) }
     viewModel { ComplaintViewModel(get(),get()) }
+    viewModel { MedicalProviderViewModel(get(),get()) }
 }
 
 val apiModule = module {

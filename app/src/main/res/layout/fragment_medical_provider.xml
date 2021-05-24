@@ -8,6 +8,9 @@
         <variable
                 name="click"
                 type="android.view.View.OnClickListener" />
+        <variable
+                name="viewModel"
+                type="com.kotlintest.app.viewModel.MedicalProviderViewModel" />
 
     </data>
 
@@ -19,127 +22,203 @@
             android:clickable="true"
             android:focusable="true"
             tools:context=".view.fragment.medicalProvider.MedicalProviderFragment">
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="Country"
+                android:textAppearance="@style/TextViewCustomFont_medium"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14sdp" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:focusable="false"
+                android:id="@+id/country_edt"
+                android:onClick="@{click::onClick}"
+                android:text="@={viewModel.medicalFormModel.country}"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:elevation="@dimen/_5sdp"
+                android:shadowColor="@color/shadow_color"
+                android:hint="Select Country"
+                android:textColorHint="@color/light_black"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:drawableEnd="@drawable/ic_drop"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="State"
+                android:textAppearance="@style/TextViewCustomFont_medium"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14sdp" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:elevation="@dimen/_5sdp"
+                android:id="@+id/state_edt"
+                android:shadowColor="@color/shadow_color"
+                android:hint="Select State"
+                android:text="@={viewModel.medicalFormModel.state}"
+                android:onClick="@{click::onClick}"
+
+                android:textColorHint="@color/light_black"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:drawableEnd="@drawable/ic_drop"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="City"
+                android:textAppearance="@style/TextViewCustomFont_medium"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14sdp" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:elevation="@dimen/_5sdp"
+                android:shadowColor="@color/shadow_color"
+                android:hint="Select City"
+                android:onClick="@{click::onClick}"
+                android:text="@={viewModel.medicalFormModel.city}"
+                android:id="@+id/city_edt"
+                android:textColorHint="@color/light_black"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:drawableEnd="@drawable/ic_drop"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+ <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="Provide Type"
+                android:textAppearance="@style/TextViewCustomFont_medium"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14sdp" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:elevation="@dimen/_5sdp"
+                android:shadowColor="@color/shadow_color"
+                android:hint="Select Provide Type"
+                android:onClick="@{click::onClick}"
+                android:text="@={viewModel.medicalFormModel.providertype}"
+                android:id="@+id/type_edt"
+                android:textColorHint="@color/light_black"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:drawableEnd="@drawable/ic_drop"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+ <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="Speciality"
+                android:textAppearance="@style/TextViewCustomFont_medium"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14sdp" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:elevation="@dimen/_5sdp"
+                android:shadowColor="@color/shadow_color"
+                android:hint="Select Speciality"
+                android:onClick="@{click::onClick}"
+                android:text="@={viewModel.medicalFormModel.speciality}"
+                android:id="@+id/speciality_edt"
+                android:textColorHint="@color/light_black"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:drawableEnd="@drawable/ic_drop"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-            <TextView
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/emirates"
-                    android:textAppearance="@style/TextViewCustomFont_medium"
-                    android:textColor="@color/light_black"
-                    android:textSize="@dimen/_14sdp" />
-
-            <EditText
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:onClick="@{click::onClick}"
+                    android:id="@+id/reset_btn"
+                    android:text="@string/reset"
+                    android:layout_height="wrap_content"/>
+            <Space
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="match_parent"/>
+            <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:cursorVisible="false"
-                    android:elevation="@dimen/_5sdp"
-                    android:shadowColor="@color/shadow_color"
-                    android:hint="@string/select_emirates"
-                    android:textColorHint="@color/light_black"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:drawableEnd="@drawable/ic_drop"
-                    android:background="@drawable/ic_square_box"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/light_black" />
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:onClick="@{click::onClick}"
+                    android:id="@+id/search_btn"
+                    android:text="@string/search"
+                    app:backgroundTint="@color/greens"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/emirates"
-                    android:textAppearance="@style/TextViewCustomFont_medium"
-                    android:textColor="@color/light_black"
-                    android:textSize="@dimen/_14sdp" />
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:cursorVisible="false"
-                    android:elevation="@dimen/_5sdp"
-                    android:shadowColor="@color/shadow_color"
-                    android:hint="@string/select_emirates"
-                    android:textColorHint="@color/light_black"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:drawableEnd="@drawable/ic_drop"
-                    android:background="@drawable/ic_square_box"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/light_black" />
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/emirates"
-                    android:textAppearance="@style/TextViewCustomFont_medium"
-                    android:textColor="@color/light_black"
-                    android:textSize="@dimen/_14sdp" />
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:cursorVisible="false"
-                    android:elevation="@dimen/_5sdp"
-                    android:shadowColor="@color/shadow_color"
-                    android:hint="@string/select_emirates"
-                    android:textColorHint="@color/light_black"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:drawableEnd="@drawable/ic_drop"
-                    android:background="@drawable/ic_square_box"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/light_black" />
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
-                    android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:onClick="@{click::onClick}"
-                        android:id="@+id/reset_btn"
-                        android:text="@string/reset"
-                        android:layout_height="wrap_content"/>
-                <Space
-                        android:layout_width="@dimen/_15sdp"
-                        android:layout_height="match_parent"/>
-                <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:onClick="@{click::onClick}"
-                        android:id="@+id/search_btn"
-                        android:text="@string/search"
-                        app:backgroundTint="@color/greens"
-                        android:layout_height="wrap_content"/>
-
-            </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
 
+</ScrollView>
 
     </FrameLayout>
 </layout>

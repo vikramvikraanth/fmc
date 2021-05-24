@@ -60,9 +60,10 @@ class ComplaintListFragment : BaseFragment<FragmentComplaintListBinding>() {
             Status.SUCCESS -> {
                 when (response.data) {
                     is ArrayList<*> ->{
-                        val data : ArrayList<ComplaintListModel> = response.data[0] as ArrayList<ComplaintListModel>
+                        complaintList.clear()
+                        val data : ArrayList<ComplaintListModel> = response.data as ArrayList<ComplaintListModel>
                         complaintList.addAll(data)
-                        adapter?.notifyItemInserted(complaintList.size-1)
+                        adapter?.notifyDataSetChanged()
 
                     }
 

@@ -20,167 +20,172 @@
             android:background="@color/White"
             android:layout_height="match_parent"
             tools:context=".view.fragment.complaints.ComplaintsFragment">
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/providername"
+                android:textAppearance="@style/TextViewCustomFont_bold"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:maxLines="1"
+                android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
+                android:text="@={viewModel.complaintmodel.providerName}"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:shadowColor="@color/shadow_color"
+                android:hint="Enter provider name"
+                android:textColorHint="@color/Gainsboro"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/data_of_visit"
+                android:textAppearance="@style/TextViewCustomFont_bold"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:id="@+id/visit_date_edt"
+                android:text="@={viewModel.complaintmodel.datevistor}"
+                android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
+                android:onClick="@{click::onClick}"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:textSize="@dimen/_12sdp"
+                android:shadowColor="@color/shadow_color"
+                android:hint="Select your visit date"
+                android:textColorHint="@color/Gainsboro"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/subject"
+                android:textSize="@dimen/_12sdp"
+                android:textAppearance="@style/TextViewCustomFont_bold"
+                android:textColor="@color/Black"
+                />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:gravity="top"
+                android:text="@={viewModel.complaintmodel.subject}"
+                android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:textSize="@dimen/_12sdp"
+                android:shadowColor="@color/shadow_color"
+                android:hint="@string/enter_your_subject"
+                android:textColorHint="@color/Gainsboro"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/compliant"
+                android:textAppearance="@style/TextViewCustomFont_bold"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_12sdp" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:gravity="top"
+                android:text="@={viewModel.complaintmodel.complaint}"
+                android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
+                android:shadowColor="@color/shadow_color"
+                android:hint="@string/enter_you_compliant"
+                android:textSize="@dimen/_12sdp"
+                android:imeOptions="actionDone"
+                android:textColorHint="@color/Gainsboro"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/ic_square_box"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/light_black" />
+
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/providername"
-                    android:textAppearance="@style/TextViewCustomFont_bold"
-                    android:textColor="@color/light_black"
-                    android:textSize="@dimen/_12sdp"
-                    />
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal">
 
-            <EditText
+            <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:elevation="@dimen/_5sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:maxLines="1"
-                    android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
-
-                    android:text="@={viewModel.complaintmodel.providerName}"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"
-                    android:shadowColor="@color/shadow_color"
-                    android:hint="Enter provider name"
-                    android:textColorHint="@color/Gainsboro"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:background="@drawable/ic_square_box"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/light_black" />
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/data_of_visit"
-                    android:textAppearance="@style/TextViewCustomFont_bold"
-                    android:textColor="@color/light_black"
-                    android:textSize="@dimen/_12sdp"
-                    />
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:elevation="@dimen/_5sdp"
-                    android:id="@+id/visit_date_edt"
-                    android:text="@={viewModel.complaintmodel.datevistor}"
-                    android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/reset_btn"
                     android:onClick="@{click::onClick}"
-                    android:focusable="false"
-                    android:cursorVisible="false"
-                    android:textSize="@dimen/_12sdp"
-                    android:shadowColor="@color/shadow_color"
-                    android:hint="Select your visit date"
-                    android:textColorHint="@color/Gainsboro"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:background="@drawable/ic_square_box"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/light_black" />
-
-            <TextView
+                    android:text="@string/reset"
+                    android:layout_height="wrap_content"/>
+            <Space
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="match_parent"/>
+            <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/subject"
-                    android:textSize="@dimen/_12sdp"
-                    android:textAppearance="@style/TextViewCustomFont_bold"
-                    android:textColor="@color/Black"
-                    />
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:elevation="@dimen/_5sdp"
-                    android:gravity="top"
-                    android:text="@={viewModel.complaintmodel.subject}"
-                    android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"
-                    android:textSize="@dimen/_12sdp"
-                    android:shadowColor="@color/shadow_color"
-                    android:hint="@string/enter_your_subject"
-                    android:textColorHint="@color/Gainsboro"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:background="@drawable/ic_square_box"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/light_black" />
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/compliant"
-                    android:textAppearance="@style/TextViewCustomFont_bold"
-                    android:textColor="@color/Black"
-                    android:textSize="@dimen/_12sdp" />
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:elevation="@dimen/_5sdp"
-                    android:gravity="top"
-                    android:text="@={viewModel.complaintmodel.complaint}"
-                    android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.complaintmodel)}"
-                    android:shadowColor="@color/shadow_color"
-                    android:hint="@string/enter_you_compliant"
-                    android:textSize="@dimen/_12sdp"
-                    android:imeOptions="actionDone"
-                    android:textColorHint="@color/Gainsboro"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:background="@drawable/ic_square_box"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/light_black" />
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
-                    android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:id="@+id/reset_btn"
-                        android:text="@string/reset"
-                        android:onClick="@{()->viewModel.resetChange(viewModel.complaintmodel)}"
-                        android:layout_height="wrap_content"/>
-                <Space
-                        android:layout_width="@dimen/_15sdp"
-                        android:layout_height="match_parent"/>
-                <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        enable_button="@{viewModel.isvalid}"
-                        android:onClick="@{()->viewModel.getComplainAddApi(viewModel.complaintmodel)}"
-                        android:text="@string/submit"
-                        vikram:backgroundTint="@color/greens"
-                        android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    enable_button="@{viewModel.isvalid}"
+                    android:onClick="@{()->viewModel.getComplainAddApi(viewModel.complaintmodel)}"
+                    android:text="@string/submit"
+                    vikram:backgroundTint="@color/greens"
+                    android:layout_height="wrap_content"/>
 
         </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
     </FrameLayout>
 </layout>
