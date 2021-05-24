@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
                         android:id="@+id/header"
-                        android:text="Choose your Language"
+                        android:text="@string/choose_your_language"
                         android:textAppearance="@style/TextViewCustomFont_medium"
                         android:textSize="@dimen/_20sdp"
                         android:textColor="@android:color/white"

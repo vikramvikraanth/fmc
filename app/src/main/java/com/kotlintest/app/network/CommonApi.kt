@@ -690,10 +690,10 @@ fun ECardApiCall(
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <CountryID>"+model.countryid+"</CountryID>\n" +
-                "            <StateID>"+model.state+"</StateID>\n" +
+                "            <StateID>"+model.stateid+"</StateID>\n" +
                 "            <CityID>"+model.cityid+"</CityID>\n" +
                 "            <ProviderTypeID>"+model.providerTypeid+"</ProviderTypeID>\n" +
-                "            <SpecialityID>"+model.specialityid+"</SpecialityID>\n" +
+                "            <SpecialityID>0</SpecialityID>\n" +
                 "            <ProviderName>"+model.providertype+"</ProviderName>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobSubmitMedicalProviderSearch>\n" +

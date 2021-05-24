@@ -30,9 +30,10 @@
             <RelativeLayout
                     android:layout_width="match_parent"
                     android:id="@+id/header"
+                    android:layout_above="@+id/fooder"
                     android:background="@drawable/bg"
                     android:layout_marginBottom="-30dp"
-                    android:layout_height="@dimen/_350sdp">
+                    android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="@dimen/_210sdp"
@@ -48,7 +49,6 @@
                     android:background="@drawable/rounded_corners_shape"
                     android:layout_alignParentBottom="true"
                     android:id="@+id/fooder"
-                    android:layout_below="@+id/header"
                     android:backgroundTint="@color/greens"
                     android:layout_height="wrap_content">
 
@@ -72,7 +72,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_15sdp"
                             android:text="@string/welcome_back"
                             android:textAppearance="@style/TextViewCustomFont_medium"
@@ -83,7 +83,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_15sdp"
                             android:text="@string/email"
                             android:textAppearance="@style/TextViewCustomFont_medium"
@@ -106,7 +106,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_15sdp"
                             android:text="@string/password"
                             android:textAppearance="@style/TextViewCustomFont_medium"

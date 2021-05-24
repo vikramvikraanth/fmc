@@ -50,11 +50,6 @@ class MedicalProviderFragment : BaseFragment<FragmentMedicalProviderBinding>(),
                 binding.viewModel = medicalProviderViewModel
 
             }
-            R.id.search_btn->{
-                event.post(NavigateEvent("medical"))
-                moveTOFragment(MedicalProviderListFragment(),R.id.provider_container)
-
-            }
             R.id.city_edt->{
                 if(medicalProviderViewModel.medicalFormModel.state.isEmpty()){
                     commonFunction.commonToast("Select your State")
@@ -120,6 +115,14 @@ class MedicalProviderFragment : BaseFragment<FragmentMedicalProviderBinding>(),
                     is SpecialListModel->{
                         listSpecialListModel.clear()
                         listSpecialListModel.addAll(response.data.SpecialityListResponse)
+                    }
+                    is MedicalLocationModel ->{
+                        if(response.data.MedicalProviderListResponse.isEmpty()){
+                            commonFunction.commonToast(response.data.ApiResponse.Details)
+                            return
+                        }
+                        event.post(NavigateEvent("medical"))
+                        moveTOFragment(MedicalProviderListFragment(response.data),R.id.provider_container)
                     }
 
                 }

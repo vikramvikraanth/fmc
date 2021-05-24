@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:vikram="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="adapter"
+                type="com.kotlintest.app.view.adapter.LocationListAdapter" />
+        <variable
+                name="viewModel"
+                type="com.kotlintest.app.viewModel.MedicalProviderViewModel" />
+
+    </data>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/White"
+            android:clickable="true"
+            android:focusable="true"
+            tools:context=".view.fragment.medicalProvider.MedicalProviderSearchFragment">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:maxLines="1"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:shadowColor="@color/shadow_color"
+                    android:hint="Search Here"
+                    android:text="@={viewModel.searchTitle}"
+                    android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.searchTitle)}"
+
+                    android:textColorHint="@color/Gainsboro"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:background="@drawable/ic_square_box"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/light_black" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    tools:listitem="@layout/location_list_adapter"
+                    load_allLead="@{adapter}"
+                    vikram:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

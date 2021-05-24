@@ -24,6 +24,7 @@ import com.kotlintest.app.view.fragment.faq.FAQFragment
 import com.kotlintest.app.view.fragment.healthTips.HealthTipsFragment
 import com.kotlintest.app.view.fragment.medicalProvider.MedicalProviderFragment
 import com.kotlintest.app.view.fragment.medicalProvider.MedicalProviderListFragment
+import com.kotlintest.app.view.fragment.medicalProvider.MedicalProviderSearchFragment
 import com.kotlintest.app.view.fragment.navigation.FragmentDrawer
 import com.kotlintest.app.view.fragment.reimbursement.ReimbursementDetailsFragment
 import com.kotlintest.app.view.fragment.reimbursement.ReimbursementFragment
@@ -227,6 +228,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 println("enter the title"+binding.titleTxt.text.toString())
                 when (binding.titleTxt.text.toString()) {
                     "Medical Provider" -> {
+                        binding.isvisible = false
+                        binding.title = getString(R.string.medical_provider)
                         event.post(NavigateEvent("medical_data"))
 
                     }
@@ -378,7 +381,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 fragmentManager.popBackStackImmediate()
 
             }
-            MedicalProviderListFragment().javaClass.canonicalName ->{
+            MedicalProviderListFragment(null).javaClass.canonicalName ->{
                 fragmentManager.popBackStackImmediate()
 
             }
@@ -405,6 +408,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
             AboutUsFragment().javaClass.canonicalName ->{
                 fragmentManager.popBackStackImmediate()
 
+            }
+            MedicalProviderSearchFragment(null).javaClass.canonicalName ->{
+                fragmentManager.popBackStackImmediate()
             }else ->{
                super.onBackPressed()
             }
@@ -464,7 +470,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
 
 
             }
-            MedicalProviderListFragment().javaClass.canonicalName ->{
+            MedicalProviderListFragment(null).javaClass.canonicalName ->{
                 binding.title =getString(R.string.medical_provider)
                 binding.isvisible = true
                 binding.iconstate = false
@@ -472,6 +478,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
             }
             HealthTipsFragment().javaClass.canonicalName ->{
                 binding.title =getString(R.string.health_tips)
+                binding.isvisible = false
+
+
+            }
+            MedicalProviderSearchFragment(null).javaClass.canonicalName ->{
+                binding.title =getString(R.string.medical_provider)
                 binding.isvisible = false
 
 

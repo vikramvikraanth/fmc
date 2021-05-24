@@ -9,6 +9,10 @@
                 name="adapter"
                 type="com.kotlintest.app.view.adapter.LocationListAdapter" />
 
+        <variable
+                name="count"
+                type="String" />
+
     </data>
 
     <FrameLayout
@@ -17,7 +21,7 @@
             android:clickable="true"
             android:background="@color/White"
             android:focusable="true"
-
+            android:id="@+id/Providers_contain"
             tools:context=".view.fragment.medicalProvider.MedicalProviderListFragment">
 
         <LinearLayout
@@ -30,7 +34,7 @@
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="10 Results found..."
+                    android:text="@{count+` Results found...`}"
                     android:textAppearance="@style/TextViewCustomFont_bold"
                     android:textColor="@color/light_black"
                     android:textSize="@dimen/_14sdp" />

@@ -13,14 +13,15 @@ import com.kotlintest.app.databinding.BenefitAdapterBinding
 import com.kotlintest.app.databinding.LocationListAdapterBinding
 import com.kotlintest.app.databinding.MainMenuAdapterBinding
 import com.kotlintest.app.model.localModel.BenefitiesListModel
+import com.kotlintest.app.model.responseModel.MedicalLocationModel
 
 
-class LocationListAdapter(val documentModel: ArrayList<String>) : BaseAdapter<String>(documentModel) {
+class LocationListAdapter(var documentModel: ArrayList<MedicalLocationModel.MedicalProviderResponse>) : BaseAdapter<MedicalLocationModel.MedicalProviderResponse>(documentModel) {
 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as ViewHolder).getBinding()
-   //     binding.adapter = ImagePreviewAdapter(data)
+        binding.data = documentModel[position]
 
         if(documentModel.isEmpty()){
             return
@@ -28,6 +29,10 @@ class LocationListAdapter(val documentModel: ArrayList<String>) : BaseAdapter<St
 
 
 
+    }
+    fun isfilter( data: ArrayList<MedicalLocationModel.MedicalProviderResponse>){
+        documentModel  = data
+        notifyDataSetChanged()
     }
     override fun onCreateViewHolderBase(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(LayoutInflater

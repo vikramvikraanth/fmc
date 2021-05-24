@@ -4,6 +4,10 @@
 
     <data>
 
+        <variable
+                name="data"
+                type="com.kotlintest.app.model.responseModel.MedicalLocationModel.MedicalProviderResponse" />
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -21,7 +25,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Al Hawi Pharmacy"
+                    android:text="@{data.providerName}"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
@@ -32,7 +36,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nasar Squre, Dubai"
+                    android:text="@{data.providerLocation}"
                     android:drawableStart="@drawable/ic_location"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:drawablePadding="@dimen/_5sdp"
@@ -44,7 +48,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="+1 987 (654) 3210"
+                    android:text="@{data.providerPhone}"
                     android:drawableStart="@drawable/ic_call"
                     android:padding="@dimen/_5sdp"
                     android:drawablePadding="@dimen/_5sdp"
