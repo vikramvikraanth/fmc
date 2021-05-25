@@ -4,9 +4,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="adapter"
                 type="com.kotlintest.app.view.adapter.PreAppovalsAdapter" />
+        <variable
+                name="isvisible"
+                type="Boolean" />
     </data>
 
     <FrameLayout
@@ -23,5 +27,18 @@
                 tools:listitem="@layout/preapproval_adapter"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_height="match_parent"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:visibility="@{isvisible?View.VISIBLE:View.GONE,default=gone}"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="No Data"
+                android:textAppearance="@style/TextViewCustomFont_medium"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14sdp" />
+
     </FrameLayout>
 </layout>

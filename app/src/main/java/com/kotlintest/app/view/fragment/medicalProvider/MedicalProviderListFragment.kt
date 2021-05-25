@@ -22,7 +22,7 @@ class MedicalProviderListFragment(var data:MedicalLocationModel?) : BaseFragment
     override fun layoutId(): Int = R.layout.fragment_medical_provider_list
 
     override fun initView(mViewDataBinding: ViewDataBinding?) {
-
+        binding.count = data!!.MedicalProviderListResponse.size.toString()
         try {
             binding.adapter = LocationListAdapter(data!!.MedicalProviderListResponse)
         } catch (e: Exception) {

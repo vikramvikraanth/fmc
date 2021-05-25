@@ -28,4 +28,7 @@ class FamilyViewModel(var commonApi: CommonApi, var commonFunction: CommonFuncti
     fun getBenefitiesApiCall() {
         commonApi.benefitiesApiCall(response, disable)
     }
+    fun getFamilyApi() {
+        commonApi.getFamilyApi(response, disable)
+    }
 }

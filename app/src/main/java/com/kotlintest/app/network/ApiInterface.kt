@@ -29,6 +29,10 @@ interface ApiInterface {
     @POST("MobileApi.svc/")
     fun getPreApprovalsApi(@Body body: RequestBody): Observable<ResponseBody>
 
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetFamilyDetails")
+    @POST("MobileApi.svc/")
+    fun getFamilyApi(@Body body: RequestBody): Observable<ResponseBody>
+
     @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetBenefitDetails")
     @POST("MobileApi.svc/")
     fun getBeneitiesApi(@Body body: RequestBody): Observable<ResponseBody>

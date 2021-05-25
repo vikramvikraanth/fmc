@@ -1,6 +1,7 @@
 package com.kotlintest.app.view.activity
 
 import android.view.View
+import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.databinding.ViewDataBinding
 import androidx.drawerlayout.widget.DrawerLayout
@@ -34,6 +35,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.w3c.dom.Text
 
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.FragmentDrawerListener,
@@ -44,20 +46,28 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
     var mDrawerLayout: DrawerLayout? = null
     override fun layoutId(): Int = R.layout.activity_home
     private val loginViewModel by viewModel<LoginViewModel>()
+    var nameTxt : TextView ? =null
+    companion object {
+        var memberid :String =""
+    }
+    var datasv =UserInfoModel()
     override fun initView(mViewDataBinding: ViewDataBinding?) {
         // drawer labels
         mDrawerLayout = binding.drawerLayout
         titles = activity.getResources().getStringArray(R.array.nav_drawer_labels)
         drawerFragment = supportFragmentManager.findFragmentById(R.id.fragment_navigation_drawer) as FragmentDrawer
         drawerFragment!!.setUp(R.id.fragment_navigation_drawer, mDrawerLayout, null)
+        nameTxt = mDrawerLayout!!.findViewById(R.id.name_txt)
         drawerFragment!!.setDrawerListener(this)
         binding.click= this
         binding.title ="Home"
         binding.iconstate = true
         binding.isvisible = false
-      val data =  commonFunction.gsonToModel(sharedHelper.getFromUser("user_info"),UserInfoModel::class.java)
-        binding.datas = data as UserInfoModel?
-
+        val data =  commonFunction.gsonToModel(sharedHelper.getFromUser("user_info"),UserInfoModel::class.java)
+         datasv = (data as UserInfoModel?)!!
+        binding.datas = datasv
+        nameTxt?.setText(datasv.getName())
+        memberid =datasv!!.getMemberID()
         // preparing navigation drawer items
         for (i in titles!!.indices) {
             datalist!!.add(titles!![i])
@@ -65,6 +75,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         datalist!!.removeAt(datalist!!.size - 1)
         binding.mainmenuAdapter= datalist?.let { MainMenuAdapter(it, object : Commoninterface {
             override fun onCallback(value: Any) {
+
+                HomeActivity.memberid = datasv.getMemberID()
                 when (value as Int) {
                     0 -> {
                         moveTOFragment(FamilyFragment(), R.id.home_conter)
@@ -146,7 +158,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
     }
 
     override fun onDrawerItemSelected(view: View?, position: Int) {
-
+        HomeActivity.memberid = datasv.getMemberID()
         when(position){
             0 -> {
                 moveTOFragment(FamilyFragment(), R.id.home_conter)

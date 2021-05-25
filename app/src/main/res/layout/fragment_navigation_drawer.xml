@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:text="John Walker"
+                android:id="@+id/name_txt"
                 android:layout_gravity="center_horizontal"
                 android:textAppearance="@style/TextViewCustomFont_bold"
                 android:textColor="@color/White"

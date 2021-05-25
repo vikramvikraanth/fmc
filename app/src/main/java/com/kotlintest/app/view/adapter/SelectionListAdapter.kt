@@ -41,6 +41,10 @@ class SelectionListAdapter(val documentModel: ArrayList<Any>,var commoninterface
                 val countryResponse : ProviderListModel.ProviderCategoryResponse = documentModel[position] as ProviderListModel.ProviderCategoryResponse
                 binding.title  =countryResponse.ProviderTypeName
             }
+            is FamilyListModel.familyDetailsResponse->{
+                val countryResponse : FamilyListModel.familyDetailsResponse = documentModel[position] as FamilyListModel.familyDetailsResponse
+                binding.title  =countryResponse.Name
+            }
         }
 
         holder.itemView.setOnClickListener {

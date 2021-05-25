@@ -9,6 +9,7 @@ import com.kotlintest.app.model.responseModel.*
 import com.kotlintest.app.network.ResponseParse.LogingetReponse
 import com.kotlintest.app.utility.SharedHelper
 import com.kotlintest.app.utility.rx.SchedulersFacade
+import com.kotlintest.app.view.activity.HomeActivity
 import fr.arnaudguyon.xmltojsonlib.XmlToJson
 import io.reactivex.disposables.CompositeDisposable
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -218,7 +219,7 @@ fun ECardApiCall(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
-                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "            <MemberID>"+ HomeActivity.memberid +"</MemberID>\n" +
                 "        </MobGetFMCECard>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -256,7 +257,7 @@ fun ECardApiCall(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
-                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "            <MemberID>"+ HomeActivity.memberid +"</MemberID>\n" +
                 "            <FromDate>01/01/2019</FromDate>\n" +
                 "            <ToDate>01/04/2021</ToDate>\n" +
                 "        </MobGetPreApprovalDetails>\n" +
@@ -281,6 +282,43 @@ fun ECardApiCall(
             })
         )
     }
+    fun getFamilyApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobGetFamilyDetails xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "        </MobGetFamilyDetails>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getFamilyApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetFamilyDetailsResponse").optString("MobGetFamilyDetailsResult")
+                 val itemList = gson.fromJson(data.toString(), FamilyListModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
     fun benefitiesApiCall(
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
@@ -295,7 +333,7 @@ fun ECardApiCall(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
-                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "            <MemberID>"+ HomeActivity.memberid +"</MemberID>\n" +
                 "        </MobGetBenefitDetails>\n" +
                 "    </Body>\n" +
                 "</Envelope>"

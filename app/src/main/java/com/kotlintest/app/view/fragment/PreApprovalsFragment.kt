@@ -38,7 +38,9 @@ class PreApprovalsFragment : BaseFragment<FragmentPreApprovalsBinding>() {
                 when (response.data) {
                     is PreApprovalModel ->{
                         response.data.preApprovalDetailsResponse?.let { data.addAll(it) }
-                        adapter?.notifyDataSetChanged()
+                        binding.isvisible =data.isEmpty()
+
+                            adapter?.notifyDataSetChanged()
                     }
 
                 }
