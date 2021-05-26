@@ -77,6 +77,18 @@ interface ApiInterface {
     @POST("MobileApi.svc/")
     fun getProviderLocationListApi(@Body body: RequestBody): Observable<ResponseBody>
 
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobHealthTips")
+    @POST("MobileApi.svc/")
+    fun getHealthTipsApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobFAQ")
+    @POST("MobileApi.svc/")
+    fun getFaqsApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobAboutUs")
+    @POST("MobileApi.svc/")
+    fun getAboutApi(@Body body: RequestBody): Observable<ResponseBody>
+
     @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitLogOut")
     @POST("MobileApi.svc/")
     fun getLogoutApi(@Body body: RequestBody): Observable<ResponseBody>

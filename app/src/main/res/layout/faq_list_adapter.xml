@@ -3,8 +3,14 @@
 
     <data>
         <variable
-                name="data"
-                type="com.kotlintest.app.model.localModel.FaqModel" />
+                name="state"
+                type="Boolean" />
+        <variable
+                name="title"
+                type="String" />
+        <variable
+                name="description"
+                type="String" />
 
     </data>
 
@@ -19,17 +25,17 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:drawableEnd="@{data.state? @drawable/ic_up : @drawable/ic_down}"
+                android:drawableEnd="@{state? @drawable/ic_up : @drawable/ic_down}"
                 android:padding="@dimen/_2sdp"
                 android:textAppearance="@style/TextViewCustomFont_bold"
                 android:id="@+id/title_txt"
-                android:text="@{data.title}"
+                android:text="@{title}"
                 android:textColor="@color/light_black"
                 android:layout_height="wrap_content"/>
         <TextView
                 android:layout_width="match_parent"
                 android:textSize="@dimen/_12sdp"
-                android:text="@{data.description}"
+                android:text="@{description}"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:lineSpacingExtra="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_10sdp"

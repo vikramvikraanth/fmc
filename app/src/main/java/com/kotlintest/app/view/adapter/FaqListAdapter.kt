@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseAdapter
 import com.kotlintest.app.databinding.FaqListAdapterBinding
-import com.kotlintest.app.model.localModel.FaqModel
+import com.kotlintest.app.model.responseModel.FaqModel
+import com.kotlintest.app.model.responseModel.HealthTipModel
 
 
-class FaqListAdapter(val documentModel: ArrayList<FaqModel>) : BaseAdapter<FaqModel>(documentModel) {
+class FaqListAdapter(val documentModel: ArrayList<Any>) : BaseAdapter<Any>(documentModel) {
 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
@@ -22,10 +23,33 @@ class FaqListAdapter(val documentModel: ArrayList<FaqModel>) : BaseAdapter<FaqMo
         if(documentModel.isEmpty()){
             return
         }
-        binding.data = documentModel.get(position)
+        when(documentModel[position]){
+            is FaqModel.mobFAQ->{
+                val data = documentModel[position] as FaqModel.mobFAQ
+                binding.title = data.FAQuestion
+                binding.description = data.FAAnswer
+            }
+            is HealthTipModel.MobHealthTip->{
+                val data = documentModel[position] as HealthTipModel.MobHealthTip
+                binding.title = data.HT_Heading
+                binding.description = data.HT_Description
+            }
+        }
         binding.titleTxt.setOnClickListener {
-            documentModel.get(holder.absoluteAdapterPosition).state = ! documentModel.get(holder.absoluteAdapterPosition).state
-            binding.data = documentModel.get(holder.absoluteAdapterPosition)
+            when(documentModel[holder.absoluteAdapterPosition]){
+                is FaqModel.mobFAQ->{
+                    val data = documentModel[holder.absoluteAdapterPosition] as FaqModel.mobFAQ
+                    data.state = !data.state
+                    binding.state = data.state
+                    notifyItemChanged(holder.absoluteAdapterPosition)
+                }
+                is HealthTipModel.MobHealthTip->{
+                    val data = documentModel[holder.absoluteAdapterPosition] as HealthTipModel.MobHealthTip
+                    data.state = !data.state
+                    binding.state = data.state
+                    notifyItemChanged(holder.absoluteAdapterPosition)
+                }
+            }
         }
 
 

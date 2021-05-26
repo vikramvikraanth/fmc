@@ -9,10 +9,7 @@ import com.kotlintest.app.network.CommonApi
 import com.kotlintest.app.utility.CommonFunction
 import com.kotlintest.app.utility.SharedHelper
 import com.kotlintest.app.utility.rx.SchedulersFacade
-import com.kotlintest.app.viewModel.ComplaintViewModel
-import com.kotlintest.app.viewModel.FamilyViewModel
-import com.kotlintest.app.viewModel.LoginViewModel
-import com.kotlintest.app.viewModel.MedicalProviderViewModel
+import com.kotlintest.app.viewModel.*
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -36,6 +33,7 @@ val viewModelModule = module {
     viewModel { FamilyViewModel(get(),get()) }
     viewModel { ComplaintViewModel(get(),get()) }
     viewModel { MedicalProviderViewModel(get(),get()) }
+    viewModel { StaticViewModel(get(),get()) }
 }
 
 val apiModule = module {

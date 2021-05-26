@@ -756,6 +756,115 @@ fun ECardApiCall(
             })
         )
     }
+    fun getHealthTipsApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobHealthTips xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "        </MobHealthTips>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getHealthTipsApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobHealthTipsResponse").optString("MobHealthTipsResult")
+                val itemList = gson.fromJson(data.toString(), HealthTipModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+
+    fun getFaqsApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobFAQ xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "        </MobFAQ>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getFaqsApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobFAQResponse").optString("MobFAQResult")
+                val itemList = gson.fromJson(data.toString(), FaqModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getAboutApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobAboutUs xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "        </MobAboutUs>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getAboutApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobFAQResponse").optString("MobFAQResult")
+                val itemList = gson.fromJson(data.toString(), FaqModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
 
 
 }
