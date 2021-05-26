@@ -104,26 +104,30 @@ object CustomBinding {
     @BindingAdapter("url")
     @JvmStatic
     fun GlideApp(Images: ImageView, imagePath: Any?) {
-        if (imagePath != null) {
-           if(imagePath is String){
-               Base64Image.with(Images.context)
-                   .decode(imagePath)
-                   .into(object : Decode {
-                       override fun onSuccess(bitmap: Bitmap) {
-                           GlideApp.with(Images.context)
-                               .load(bitmap)
-                               .into(Images)
-                           println("enter the image"+imagePath)
+        try {
+            if (imagePath != null) {
+               if(imagePath is String){
+                   Base64Image.with(Images.context)
+                       .decode(imagePath)
+                       .into(object : Decode {
+                           override fun onSuccess(bitmap: Bitmap) {
+                               GlideApp.with(Images.context)
+                                   .load(bitmap)
+                                   .into(Images)
+                               println("enter the image"+imagePath)
 
-                       }
-                       override fun onFailure() {
-                           println("enter the error image")
+                           }
+                           override fun onFailure() {
+                               println("enter the error image")
 
-                       }
-                   })
+                           }
+                       })
 
 
-           }
+               }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
 
     }

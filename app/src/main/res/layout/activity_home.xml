@@ -151,9 +151,10 @@
 
                         <androidx.recyclerview.widget.RecyclerView
                                 load_allLead="@{mainmenuAdapter}"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_margin="@dimen/_5sdp"
+                                android:layout_gravity="center"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:nestedScrollingEnabled="false"
                                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
