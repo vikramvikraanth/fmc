@@ -89,6 +89,22 @@ interface ApiInterface {
     @POST("MobileApi.svc/")
     fun getAboutApi(@Body body: RequestBody): Observable<ResponseBody>
 
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetReimbursementClaimList")
+    @POST("MobileApi.svc/")
+    fun getReimbursementListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetCurrencyList")
+    @POST("MobileApi.svc/")
+    fun getCurrencyListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetTreatCategoryList")
+    @POST("MobileApi.svc/")
+    fun getTreatCategoryListApi(@Body body: RequestBody): Observable<ResponseBody>
+
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobReimbursementDocumentFileType")
+    @POST("MobileApi.svc/")
+    fun getReimburseMentDocumentFileTypeListApi(@Body body: RequestBody): Observable<ResponseBody>
+
     @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitLogOut")
     @POST("MobileApi.svc/")
     fun getLogoutApi(@Body body: RequestBody): Observable<ResponseBody>

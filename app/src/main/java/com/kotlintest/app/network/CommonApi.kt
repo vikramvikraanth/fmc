@@ -855,8 +855,156 @@ fun ECardApiCall(
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
                 println("enter the xml response"+xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobFAQResponse").optString("MobFAQResult")
-                val itemList = gson.fromJson(data.toString(), FaqModel::class.java)
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobAboutUsResponse").optString("MobAboutUsResult")
+                val itemList = gson.fromJson(data.toString(), AboutModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getReimbursementListApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobGetReimbursementClaimList xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "        </MobGetReimbursementClaimList>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getReimbursementListApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetReimbursementClaimListResponse").optString("MobGetReimbursementClaimListResult")
+                val itemList = gson.fromJson(data.toString(), ReimbursementListModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getCurrencyListApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobGetCurrencyList xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "        </MobGetCurrencyList>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getCurrencyListApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetCurrencyListResponse").optString("MobGetCurrencyListResult")
+                val itemList = gson.fromJson(data.toString(), CountryListModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getTreatCategoryListApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobGetTreatCategoryList xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "        </MobGetTreatCategoryList>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getTreatCategoryListApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetTreatCategoryListResponse").optString("MobGetTreatCategoryListResult")
+                val itemList = gson.fromJson(data.toString(), TreatCategoryListModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getReimburseMentDocumentFileTypeListApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobReimbursementDocumentFileType xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "        </MobReimbursementDocumentFileType>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getReimburseMentDocumentFileTypeListApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobReimbursementDocumentFileTypeResponse").optString("MobReimbursementDocumentFileTypeResult")
+                val itemList = gson.fromJson(data.toString(), TreatCategoryListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
