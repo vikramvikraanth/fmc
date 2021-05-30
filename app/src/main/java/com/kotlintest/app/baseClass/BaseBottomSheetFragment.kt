@@ -18,6 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kotlintest.app.R
 import com.kotlintest.app.utility.CommonFunction
 import com.kotlintest.app.utility.SharedHelper
+import com.tbruyelle.rxpermissions2.RxPermissions
 import io.reactivex.disposables.CompositeDisposable
 import org.koin.android.ext.android.inject
 
@@ -27,6 +28,7 @@ abstract class BaseBottomSheetFragment<B : ViewDataBinding> : BottomSheetDialogF
     lateinit var activity: Activity
     var fragmentManagers: FragmentManager? = null
     lateinit var views: View
+    lateinit var rxPermission: RxPermissions
 
     override fun getTheme(): Int = R.style.BottomSheetDialogTheme
 
@@ -43,7 +45,7 @@ abstract class BaseBottomSheetFragment<B : ViewDataBinding> : BottomSheetDialogF
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        rxPermission= RxPermissions(this)
         disposable = CompositeDisposable()
         activity = getActivity()!!
         fragmentManagers = fragmentManager!!

@@ -79,7 +79,7 @@ class MainMenuAdapter(val documentModel: ArrayList<String>,val commoninterface: 
 
             }
             11->{
-                binding.imageMenu.setImageResource(R.drawable.ic_health_tip)
+                binding.imageMenu.setImageResource(R.drawable.ic_call)
                 binding.description = ""
 
             }

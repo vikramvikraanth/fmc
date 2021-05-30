@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+                name="image"
+                type="java.lang.String" />
+        <variable
+                name="isSelection"
+                type="Boolean" />
+
+    </data>
+    <androidx.cardview.widget.CardView
+            xmlns:vikram="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            vikram:cardBackgroundColor="@{isSelection?@color/grays:@color/Semi_Black}"
+            android:layout_width="@dimen/_100sdp"
+            vikram:cardUseCompatPadding="true"
+            vikram:cardCornerRadius="@dimen/_5sdp"
+            android:layout_height="@dimen/_100sdp">
+        <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/selected_img"
+                vikram:srcCompat="@drawable/ic_camera"
+                android:scaleType="centerCrop"
+                url="@{image ==null? @drawable/ic_camera : image }"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="match_parent"/>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -27,6 +27,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:src="@drawable/ic_family"
                     android:id="@+id/image_menu"
+                    app:tint="@color/White"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_height="@dimen/_40sdp"/>
 

@@ -29,6 +29,55 @@
                 android:text="@{title}"
                 android:textColor="@color/Black"
                 android:layout_height="wrap_content"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                    android:layout_width="match_parent"
+                    android:textAppearance="@style/TextViewCustomFont_bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_weight="0.8"
+                    android:padding="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:text="Doductable type"
+                    android:textColor="@color/Black"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:textAppearance="@style/TextViewCustomFont_bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_2sdp"
+                    android:text="%"
+                    android:gravity="center"
+                    android:textColor="@color/Black"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:textAppearance="@style/TextViewCustomFont_bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:text="Flat"
+                    android:textColor="@color/Black"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:textAppearance="@style/TextViewCustomFont_bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Remarks"
+                    android:textColor="@color/Black"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:orientation="vertical"

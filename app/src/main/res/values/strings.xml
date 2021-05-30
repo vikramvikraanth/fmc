@@ -96,4 +96,7 @@
     <string name="providername">Provider Name</string>
     <string name="data_of_visit">Data Of Visit</string>
     <string name="choose_your_language">Choose your Language</string>
+
+    <string name="choose_your_of_file">Choose your of File</string>
+    <string name="no_file_found">No file Found</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.kotlintest.app.utility
 
+import android.Manifest
 import android.app.Activity
 import android.app.Application
 import android.content.Intent
@@ -14,6 +15,7 @@ import timber.log.Timber
 
 class CommonFunction  constructor(private val application: Application) {
 
+    val STORAGEPermission = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
 
     protected var loader : KProgressHUD? =null

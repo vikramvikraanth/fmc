@@ -130,9 +130,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                         binding.title =getString(R.string.about_us)
 
                         binding.isvisible = false
+
+
                     }
                     9 -> {
                        // moveTOFragment(AboutUsFragment(), R.id.home_conter)
+
+                        moveTOFragment(LanguageFragment(), R.id.home_conter)
+                        binding.title =getString(R.string.language)
+
+                        binding.isvisible = false
                     }
                     10 -> {
                         moveTOFragment(HealthTipsFragment(), R.id.home_conter)
@@ -210,6 +217,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
             8 -> {
                 moveTOFragment(AboutUsFragment(), R.id.home_conter)
                 binding.title =getString(R.string.about_us)
+
+                binding.isvisible = false
+            }
+            9 -> {
+                moveTOFragment(LanguageFragment(), R.id.home_conter)
+                binding.title =getString(R.string.language)
 
                 binding.isvisible = false
             }
@@ -409,6 +422,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 fragmentManager.popBackStackImmediate()
 
             }
+            LanguageFragment().javaClass.canonicalName ->{
+                fragmentManager.popBackStackImmediate()
+
+            }
             ComplaintListFragment().javaClass.canonicalName ->{
                 fragmentManager.popBackStackImmediate()
 
@@ -449,6 +466,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
             ECardFragment().javaClass.canonicalName ->{
 
                 binding.title =getString(R.string.ecard)
+                binding.isvisible = false
+
+            }
+            LanguageFragment().javaClass.canonicalName ->{
+
+                binding.title =getString(R.string.language)
                 binding.isvisible = false
 
             }

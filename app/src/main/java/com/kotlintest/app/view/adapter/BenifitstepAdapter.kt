@@ -20,7 +20,7 @@ class BenifitstepAdapter(val documentModel: ArrayList<BenefitiesModel.IPDeductio
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as ViewHolder).getBinding()
-        binding.title = documentModel[position].deductableType+"  "+documentModel[position].deductablePer
+        binding.data = documentModel[position]
         if(documentModel.isEmpty()){
             return
         }

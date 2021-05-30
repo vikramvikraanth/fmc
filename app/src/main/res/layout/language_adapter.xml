@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="title"
+                type="com.kotlintest.app.model.localModel.LanguageModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_120sdp"
+            app:cardBackgroundColor="@{title.state?@color/greens:@color/White}"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_height="@dimen/_120sdp">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{title.title}"
+                    app:textColor="@{title.state?@color/White:@color/Black}"
+                    android:textAppearance="@style/TextViewCustomFont_bold"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textSize="@dimen/_12sdp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
