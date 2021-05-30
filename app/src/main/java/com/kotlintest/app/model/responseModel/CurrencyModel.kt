@@ -1,6 +1,6 @@
 package com.kotlintest.app.model.responseModel
 
-data class CurrencyModel(
+ class CurrencyModel(
     var ApiResponse: apiResponse = apiResponse(),
     var CountryListResponse: ArrayList<CountryResponse> = ArrayList()
 ) {

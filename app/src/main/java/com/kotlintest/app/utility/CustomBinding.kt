@@ -71,7 +71,10 @@ object CustomBinding {
     }
     @BindingAdapter("process_type")
     @JvmStatic
-    fun setType(view: TextView, title: String) {
+    fun setType(view: TextView, title: String?) {
+        if(title==null){
+            return
+        }
         view.setText(title)
 
         when(title){

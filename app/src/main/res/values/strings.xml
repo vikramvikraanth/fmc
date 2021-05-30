@@ -76,8 +76,8 @@
     <string name="i_ban_number">I BAN Number</string>
     <string name="enter_your_i_ban_number">Enter your I BAN Number</string>
     <string name="beneficiary_name">Beneficiary Name</string>
-    <string name="enter_your_beneficiary_name">Enter your Beneficiary Name</string>
-    <string name="upload_documents">Upload Documents</string>
+    <string name="enter_your_beneficiary_name">Enter your Service Period</string>
+    <string name="upload_documents">Upload Required Documents</string>
     <string name="browse">Browse</string>
     <string name="or">Or</string>
     <string name="submit">Submit</string>

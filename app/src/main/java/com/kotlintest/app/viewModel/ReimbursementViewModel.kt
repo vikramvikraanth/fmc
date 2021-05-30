@@ -5,13 +5,14 @@ import com.kotlintest.app.baseClass.BaseViewModel
 import com.kotlintest.app.model.localModel.ForgotPasswordModel
 import com.kotlintest.app.model.localModel.LoginModel
 import com.kotlintest.app.model.localModel.RegisterModel
+import com.kotlintest.app.model.localModel.ReimbursementformModel
 import com.kotlintest.app.network.CommonApi
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.utility.CommonFunction
 
 class ReimbursementViewModel(var commonApi: CommonApi, var commonFunction: CommonFunction)  : BaseViewModel() {
 
-
+    var reimbursementformModel = ReimbursementformModel()
 
 
     fun response(): MutableLiveData<Response> {

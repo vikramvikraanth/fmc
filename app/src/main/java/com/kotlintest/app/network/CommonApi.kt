@@ -931,7 +931,7 @@ fun ECardApiCall(
                 println("enter the xml response"+xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
                 val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetCurrencyListResponse").optString("MobGetCurrencyListResult")
-                val itemList = gson.fromJson(data.toString(), CountryListModel::class.java)
+                val itemList = gson.fromJson(data.toString(),CurrencyModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)

@@ -11,9 +11,9 @@ data class ReimbursementListModel(
     )
 
     data class ReimbursementResponse(
-        var UserId: Int = 0,
+        var UserId: String = "0",
         var CardNumber: String = "",
-        var ClaimID: Int = 0,
+        var ClaimID: String = "",
         var LanguageID: String = "",
         var SubmissionDate: String = "",
         var ClaimStatus: String = "",

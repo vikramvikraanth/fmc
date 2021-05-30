@@ -7,13 +7,11 @@ import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseFragment
 import com.kotlintest.app.databinding.FragmentMedicalProviderBinding
 import com.kotlintest.app.model.eventBus.NavigateEvent
-import com.kotlintest.app.model.localModel.BenefitiesListModel
 import com.kotlintest.app.model.localModel.MedicalFormModel
 import com.kotlintest.app.model.responseModel.*
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.utility.`interface`.Commoninterface
 import com.kotlintest.app.view.bottomsheetFragment.SelectBottomSheetFragment
-import com.kotlintest.app.viewModel.ComplaintViewModel
 import com.kotlintest.app.viewModel.MedicalProviderViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

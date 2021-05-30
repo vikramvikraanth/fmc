@@ -29,6 +29,14 @@ class SelectionListAdapter(val documentModel: ArrayList<Any>,var commoninterface
                 val countryResponse : CityListModel.CityResponse = documentModel[position] as CityListModel.CityResponse
                 binding.title  =countryResponse.CityName
             }
+            is TreatCategoryListModel.CategoryResponse->{
+                val countryResponse : TreatCategoryListModel.CategoryResponse = documentModel[position] as TreatCategoryListModel.CategoryResponse
+                binding.title  =countryResponse.CategoryName
+            }
+            is CurrencyModel.CountryResponse->{
+                val countryResponse : CurrencyModel.CountryResponse = documentModel[position] as CurrencyModel.CountryResponse
+                binding.title  =countryResponse.CurrencyName
+            }
             is StateListModel.EmiratesResponse->{
                 val countryResponse : StateListModel.EmiratesResponse = documentModel[position] as StateListModel.EmiratesResponse
                 binding.title  =countryResponse.EmiratesName

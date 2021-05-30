@@ -34,6 +34,7 @@ val viewModelModule = module {
     viewModel { ComplaintViewModel(get(),get()) }
     viewModel { MedicalProviderViewModel(get(),get()) }
     viewModel { StaticViewModel(get(),get()) }
+    viewModel { ReimbursementViewModel(get(),get()) }
 }
 
 val apiModule = module {

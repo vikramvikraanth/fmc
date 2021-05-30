@@ -2,8 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
-
+        <variable
+                name="data"
+                type="com.kotlintest.app.model.responseModel.ReimbursementListModel.ReimbursementResponse" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -37,6 +38,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
                         android:text="Approved"
+                        process_type="@{data.claimStatus}"
                         android:drawablePadding="@dimen/_5sdp"
                         android:drawableEnd="@drawable/ic_approvals"
                         android:gravity="end"
@@ -57,7 +59,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Claim Type"
+                        android:text="Claim ID"
                         android:drawablePadding="@dimen/_5sdp"
                         android:drawableStart="@drawable/ic_claim"
                         android:textColor="@color/Black"
@@ -66,7 +68,7 @@
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="Reimbursements"
+                        android:text="@{data.claimID}"
                         android:padding="@dimen/_2sdp"
                         android:maxLines="1"
                         android:ellipsize="end"
@@ -76,9 +78,9 @@
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginStart="@dimen/_10sdp"
+                    android:visibility="gone"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:orientation="horizontal">
                 <TextView
@@ -115,18 +117,16 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Service Type"
+                        android:text="Batch Number"
                         android:drawableStart="@drawable/ic_service_type"
-
                         android:drawablePadding="@dimen/_5sdp"
-
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="Dental"
+                        android:text="@{data.batchNumber}"
                         android:padding="@dimen/_2sdp"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
@@ -144,9 +144,8 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Amount"
-                        android:drawableStart="@drawable/ic_money"
-
+                        android:text="Member Name"
+                        android:drawableStart="@drawable/ic_provider"
                         android:drawablePadding="@dimen/_5sdp"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
@@ -154,7 +153,7 @@
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="250 AED"
+                        android:text="@{data.memberName}"
                         android:padding="@dimen/_2sdp"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>
@@ -169,7 +168,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Reference Number"
+                        android:text="Card Number"
                         android:drawableStart="@drawable/ic_referal_number"
 
                         android:drawablePadding="@dimen/_5sdp"
@@ -179,7 +178,7 @@
                         android:layout_width="match_parent"
                         android:textSize="@dimen/_12sdp"
                         android:layout_weight="1"
-                        android:text="250012130UAE"
+                        android:text="@{data.cardNumber}"
                         android:padding="@dimen/_2sdp"
                         android:textColor="@color/Black"
                         android:layout_height="wrap_content"/>

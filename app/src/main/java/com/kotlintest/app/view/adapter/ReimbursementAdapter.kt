@@ -13,15 +13,17 @@ import com.kotlintest.app.databinding.MainMenuAdapterBinding
 import com.kotlintest.app.databinding.PreapprovalAdapterBinding
 import com.kotlintest.app.databinding.ReimbursementAdapterBinding
 import com.kotlintest.app.model.responseModel.PreApprovalModel
+import com.kotlintest.app.model.responseModel.ReimbursementListModel
 import com.kotlintest.app.utility.`interface`.Commoninterface
 
 
-class ReimbursementAdapter(val documentModel: ArrayList<String>,val commoninterface: Commoninterface) : BaseAdapter<String>(documentModel) {
+class ReimbursementAdapter(val documentModel: ArrayList<ReimbursementListModel.ReimbursementResponse>, val commoninterface: Commoninterface) : BaseAdapter<ReimbursementListModel.ReimbursementResponse>(documentModel) {
 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as ViewHolder).getBinding()
    //     binding.adapter = ImagePreviewAdapter(data)
+        binding.data = documentModel[position]
         holder.itemView.setOnClickListener {
             commoninterface.onCallback(holder.absoluteAdapterPosition)
         }
