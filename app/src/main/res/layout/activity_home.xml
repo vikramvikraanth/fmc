@@ -46,6 +46,8 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/ic_header_bg"
+                        android:padding="@dimen/_5sdp"
                         android:elevation="@dimen/_10sdp">
 
                     <TextView
@@ -60,7 +62,7 @@
                             android:padding="@dimen/_10sdp"
                             android:text="@{title}"
                             android:textAppearance="@style/TextViewCustomFont_bold"
-                            android:textColor="@color/Black"
+                            android:textColor="@color/White"
                             android:textSize="@dimen/_16sdp" />
 
                     <ImageView

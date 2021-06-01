@@ -88,7 +88,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
                                         it
                                     )
                                 }
-                                setIntent(HomeActivity::class.java,0)
+                                sharedHelper.putInUser("milsec",System.currentTimeMillis().toString())
+                                setIntent(HomeActivity::class.java,3)
 
                             }
                         }

@@ -67,7 +67,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), View.OnClickListener
                                          it
                                      )
                                  }
-                                 setIntent(HomeActivity::class.java,0)
+                                 sharedHelper.putInUser("milsec",System.currentTimeMillis().toString())
+                                 setIntent(HomeActivity::class.java,3)
 
                              }
                          }

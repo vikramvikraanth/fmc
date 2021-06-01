@@ -25,7 +25,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
 
     protected fun callIntent(){
-     // sharedHelper.putInUser("user_id", "2754")
+        if(sharedHelper.getFromUser("milsec").isEmpty()){
+            sharedHelper.putInUser("milsec",System.currentTimeMillis().toString())
+        }
+      sharedHelper.putInUser("user_id", "2754")
         if(sharedHelper.getFromUser("user_id").isEmpty()){
             setIntent(MainActivity::class.java,3)
         }else{

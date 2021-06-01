@@ -15,7 +15,7 @@ import com.kotlintest.app.utility.`interface`.Commoninterface
 
 
 class LanguageAdapter(val documentModel: ArrayList<LanguageModel>, val commoninterface: Commoninterface) : BaseAdapter<LanguageModel>(documentModel) {
-
+    private var previouseSelect :Int =0
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as ViewHolder).getBinding()
@@ -23,11 +23,12 @@ class LanguageAdapter(val documentModel: ArrayList<LanguageModel>, val commonint
         if(documentModel.isEmpty()){
             return
         }
+        binding.state = previouseSelect ==position
         binding.title = get(position)
         holder.itemView.setOnClickListener {
-            documentModel[holder.absoluteAdapterPosition].state = ! documentModel[holder.absoluteAdapterPosition].state
+            previouseSelect = holder.absoluteAdapterPosition
             notifyDataSetChanged()
-            commoninterface.onCallback(holder.adapterPosition)
+            commoninterface.onCallback(holder.absoluteAdapterPosition)
         }
 
 

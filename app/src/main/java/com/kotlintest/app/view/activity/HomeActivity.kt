@@ -31,11 +31,16 @@ import com.kotlintest.app.view.fragment.reimbursement.ReimbursementDetailsFragme
 import com.kotlintest.app.view.fragment.reimbursement.ReimbursementFragment
 import com.kotlintest.app.view.fragment.reimbursement.ReimbursementListFragment
 import com.kotlintest.app.viewModel.LoginViewModel
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.w3c.dom.Text
+import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.FragmentDrawerListener,
@@ -68,6 +73,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         binding.datas = datasv
         nameTxt?.setText(datasv.getName())
         memberid =datasv!!.getMemberID()
+        //isCheckLogout()
         // preparing navigation drawer items
         for (i in titles!!.indices) {
             datalist!!.add(titles!![i])
@@ -562,7 +568,27 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         binding.executePendingBindings()
 
     }
+    private fun isCheckLogout(){
+        disposable.add(
+            Observable.timer(15, TimeUnit.SECONDS)
+            .subscribeOn(Schedulers.io())
+                .repeat()
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnError {  t->
+                run {
+                    Timber.d(t)
+                }
+            }
+            .subscribe { aLong ->
+                val previous : Long = sharedHelper.getFromUser("milsec").toLong()
+                val amountTime: Long = System.currentTimeMillis() - previous
+                val min = ((amountTime/1000) / 60) % 60
+                println("enter the current time"+min)
+                if(min>2){
+                    loginViewModel.logoutApiCall()
+                }
 
+            })
 
-
+    }
 }

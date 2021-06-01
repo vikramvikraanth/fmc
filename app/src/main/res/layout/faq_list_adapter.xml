@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="state"
                 type="Boolean" />
@@ -26,16 +27,18 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:drawableEnd="@{state? @drawable/ic_up : @drawable/ic_down}"
-                android:padding="@dimen/_2sdp"
+                android:padding="@dimen/_8sdp"
+                android:background="@color/greens"
                 android:textAppearance="@style/TextViewCustomFont_bold"
                 android:id="@+id/title_txt"
                 android:text="@{title}"
-                android:textColor="@color/light_black"
+                android:textColor="@color/White"
                 android:layout_height="wrap_content"/>
         <TextView
                 android:layout_width="match_parent"
                 android:textSize="@dimen/_12sdp"
                 android:text="@{description}"
+                android:visibility="@{state?View.VISIBLE:View.GONE}"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:lineSpacingExtra="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_10sdp"

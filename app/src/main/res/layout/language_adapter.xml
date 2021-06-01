@@ -4,13 +4,16 @@
 
     <data>
         <variable
+                name="state"
+                type="Boolean" />
+        <variable
                 name="title"
                 type="com.kotlintest.app.model.localModel.LanguageModel" />
     </data>
 
     <androidx.cardview.widget.CardView
             android:layout_width="@dimen/_120sdp"
-            app:cardBackgroundColor="@{title.state?@color/greens:@color/White}"
+            app:cardBackgroundColor="@{state?@color/greens:@color/White}"
             app:cardCornerRadius="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_15sdp"
@@ -24,7 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@{title.title}"
-                    app:textColor="@{title.state?@color/White:@color/Black}"
+                    app:textColor="@{state?@color/White:@color/Black}"
                     android:textAppearance="@style/TextViewCustomFont_bold"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"

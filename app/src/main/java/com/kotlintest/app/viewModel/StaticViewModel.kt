@@ -28,5 +28,8 @@ class StaticViewModel(var commonApi: CommonApi, var commonFunction: CommonFuncti
     fun getAboutApi() {
         commonApi.getAboutApi(response, disable)
     }
+    fun getContactusListApi() {
+        commonApi.getContactusListApi(response, disable)
+    }
 
 }

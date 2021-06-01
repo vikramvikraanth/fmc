@@ -4,7 +4,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+                name="adapter"
+                type="com.kotlintest.app.view.adapter.ContactUsAdapter" />
     </data>
 
     <FrameLayout
@@ -14,192 +16,12 @@
             android:focusable="true"
             android:background="@color/White"
             tools:context=".view.fragment.contactUs.ContactUsFragment">
-<ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <FrameLayout
+        <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_height="wrap_content">
-
-            <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_margin="@dimen/_15sdp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="@dimen/_5sdp"
-                    app:cardBackgroundColor="@color/White">
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Abudabi"
-                            android:drawablePadding="@dimen/_5sdp"
-                            android:drawableStart="@drawable/ic_location_land"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:padding="@dimen/_5sdp"
-                            android:textAppearance="@style/TextViewCustomFont_bold"
-                            android:textColor="@color/Black"
-                            android:textSize="@dimen/_14sdp" />
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Abdul Rahman, Al Alin Building M-2 Mezzaine Floor, Al Muroor Road Opp AI Falah Etisalat P.O.Box 127452, UAE"
-                            android:lineSpacingExtra="@dimen/_5sdp"
-                            android:layout_margin="@dimen/_10sdp"
-                            android:padding="@dimen/_5sdp"
-                            android:textColor="@color/light_black"
-                            android:textSize="@dimen/_12sdp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/ic_abudabi"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_30sdp"
-                    android:layout_gravity="end"
-                    android:elevation="@dimen/_5sdp"
-                    android:layout_height="wrap_content"/>
-
-        </FrameLayout>
-        <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_height="wrap_content">
-
-            <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_margin="@dimen/_15sdp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="@dimen/_5sdp"
-                    app:cardBackgroundColor="@color/White">
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Dubai"
-                            android:drawablePadding="@dimen/_5sdp"
-                            android:drawableStart="@drawable/ic_location_land"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:padding="@dimen/_5sdp"
-                            android:textAppearance="@style/TextViewCustomFont_bold"
-                            android:textColor="@color/Black"
-                            android:textSize="@dimen/_14sdp" />
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Abdul Rahman, Al Alin Building M-2 Mezzaine Floor, Al Muroor Road Opp AI Falah Etisalat P.O.Box 127452, UAE"
-                            android:lineSpacingExtra="@dimen/_5sdp"
-                            android:layout_margin="@dimen/_10sdp"
-                            android:padding="@dimen/_5sdp"
-                            android:textColor="@color/light_black"
-                            android:textSize="@dimen/_12sdp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:src="@drawable/ic_dubai"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_30sdp"
-                    android:layout_gravity="end"
-                    android:elevation="@dimen/_5sdp"
-                    android:layout_height="wrap_content"/>
-
-        </FrameLayout>
-
-        <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_margin="@dimen/_15sdp"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardBackgroundColor="@color/White">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:padding="@dimen/_5sdp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reach Us"
-                        android:drawableStart="@drawable/ic_call"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:padding="@dimen/_5sdp"
-                        android:textAppearance="@style/TextViewCustomFont_bold"
-                        android:textColor="@color/Black"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:textSize="@dimen/_14sdp" />
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="987-654-3210"
-                        android:gravity="center_vertical"
-                        android:padding="@dimen/_5sdp"
-                        android:textColor="@color/light_black"
-                        android:textSize="@dimen/_12sdp" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_margin="@dimen/_15sdp"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardBackgroundColor="@color/White">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:padding="@dimen/_5sdp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email Us"
-                        android:layout_gravity="center_vertical"
-                        android:drawableStart="@drawable/ic_email"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:padding="@dimen/_5sdp"
-                        android:textAppearance="@style/TextViewCustomFont_bold"
-                        android:textColor="@color/Black"
-                        android:drawablePadding="@dimen/_5sdp"
-                        android:textSize="@dimen/_14sdp" />
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="customercare@fmhealthcare.com"
-                        android:gravity="center_vertical"
-                        android:padding="@dimen/_5sdp"
-                        android:textColor="@color/light_black"
-                        android:textSize="@dimen/_12sdp" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </LinearLayout>
-
-</ScrollView>
+                android:layout_height="match_parent"
+                load_allLead="@{adapter}"
+                tools:listitem="@layout/contact_us_adapter"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"/>
     </FrameLayout>
 </layout>

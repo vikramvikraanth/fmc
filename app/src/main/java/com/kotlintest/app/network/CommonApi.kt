@@ -1013,6 +1013,42 @@ fun ECardApiCall(
             })
         )
     }
+    fun getContactusListApi(
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobContactus xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>EN</LanguageId>\n" +
+                "        </MobContactus>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getContactusListApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobContactusResponse").optString("MobContactusResult")
+                val itemList = gson.fromJson(data.toString(), ContactUsModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
 
 
 }
