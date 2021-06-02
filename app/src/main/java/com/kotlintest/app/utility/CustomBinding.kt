@@ -10,6 +10,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.button.MaterialButton
 import com.kotlintest.app.R
@@ -17,6 +18,7 @@ import com.kotlintest.app.utility.RecycleView.GridItemSpacingDecoration
 import com.kotlintest.app.view.adapter.*
 import com.nekoloop.base64image.Base64Image
 import com.nekoloop.base64image.RequestDecode.Decode
+import java.io.File
 import java.util.*
 
 
@@ -50,6 +52,13 @@ object CustomBinding {
                 (Objects.requireNonNull<RecyclerView.ItemAnimator>(recyclerView.getItemAnimator()) as SimpleItemAnimator).supportsChangeAnimations =
                     false
                 recyclerView.addItemDecoration(GridItemSpacingDecoration(2, gridSpacing, false))
+                recyclerView.adapter = adapter as RecyclerView.Adapter<*>?
+            }
+
+         is ImagePickerAdapter -> {
+                (Objects.requireNonNull<RecyclerView.ItemAnimator>(recyclerView.getItemAnimator()) as SimpleItemAnimator).supportsChangeAnimations =
+                    false
+                recyclerView.addItemDecoration(GridItemSpacingDecoration(3, gridSpacing, false))
                 recyclerView.adapter = adapter as RecyclerView.Adapter<*>?
             }
 
@@ -110,22 +119,32 @@ object CustomBinding {
         try {
             if (imagePath != null) {
                if(imagePath is String){
-                   Base64Image.with(Images.context)
-                       .decode(imagePath)
-                       .into(object : Decode {
-                           override fun onSuccess(bitmap: Bitmap) {
-                               GlideApp.with(Images.context)
-                                   .load(bitmap)
-                                   .into(Images)
-                               println("enter the image"+imagePath)
 
-                           }
-                           override fun onFailure() {
-                               println("enter the error image")
+                   val file = File(imagePath)
+                   if(file.exists()){
+                       GlideApp.with(Images.context)
+                           .load(imagePath)
+                           .diskCacheStrategy(DiskCacheStrategy.NONE)
+                           .skipMemoryCache(true)
+                           .into(Images)
+                   }else{
+                       Base64Image.with(Images.context)
+                           .decode(imagePath)
+                           .into(object : Decode {
+                               override fun onSuccess(bitmap: Bitmap) {
+                                   GlideApp.with(Images.context)
+                                       .load(bitmap)
+                                       .into(Images)
+                                   println("enter the image"+imagePath)
 
-                           }
-                       })
+                               }
+                               override fun onFailure() {
+                                   println("enter the error image")
 
+                               }
+                           })
+
+                   }
 
                }
             }

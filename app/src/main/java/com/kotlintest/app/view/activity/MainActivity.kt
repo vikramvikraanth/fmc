@@ -1,6 +1,5 @@
 package com.kotlintest.app.view.activity
 
-import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.kotlintest.app.R

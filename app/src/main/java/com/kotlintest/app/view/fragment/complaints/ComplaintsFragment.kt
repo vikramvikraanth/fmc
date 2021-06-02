@@ -71,6 +71,12 @@ class ComplaintsFragment : BaseFragment<FragmentComplaintsBinding>(),
         if(dpd!=null && dpd!!.isAdded){
             dpd!!.dismiss()
         }
+        val cal = Calendar.getInstance()
+        cal[Calendar.YEAR]
+        cal[Calendar.MONTH]
+        cal[Calendar.DAY_OF_MONTH]
+
+        dpd?.maxDate = cal
         dpd!!.show(fragmentManagers!!, "Datepickerdialog")
 
     }

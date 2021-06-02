@@ -113,9 +113,9 @@ val netModule = module {
             builder.addInterceptor(logging)
             builder.addInterceptor(interceptor)
             builder.retryOnConnectionFailure(true)
-            builder.writeTimeout(60, TimeUnit.SECONDS)
-            builder.connectTimeout(60, TimeUnit.SECONDS)
-            builder.readTimeout(60, TimeUnit.SECONDS).build()
+            builder.writeTimeout(60, TimeUnit.MINUTES)
+            builder.connectTimeout(60, TimeUnit.MINUTES)
+            builder.readTimeout(60, TimeUnit.MINUTES).build()
             builder.sslSocketFactory(
                 sslSocketFactory,
                 (trustAllCerts[0] as X509TrustManager)

@@ -16,7 +16,6 @@ import com.kotlintest.app.viewModel.LoginViewModel
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickListener,
@@ -41,20 +40,20 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
 
     override fun onClick(p0: View?) {
         when(p0?.id){
-            R.id.register_btn->{
-                setIntent(HomeActivity::class.java,0)
+            R.id.register_btn -> {
+                setIntent(HomeActivity::class.java, 0)
             }
-            R.id.login_lyt->{
+            R.id.login_lyt -> {
                 fragmentManagers?.popBackStackImmediate()
             }
-            R.id.date_edit->{
+            R.id.date_edit -> {
                 datePicker()
             }
-            R.id.gender_edit->{
+            R.id.gender_edit -> {
                 bottomSheet = GenderFragment(object : Commoninterface {
                     override fun onCallback(value: Any) {
                         loginViewModel.registerModel.gender = value as String
-                        binding.loginViewModel =loginViewModel
+                        binding.loginViewModel = loginViewModel
 
                     }
 
@@ -68,18 +67,20 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         when(response.status){
             Status.SUCCESS -> {
                 when (response.data) {
-                    is ArrayList<*> ->{
-                        when(response.data[0]){
-                            is LoginResponseModel ->{
-                                val data : ArrayList<LoginResponseModel> = response.data as ArrayList<LoginResponseModel>
+                    is ArrayList<*> -> {
+                        when (response.data[0]) {
+                            is LoginResponseModel -> {
+                                val data: ArrayList<LoginResponseModel> =
+                                    response.data as ArrayList<LoginResponseModel>
                                 data[0].apiResponse!!.details?.let { commonFunction.commonToast(it) }
-                                if(data.get(0).apiResponse!!.statusCode.equals("1")){
+                                if (data.get(0).apiResponse!!.statusCode.equals("1")) {
                                     data[0].userId?.let { sharedHelper.putInUser("user_id", it) }
                                     loginViewModel.getUserInfoApi()
                                 }
                             }
                             is UserInfoModel -> {
-                                val data : ArrayList<UserInfoModel> = response.data as ArrayList<UserInfoModel>
+                                val data: ArrayList<UserInfoModel> =
+                                    response.data as ArrayList<UserInfoModel>
                                 sharedHelper.putInUser("member_id", data[0].getMemberID())
 
                                 commonFunction.modelToGson(data.get(0))?.let {
@@ -88,8 +89,11 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
                                         it
                                     )
                                 }
-                                sharedHelper.putInUser("milsec",System.currentTimeMillis().toString())
-                                setIntent(HomeActivity::class.java,3)
+                                sharedHelper.putInUser(
+                                    "milsec",
+                                    System.currentTimeMillis().toString()
+                                )
+                                setIntent(HomeActivity::class.java, 3)
 
                             }
                         }
@@ -123,6 +127,12 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         if(dpd!=null && dpd!!.isAdded){
             dpd!!.dismiss()
         }
+        val cal = Calendar.getInstance()
+        cal[Calendar.YEAR]
+        cal[Calendar.MONTH]
+        cal[Calendar.DAY_OF_MONTH]
+
+        dpd?.maxDate = cal
         dpd!!.show(fragmentManagers!!, "Datepickerdialog")
 
     }

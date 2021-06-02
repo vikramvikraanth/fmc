@@ -49,6 +49,9 @@ class ReimbursementViewModel(var commonApi: CommonApi, var commonFunction: Commo
     fun getReimbursementListApi() {
         commonApi.getReimbursementListApi(response, disable)
     }
+    fun getReimbursementFormApi(model:ReimbursementformModel) {
+        commonApi.getReimbursementFormApi(model,response, disable)
+    }
 
     fun getCountryListApi(){
         commonApi.getCountryListApi(response,disable)

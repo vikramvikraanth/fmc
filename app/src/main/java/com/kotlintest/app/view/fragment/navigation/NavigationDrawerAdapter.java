@@ -85,7 +85,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
                 holder.divider.setVisibility(View.GONE);
                 break;
                 case 9:
-                holder.nav_img.setImageResource(R.drawable.ic_language);
+                holder.nav_img.setImageResource(R.drawable.ic_translate);
                     holder.divider.setVisibility(View.GONE);
                 break;
                 case 10:

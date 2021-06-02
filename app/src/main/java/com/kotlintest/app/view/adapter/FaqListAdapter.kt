@@ -28,11 +28,13 @@ class FaqListAdapter(val documentModel: ArrayList<Any>) : BaseAdapter<Any>(docum
                 val data = documentModel[position] as FaqModel.mobFAQ
                 binding.title = data.FAQuestion
                 binding.description = data.FAAnswer
+                binding.state = data.state
             }
             is HealthTipModel.MobHealthTip->{
                 val data = documentModel[position] as HealthTipModel.MobHealthTip
                 binding.title = data.HT_Heading
                 binding.description = data.HT_Description
+                binding.state = data.state
             }
         }
         binding.titleTxt.setOnClickListener {
@@ -40,14 +42,14 @@ class FaqListAdapter(val documentModel: ArrayList<Any>) : BaseAdapter<Any>(docum
                 is FaqModel.mobFAQ->{
                     val data = documentModel[holder.absoluteAdapterPosition] as FaqModel.mobFAQ
                     data.state = !data.state
-                    binding.state = data.state
-                    notifyItemChanged(holder.absoluteAdapterPosition)
+                  ///  binding.state = data.state
+                    notifyDataSetChanged()
                 }
                 is HealthTipModel.MobHealthTip->{
                     val data = documentModel[holder.absoluteAdapterPosition] as HealthTipModel.MobHealthTip
                     data.state = !data.state
-                    binding.state = data.state
-                    notifyItemChanged(holder.absoluteAdapterPosition)
+                //    binding.state = data.state
+                    notifyDataSetChanged()
                 }
             }
         }

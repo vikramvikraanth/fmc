@@ -67,6 +67,13 @@ class ReimbursementListFragment : BaseFragment<FragmentReimbursementListBinding>
         when(event.imagePath){
             "reimbursements" -> {
                 moveTOFragment(ReimbursementFragment(),R.id.reimbursement_containter)
+                EventBus.getDefault().removeStickyEvent(event)
+
+            }
+            "reimbuer_update"->{
+                listModel.clear()
+                reimbursementViewModel.getReimbursementListApi()
+                EventBus.getDefault().removeStickyEvent(event)
 
             }
 

@@ -243,7 +243,7 @@ fun ECardApiCall(
             })
         )
     }
-    fun preApprovalsApiCall(
+    fun preApprovalsApiCall(model: PreApprovalsModel,
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
     ) {
@@ -258,8 +258,8 @@ fun ECardApiCall(
                 "            <LanguageId>EN</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+ HomeActivity.memberid +"</MemberID>\n" +
-                "            <FromDate>01/01/2019</FromDate>\n" +
-                "            <ToDate>01/04/2021</ToDate>\n" +
+                "            <FromDate>"+model.start+"</FromDate>\n" +
+                "            <ToDate>"+model.end+"</ToDate>\n" +
                 "        </MobGetPreApprovalDetails>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -748,6 +748,50 @@ fun ECardApiCall(
                 val jondata = JSONObject(xmlToJson.toFormattedString())
                 val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitMedicalProviderSearchResponse").optString("MobSubmitMedicalProviderSearchResult")
                 val itemList = gson.fromJson(data.toString(), MedicalLocationModel::class.java)
+                response.value = Response.success(itemList)
+            }, {
+                response.value = Response.error(it)
+                response.value = Response.dismiss()
+
+            })
+        )
+    }
+    fun getReimbursementFormApi(model:ReimbursementformModel,
+        response: MutableLiveData<Response>,
+        disable: CompositeDisposable
+    ) {
+
+        val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
+                "    <Body>\n" +
+                "        <MobSubmitReimbursementClaim xmlns=\"http://tempuri.org/\">\n" +
+                "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
+                "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
+                "            <Deviceuuid>1</Deviceuuid>\n" +
+                "            <Devicepushid>1</Devicepushid>\n" +
+                "            <Deviceos>1</Deviceos>\n" +
+                "            <LanguageId>1</LanguageId>\n" +
+                "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
+                "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
+                "            <TreatmentCategoryID>"+model.categoryid+"</TreatmentCategoryID>\n" +
+                "            <CountryID>"+model.countryid+"</CountryID>\n" +
+                "            <CurrencyID>"+model.currencyid+"</CurrencyID>\n" +
+                "            <Amount>"+model.amount+"</Amount>\n" +
+                "            <ServicePeriod>"+model.serviceperiod+"</ServicePeriod>\n" +
+                "            <AttachedDocuments>"+model.listImage+"</AttachedDocuments>\n" +
+                "        </MobSubmitReimbursementClaim>\n" +
+                "    </Body>\n" +
+                "</Envelope>"
+        val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
+        disable.add(api.getProviderLocationListApi(requestBody)
+            .doOnSubscribe({ response.postValue(Response.loading()); })
+            .compose(schedulersFacade.applyAsync())
+            .doFinally { response.value = Response.dismiss() }
+            .subscribe({
+                val xmlToJson = XmlToJson.Builder(it.string()).build()
+                println("enter the xml response"+xmlToJson)
+                val jondata = JSONObject(xmlToJson.toFormattedString())
+                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitReimbursementClaimResponse").optString("MobSubmitReimbursementClaimResult")
+                val itemList = gson.fromJson(data.toString(), ReimbursementsModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)

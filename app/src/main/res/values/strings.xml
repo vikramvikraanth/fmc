@@ -27,8 +27,8 @@
     <string name="pre_approval">Pre-Approvals</string>
     <string name="reimbursement">Reimbursement</string>
     <string name="ecard">E-card</string>
-    <string name="compliants">Compliants</string>
-    <string name="faq">Faq</string>
+    <string name="compliants">Complaints</string>
+    <string name="faq">FAQ</string>
     <string name="about_us">About us</string>
     <string name="language">Language</string>
     <string name="health_tips">Health tips</string>
@@ -94,7 +94,7 @@
     <string name="home">Home</string>
     <string name="contact_us">Contact Us</string>
     <string name="providername">Provider Name</string>
-    <string name="data_of_visit">Data Of Visit</string>
+    <string name="data_of_visit">Date Of Visit</string>
     <string name="choose_your_language">Choose your Language</string>
 
     <string name="choose_your_of_file">Choose your of File</string>

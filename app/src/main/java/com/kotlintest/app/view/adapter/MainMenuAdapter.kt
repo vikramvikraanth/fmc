@@ -28,7 +28,7 @@ class MainMenuAdapter(val documentModel: ArrayList<String>,val commoninterface: 
         when(position){
             0->{
                 binding.imageMenu.setImageResource(R.drawable.ic_family)
-                binding.description = "3 Features"
+                binding.description = ""
             }
             1->{
                 binding.imageMenu.setImageResource(R.drawable.ic_benifits)
@@ -68,7 +68,7 @@ class MainMenuAdapter(val documentModel: ArrayList<String>,val commoninterface: 
 
             }
             9->{
-                binding.imageMenu.setImageResource(R.drawable.ic_language)
+                binding.imageMenu.setImageResource(R.drawable.ic_translate)
                 binding.description = ""
 
             }

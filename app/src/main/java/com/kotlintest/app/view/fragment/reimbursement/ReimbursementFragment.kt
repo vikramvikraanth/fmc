@@ -11,11 +11,9 @@ import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseFragment
 import com.kotlintest.app.databinding.FragmentReimbursementBinding
 import com.kotlintest.app.model.eventBus.ImagePathEvent
+import com.kotlintest.app.model.eventBus.NavigateEvent
 import com.kotlintest.app.model.localModel.ReimbursementformModel
-import com.kotlintest.app.model.responseModel.CountryListModel
-import com.kotlintest.app.model.responseModel.CurrencyModel
-import com.kotlintest.app.model.responseModel.ReimbursementTypeListModel
-import com.kotlintest.app.model.responseModel.TreatCategoryListModel
+import com.kotlintest.app.model.responseModel.*
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.utility.`interface`.Commoninterface
 import com.kotlintest.app.view.adapter.SelectionDocumentListAdapter
@@ -139,6 +137,13 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                     is ReimbursementTypeListModel->{
                         listReimbursementtype.addAll(response.data.ReimbursementFileType)
                     }
+                    is ReimbursementsModel ->{
+                        commonFunction.commonToast(response.data.ApiResponse.Details)
+                        if(response.data.ApiResponse.StatusCode.equals("1")){
+                            event.post(NavigateEvent("reimbuer_update"))
+                            fragmentManagers?.popBackStackImmediate()
+                        }
+                    }
 
                 }
             }
@@ -223,6 +228,12 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
         if(dpd!=null && dpd!!.isAdded){
             dpd!!.dismiss()
         }
+        val cal = Calendar.getInstance()
+        cal[Calendar.YEAR]
+        cal[Calendar.MONTH]
+        cal[Calendar.DAY_OF_MONTH]
+
+        dpd?.maxDate = cal
         dpd!!.show(fragmentManagers!!, "Datepickerdialog")
 
     }
@@ -289,12 +300,12 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                 .subscribe(
                     { file: File? ->
                         if(reimbursementViewModel.reimbursementformModel.listImage.isEmpty()){
-                            reimbursementViewModel.reimbursementformModel.listImage.add(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(file.toString()),file.toString(),commonFunction.getMimeType(file.toString())))
+                            reimbursementViewModel.reimbursementformModel.listImage.add(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(file.toString()),file!!.name,commonFunction.getMimeType(file.toString())))
                         reimbursementViewModel.onUsernameTextChanged(reimbursementViewModel.reimbursementformModel)
                             selectionDocumentListAdapter?.notifyDataSetChanged()
                         }
                         else{
-                            checkList(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(file.toString()),file.toString(),commonFunction.getMimeType(file.toString())))
+                            checkList(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(file.toString()),file!!.name,commonFunction.getMimeType(file.toString())))
                         }
 
                     }
@@ -329,7 +340,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                     dataType.FileTypeShortName,
                     dataType.FileTypeID,
                     commonFunction.base64Convert(event.imagePath as String),
-                    event.imagePath as String,
+                    File(event.imagePath as String).name,
                     commonFunction.getMimeType(event.imagePath as String)
                 )
             )
@@ -337,7 +348,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
             selectionDocumentListAdapter?.notifyDataSetChanged()
 
         }  else{
-            checkList(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(event.imagePath as String),event.imagePath as String,commonFunction.getMimeType(event.imagePath as String)))
+            checkList(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(event.imagePath as String),File(event.imagePath as String).name,commonFunction.getMimeType(event.imagePath as String)))
         }
         EventBus.getDefault().removeStickyEvent(event)
 

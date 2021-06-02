@@ -1,6 +1,7 @@
 package com.kotlintest.app.appControl
 
 import android.app.Application
+import android.os.StrictMode
 import android.util.Log
 import com.kotlintest.app.BuildConfig
 import com.kotlintest.app.R
@@ -47,6 +48,9 @@ class AppController : Application() {
             androidLogger(Level.DEBUG)
             modules(listOf( repositoryModule, netModule, apiModule, viewModelModule))
         }
+        val builder = StrictMode.VmPolicy.Builder()
+        StrictMode.setVmPolicy(builder.build())
+
     }
 
 

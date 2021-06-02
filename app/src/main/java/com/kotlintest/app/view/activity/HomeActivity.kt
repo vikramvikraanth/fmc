@@ -270,7 +270,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                         binding.title = getString(R.string.reimbursement)
 
                     }
-                    "Compliant" -> {
+                    "Complaints" -> {
                         binding.title = getString(R.string.compliant)
                         binding.isvisible = false
                         event.post(NavigateEvent("complaints"))

@@ -109,6 +109,10 @@ interface ApiInterface {
     @POST("MobileApi.svc/")
     fun getContactusListApi(@Body body: RequestBody): Observable<ResponseBody>
 
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitReimbursementClaim")
+    @POST("MobileApi.svc/")
+    fun getReimbursementFormApi(@Body body: RequestBody): Observable<ResponseBody>
+
     @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobSubmitLogOut")
     @POST("MobileApi.svc/")
     fun getLogoutApi(@Body body: RequestBody): Observable<ResponseBody>

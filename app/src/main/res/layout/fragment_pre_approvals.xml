@@ -11,6 +11,9 @@
         <variable
                 name="isvisible"
                 type="Boolean" />
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
     </data>
 
     <FrameLayout
@@ -20,25 +23,75 @@
             android:clickable="true"
             android:focusable="true"
             tools:context=".view.fragment.PreApprovalsFragment">
-        <androidx.recyclerview.widget.RecyclerView
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                load_allLead="@{adapter}"
-                tools:listitem="@layout/preapproval_adapter"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_height="match_parent"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_gravity="center"
-                android:visibility="@{isvisible?View.VISIBLE:View.GONE,default=gone}"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:text="No Data"
-                android:textAppearance="@style/TextViewCustomFont_medium"
-                android:textColor="@color/light_black"
-                android:textSize="@dimen/_14sdp" />
+                android:layout_height="match_parent">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/date_picker_layout"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@drawable/ic_square_box"
+                        android:elevation="@dimen/_5sdp"
+                        android:focusable="false"
+                        android:layout_weight="1"
+                        android:onClick="@{click::onClick}"
+                        android:id="@+id/start_edt"
+                        android:focusableInTouchMode="false"
+                        android:hint="Start Date"
+                        android:padding="@dimen/_10sdp"
+                        android:shadowColor="@color/shadow_color"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/Gainsboro"
+                        android:textSize="@dimen/_12sdp" />
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_square_box"
+                        android:elevation="@dimen/_5sdp"
+                        android:focusable="false"
+                        android:layout_weight="1"
+                        android:id="@+id/end_edt"
+                        android:onClick="@{click::onClick}"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:focusableInTouchMode="false"
+                        android:hint="End Date"
+                        android:padding="@dimen/_10sdp"
+                        android:shadowColor="@color/shadow_color"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/Gainsboro"
+                        android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    load_allLead="@{adapter}"
+                    android:layout_below="@+id/date_picker_layout"
+                    tools:listitem="@layout/preapproval_adapter"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_height="match_parent"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:visibility="@{isvisible?View.VISIBLE:View.GONE,default=gone}"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:text="No Data"
+                    android:layout_centerInParent="true"
+                    android:textAppearance="@style/TextViewCustomFont_medium"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_14sdp" />
+
+        </RelativeLayout>
 
     </FrameLayout>
 </layout>
