@@ -42,7 +42,7 @@ object CustomBinding {
         when (adapter) {
 
             is BenifitAdapter, is BenifitstepAdapter, is PreAppovalsAdapter,is LocationListAdapter,is SelectionListAdapter,
-            is ReimbursementAdapter , is ComplaintsListAdapter, is FaqListAdapter, is EcardAdapter, is ContactUsAdapter-> {
+            is ReimbursementAdapter , is ComplaintsListAdapter, is FaqListAdapter, is EcardAdapter, is ContactUsAdapter, is SelectionDocumentListAdapter-> {
                 recyclerView.adapter = adapter as RecyclerView.Adapter<*>?
 
             }

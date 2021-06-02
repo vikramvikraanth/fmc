@@ -25,7 +25,7 @@ import timber.log.Timber
 import java.io.File
 import java.io.IOException
 
-class FileSelectBottomSheet(var isSelection : Boolean = false) : BaseBottomSheetFragment<FragmentFileSelectBottomSheetBinding>() {
+class FileSelectBottomSheet(var isimageType : String = "") : BaseBottomSheetFragment<FragmentFileSelectBottomSheetBinding>() {
 
 
     lateinit var adapter: ImagePickerAdapter
@@ -33,7 +33,6 @@ class FileSelectBottomSheet(var isSelection : Boolean = false) : BaseBottomSheet
     private val filePickerViewModel by viewModel<FilePickerViewModel>()
 
 
-    val REQUEST_IMAGE_CAPTURE = 1
 
     var listImage = ArrayList<String>()
 
@@ -65,44 +64,7 @@ class FileSelectBottomSheet(var isSelection : Boolean = false) : BaseBottomSheet
         }
     }
 
-    private fun CallCamera() {
 
-        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-
-        if (cameraIntent.resolveActivity(activity.packageManager) != null) {
-            // Create the File where the photo should go
-            var photoFile: File? = null
-            try {
-                photoFile = filePickerViewModel.createImageFile()
-            } catch (ex: IOException) {
-                println("enter the expection"+ex.message)
-                // Error occurred while creating the File
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile))
-                startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE)
-            }
-        }
-
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-            REQUEST_IMAGE_CAPTURE -> {
-                if (resultCode == Activity.RESULT_OK) {
-                    isFileCompression(File(filePickerViewModel.mCurrentPhotoPath.value!!))
-                }
-
-            }
-
-
-        }
-
-
-    }
 
 
     private fun isFileCompression(Uri : File){
@@ -124,7 +86,7 @@ class FileSelectBottomSheet(var isSelection : Boolean = false) : BaseBottomSheet
                     }
                 ) { throwable: Throwable ->
                     throwable.printStackTrace()
-                    commonFunction.commonToast("Invalid image format")
+                    commonFunction.run { commonToast(getString(R.string.invalid_image_format)) }
 
                 }
         )
@@ -137,12 +99,10 @@ class FileSelectBottomSheet(var isSelection : Boolean = false) : BaseBottomSheet
 
             override fun onCallback(value: Any) {
                 if (value is Int) {
-                    if (value == 0) {
-                        CallCamera()
-                    } else {
-                        if(!isSelection)
-                            isFileCompression(File(filePickerViewModel.medias.value!!.get(value - 1).path))
-                        else{
+
+                        /*if(!isSelection)*/
+                            isFileCompression(File(filePickerViewModel.medias.value!!.get(value).path))
+                       /* else{
                             if(filePickerViewModel.medias.value!!.get(value - 1).isSelection){
                                 listImage.add(filePickerViewModel.medias.value!!.get(value - 1).path)
                             }else{
@@ -155,9 +115,9 @@ class FileSelectBottomSheet(var isSelection : Boolean = false) : BaseBottomSheet
                             binding.selectTxt.visibility = View.VISIBLE
                             binding.selectTxt.setText("Selected Image "+listImage.size)
 
-                        }
+                        }*/
 
-                    }
+
                 }
             }
 

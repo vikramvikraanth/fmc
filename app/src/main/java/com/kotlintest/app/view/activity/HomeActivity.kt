@@ -73,7 +73,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         binding.datas = datasv
         nameTxt?.setText(datasv.getName())
         memberid =datasv!!.getMemberID()
-        //isCheckLogout()
+        isCheckLogout()
         // preparing navigation drawer items
         for (i in titles!!.indices) {
             datalist!!.add(titles!![i])
@@ -309,6 +309,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                             response.data as ArrayList<LoginResponseModel>
                         data[0].apiResponse!!.message?.let { commonFunction.commonToast(it) }
                         if (data.get(0).apiResponse!!.statusCode.equals("1")) {
+                            disposable.clear()
+                            commonFunction.dismissLoader()
                             setIntent(MainActivity::class.java, 3)
                             sharedHelper.clearUser()
                         }
@@ -580,11 +582,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 }
             }
             .subscribe { aLong ->
+                if(sharedHelper.getFromUser("milsec").isEmpty()){
+                    return@subscribe
+                }
                 val previous : Long = sharedHelper.getFromUser("milsec").toLong()
                 val amountTime: Long = System.currentTimeMillis() - previous
                 val min = ((amountTime/1000) / 60) % 60
                 println("enter the current time"+min)
-                if(min>2){
+                if(min>5){
                     loginViewModel.logoutApiCall()
                 }
 

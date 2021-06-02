@@ -18,6 +18,7 @@ import com.kotlintest.app.utility.SharedHelper
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.kotlintest.app.utility.GlideApp
+import com.tbruyelle.rxpermissions2.RxPermissions
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.android.inject
@@ -31,6 +32,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
     var childFragmentManage: FragmentManager? = null
     lateinit var views:View
     protected lateinit var binding: B
+    lateinit var rxPermission: RxPermissions
 
     val commonFunction : CommonFunction by inject()
     val sharedHelper : SharedHelper by inject()
@@ -45,6 +47,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        rxPermission= RxPermissions(this)
         disposable = CompositeDisposable()
         activity = getActivity()!!
         event = EventBus.getDefault()

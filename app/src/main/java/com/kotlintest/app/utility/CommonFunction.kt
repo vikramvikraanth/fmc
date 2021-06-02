@@ -4,18 +4,28 @@ import android.Manifest
 import android.app.Activity
 import android.app.Application
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.webkit.MimeTypeMap
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
 import com.kaopiz.kprogresshud.KProgressHUD
 import timber.log.Timber
+import java.io.ByteArrayOutputStream
+
 
 class CommonFunction  constructor(private val application: Application) {
 
-    val STORAGEPermission = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+    val STORAGEPermission = arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.CAMERA
+    )
 
 
     protected var loader : KProgressHUD? =null
@@ -39,13 +49,13 @@ class CommonFunction  constructor(private val application: Application) {
             Timber.e(e)
         }
     }
-    fun setTextView(value: String,view: View) {
+    fun setTextView(value: String, view: View) {
         try {
             when(view){
-                is EditText ->{
+                is EditText -> {
                     view.setText(value)
                 }
-                is TextView ->{
+                is TextView -> {
                     view.setText(value)
                 }
             }
@@ -72,7 +82,7 @@ class CommonFunction  constructor(private val application: Application) {
     }
 
 
-    fun visibleState(view: View, isvisible :Boolean){
+    fun visibleState(view: View, isvisible: Boolean){
         if(isvisible){
             if(view.visibility == View.GONE){
                 view.visibility = View.VISIBLE
@@ -116,5 +126,25 @@ class CommonFunction  constructor(private val application: Application) {
         val gson = Gson()
         return gson.fromJson(value, cObjection)
 
+    }
+
+    fun base64Convert(path: String):String{
+        val bm = BitmapFactory.decodeFile(path)
+        val baos = ByteArrayOutputStream()
+        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos) //bm is the bitmap object
+        val b: ByteArray = baos.toByteArray()
+        return  Base64.encodeToString(b, Base64.DEFAULT)
+    }
+
+    fun getMimeType(url: String): String {
+        var type: String? = ""
+        val extension = MimeTypeMap.getFileExtensionFromUrl(url.replace(" ", "%20"))
+        if (extension != null) {
+            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
+        }
+        if (type == null) {
+            return "jpg"
+        }
+        return type
     }
 }

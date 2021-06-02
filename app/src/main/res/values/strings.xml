@@ -82,12 +82,12 @@
     <string name="or">Or</string>
     <string name="submit">Submit</string>
     <string name="status">Status</string>
-    <string name="compliant_type">Compliant Type</string>
-    <string name="select_compliant_type">Select Compliant Type</string>
+    <string name="compliant_type">Complaint Type</string>
+    <string name="select_compliant_type">Select Complaint Type</string>
     <string name="subject">Subject</string>
     <string name="enter_your_subject">Enter your subject</string>
-    <string name="compliant">Compliant</string>
-    <string name="enter_you_compliant">Enter you compliant</string>
+    <string name="compliant">Complaints</string>
+    <string name="enter_you_compliant">Enter you Complaint</string>
     <string name="complaint_type">Complaint Type</string>
     <string name="reference_number">Reference Number</string>
     <string name="view">View</string>
@@ -99,4 +99,5 @@
 
     <string name="choose_your_of_file">Choose your of File</string>
     <string name="no_file_found">No file Found</string>
+    <string name="invalid_image_format">Invalid image format</string>
 </resources>

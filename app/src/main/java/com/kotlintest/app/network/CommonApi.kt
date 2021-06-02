@@ -1004,7 +1004,7 @@ fun ECardApiCall(
                 println("enter the xml response"+xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
                 val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobReimbursementDocumentFileTypeResponse").optString("MobReimbursementDocumentFileTypeResult")
-                val itemList = gson.fromJson(data.toString(), TreatCategoryListModel::class.java)
+                val itemList = gson.fromJson(data.toString(), ReimbursementTypeListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)

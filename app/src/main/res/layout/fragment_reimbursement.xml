@@ -10,6 +10,9 @@
         <variable
                 name="viewModel"
                 type="com.kotlintest.app.viewModel.ReimbursementViewModel" />
+        <variable
+                name="adapter"
+                type="com.kotlintest.app.view.adapter.SelectionDocumentListAdapter" />
     </data>
 
     <FrameLayout
@@ -52,6 +55,7 @@
                         android:drawableEnd="@drawable/ic_drop"
                         android:elevation="@dimen/_5sdp"
                         android:onClick="@{click::onClick}"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
                         android:text="@={viewModel.reimbursementformModel.category}"
                         android:id="@+id/category_edt"
                         android:focusable="false"
@@ -84,6 +88,7 @@
                         android:cursorVisible="false"
                         android:drawableEnd="@drawable/ic_drop"
                         android:elevation="@dimen/_5sdp"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
                         android:onClick="@{click::onClick}"
                         android:text="@={viewModel.reimbursementformModel.country}"
                         android:id="@+id/country_edt"
@@ -117,6 +122,7 @@
                         android:background="@drawable/ic_square_box"
                         android:cursorVisible="false"
                         android:text="@={viewModel.reimbursementformModel.currency}"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
                         android:drawableEnd="@drawable/ic_drop"
                         android:elevation="@dimen/_5sdp"
                         android:onClick="@{click::onClick}"
@@ -149,6 +155,7 @@
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:background="@drawable/ic_square_box"
                         android:elevation="@dimen/_5sdp"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
                         android:hint="@string/enter_amount"
                         android:imeOptions="actionDone"
                         android:text="@={viewModel.reimbursementformModel.amount}"
@@ -210,6 +217,7 @@
                         android:id="@+id/date_edit"
                         android:elevation="@dimen/_5sdp"
                         android:focusable="false"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
                         android:focusableInTouchMode="false"
                         android:onClick="@{click::onClick}"
                         android:text="@={viewModel.reimbursementformModel.serviceperiod}"
@@ -271,6 +279,8 @@
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_10sdp"
                             android:text="@string/browse"
+                            android:onClick="@{click::onClick}"
+                            android:id="@+id/browse_btn"
                             android:textAllCaps="false"
                             android:textColor="@color/Black"
                             vikram:backgroundTint="@color/White" />
@@ -294,10 +304,19 @@
                     <ImageView
                             android:layout_width="@dimen/_40sdp"
                             android:layout_height="@dimen/_40sdp"
+                            android:id="@+id/camera_btn"
+                            android:onClick="@{click::onClick}"
                             android:src="@drawable/ic_camera" />
 
 
                 </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        vikram:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        load_allLead="@{adapter}"
+                        android:layout_height="wrap_content"/>
 
                 <LinearLayout
                         android:layout_width="match_parent"

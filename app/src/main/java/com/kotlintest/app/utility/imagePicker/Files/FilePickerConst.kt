@@ -42,6 +42,6 @@ object FilePickerConst {
 	const val TXT = "TXT"
 	
 	enum class FILE_TYPE {
-		PDF, WORD, EXCEL, PPT, TXT, UNKNOWN
+		PDF
 	}
 }

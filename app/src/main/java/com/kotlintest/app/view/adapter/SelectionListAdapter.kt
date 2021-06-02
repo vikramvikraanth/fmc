@@ -53,6 +53,10 @@ class SelectionListAdapter(val documentModel: ArrayList<Any>,var commoninterface
                 val countryResponse : FamilyListModel.familyDetailsResponse = documentModel[position] as FamilyListModel.familyDetailsResponse
                 binding.title  =countryResponse.Name
             }
+            is ReimbursementTypeListModel.reimbursementFileType->{
+                val countryResponse : ReimbursementTypeListModel.reimbursementFileType = documentModel[position] as ReimbursementTypeListModel.reimbursementFileType
+                binding.title  =countryResponse.FileTypeShortName
+            }
         }
 
         holder.itemView.setOnClickListener {

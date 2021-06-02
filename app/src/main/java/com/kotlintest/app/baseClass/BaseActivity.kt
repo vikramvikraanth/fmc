@@ -61,6 +61,8 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
         if (disposable.isDisposed) {
             disposable.clear()
         }
+        commonFunction.dismissLoader()
+
     }
 
     fun showToast(message: String) {

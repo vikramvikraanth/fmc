@@ -22,9 +22,7 @@ class FilePickerViewModel constructor(var application: Application) : BaseViewMo
 
     var medias = MutableLiveData(ArrayList<Media>())
 
-    var mCurrentPhotoPath = MutableLiveData<String>()
-    @SuppressLint("SimpleDateFormat")
-    var destinationFileName: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())+".png"
+
 
     init {
         medias.value = ArrayList()
@@ -55,27 +53,6 @@ class FilePickerViewModel constructor(var application: Application) : BaseViewMo
         }
     }
 
-    fun createImageFile(): File {
-        // Create an image file name
-        @SuppressLint("SimpleDateFormat")
-        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val imageFileName: String
-        val image: File
-        val storageDir = Environment.getExternalStoragePublicDirectory(
-            Environment.DIRECTORY_PICTURES
-        )
-        imageFileName = "JPEG_" + timeStamp + "_"
-        storageDir.mkdirs(); // make sure you call mkdirs() and not mkdir()
-        image = File.createTempFile(
-            imageFileName, // prefix
-            ".jpg", // suffix
-            storageDir      // directory
-        )
-        // Save a file: path for use with ACTION_VIEW intents
-        // mCurrentPhotoPath = "file:" + image.absolutePath
-        mCurrentPhotoPath.value = /*"file:" +*/ image.absolutePath
-        return image
-    }
 
 
 }
