@@ -14,6 +14,7 @@ import fr.arnaudguyon.xmltojsonlib.XmlToJson
 import io.reactivex.disposables.CompositeDisposable
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
+import org.json.JSONArray
 import org.json.JSONObject
 
 
@@ -98,9 +99,12 @@ class CommonApi constructor(
             .subscribe({
 
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitForgotPasswordResponse").optString("MobSubmitForgotPasswordResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobSubmitForgotPasswordResponse"
+                    ).optString("MobSubmitForgotPasswordResult")
                 val itemType = object : TypeToken<ArrayList<LoginResponseModel>>() {}.type
                 val itemList = gson.fromJson<ArrayList<LoginResponseModel>>(
                     data,
@@ -139,11 +143,17 @@ class CommonApi constructor(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitLogOutResponse").optString("MobSubmitLogOutResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobSubmitLogOutResponse"
+                    ).optString("MobSubmitLogOutResult")
                 val itemType = object : TypeToken<ArrayList<LoginResponseModel>>() {}.type
-                val itemList = gson.fromJson<ArrayList<LoginResponseModel>>(data.toString(), itemType)
+                val itemList = gson.fromJson<ArrayList<LoginResponseModel>>(
+                    data.toString(),
+                    itemType
+                )
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -192,11 +202,17 @@ class CommonApi constructor(
             .subscribe({
 
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobUserRegistrationResponse").optString("MobUserRegistrationResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobUserRegistrationResponse"
+                    ).optString("MobUserRegistrationResult")
                 val itemType = object : TypeToken<ArrayList<LoginResponseModel>>() {}.type
-                 val itemList = gson.fromJson<ArrayList<LoginResponseModel>>(data.toString(), itemType)
+                val itemList = gson.fromJson<ArrayList<LoginResponseModel>>(
+                    data.toString(),
+                    itemType
+                )
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -206,9 +222,9 @@ class CommonApi constructor(
         )
     }
 fun ECardApiCall(
-        response: MutableLiveData<Response>,
-        disable: CompositeDisposable
-    ) {
+    response: MutableLiveData<Response>,
+    disable: CompositeDisposable
+) {
         val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
                 "    <Body>\n" +
                 "        <MobGetFMCECard xmlns=\"http://tempuri.org/\">\n" +
@@ -231,10 +247,13 @@ fun ECardApiCall(
             .subscribe({
 
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetFMCECardResponse").optString("MobGetFMCECardResult")
-                 val itemList = gson.fromJson(data.toString(), EcardModel::class.java)
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetFMCECardResponse"
+                    ).optString("MobGetFMCECardResult")
+                val itemList = gson.fromJson(data.toString(), EcardModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -243,7 +262,8 @@ fun ECardApiCall(
             })
         )
     }
-    fun preApprovalsApiCall(model: PreApprovalsModel,
+    fun preApprovalsApiCall(
+        model: PreApprovalsModel,
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
     ) {
@@ -270,10 +290,13 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetPreApprovalDetailsResponse").optString("MobGetPreApprovalDetailsResult")
-                 val itemList = gson.fromJson(data.toString(), PreApprovalModel::class.java)
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetPreApprovalDetailsResponse"
+                    ).optString("MobGetPreApprovalDetailsResult")
+                val itemList = gson.fromJson(data.toString(), PreApprovalModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -307,10 +330,13 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetFamilyDetailsResponse").optString("MobGetFamilyDetailsResult")
-                 val itemList = gson.fromJson(data.toString(), FamilyListModel::class.java)
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetFamilyDetailsResponse"
+                    ).optString("MobGetFamilyDetailsResult")
+                val itemList = gson.fromJson(data.toString(), FamilyListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -344,9 +370,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetBenefitDetailsResponse").optString("MobGetBenefitDetailsResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetBenefitDetailsResponse"
+                    ).optString("MobGetBenefitDetailsResult")
                 val itemType = object : TypeToken<ArrayList<BenefitiesModel>>() {}.type
                 val itemList = gson.fromJson<ArrayList<BenefitiesModel>>(
                     data,
@@ -383,9 +412,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetUserInfoResponse").optString("MobGetUserInfoResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetUserInfoResponse"
+                    ).optString("MobGetUserInfoResult")
                 val itemType = object : TypeToken<ArrayList<UserInfoModel>>() {}.type
                 val itemList = gson.fromJson<ArrayList<UserInfoModel>>(
                     data,
@@ -423,9 +455,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetComplaintTypeListResponse").optString("MobGetComplaintTypeListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetComplaintTypeListResponse"
+                    ).optString("MobGetComplaintTypeListResult")
                 val itemType = object : TypeToken<ArrayList<ComplaintTypeListModel>>() {}.type
                 val itemList = gson.fromJson<ArrayList<ComplaintTypeListModel>>(
                     data,
@@ -464,9 +499,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetComplaintListResponse").optString("MobGetComplaintListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetComplaintListResponse"
+                    ).optString("MobGetComplaintListResult")
                 val itemType = object : TypeToken<ArrayList<ComplaintListModel>>() {}.type
                 val itemList = gson.fromJson<ArrayList<ComplaintListModel>>(
                     data,
@@ -480,12 +518,16 @@ fun ECardApiCall(
             })
         )
     }
-    fun getComplainAddApi(complaintModel: ComplaintModel,
+    fun getComplainAddApi(
+        complaintModel: ComplaintModel,
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
     ) {
 
-      val data : UserInfoModel  =  gson.fromJson(sharedHelper.getFromUser("user_info"), UserInfoModel::class.java)
+      val data : UserInfoModel  =  gson.fromJson(
+          sharedHelper.getFromUser("user_info"),
+          UserInfoModel::class.java
+      )
         val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
                 "    <Body>\n" +
                 "        <MobSubmitMemberComplaint xmlns=\"http://tempuri.org/\">\n" +
@@ -513,9 +555,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitMemberComplaintResponse").optString("MobSubmitMemberComplaintResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobSubmitMemberComplaintResponse"
+                    ).optString("MobSubmitMemberComplaintResult")
                 val itemList = gson.fromJson(data.toString(), ComplaintResponseModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -550,9 +595,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetCountryListResponse").optString("MobGetCountryListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetCountryListResponse"
+                    ).optString("MobGetCountryListResult")
                 val itemList = gson.fromJson(data.toString(), CountryListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -562,7 +610,8 @@ fun ECardApiCall(
             })
         )
     }
-    fun getStateListApi( id :String,
+    fun getStateListApi(
+        id: String,
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
     ) {
@@ -588,9 +637,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetStateListResponse").optString("MobGetStateListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetStateListResponse"
+                    ).optString("MobGetStateListResult")
                 val itemList = gson.fromJson(data.toString(), StateListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -600,7 +652,8 @@ fun ECardApiCall(
             })
         )
     }
-    fun getCityListApi(id :String,
+    fun getCityListApi(
+        id: String,
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
     ) {
@@ -626,9 +679,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetCityListResponse").optString("MobGetCityListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetCityListResponse"
+                    ).optString("MobGetCityListResult")
                 val itemList = gson.fromJson(data.toString(), CityListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -663,9 +719,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetProviderTypeListResponse").optString("MobGetProviderTypeListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetProviderTypeListResponse"
+                    ).optString("MobGetProviderTypeListResult")
                 val itemList = gson.fromJson(data.toString(), ProviderListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -700,9 +759,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetSpecialityListResponse").optString("MobGetSpecialityListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetSpecialityListResponse"
+                    ).optString("MobGetSpecialityListResult")
                 val itemList = gson.fromJson(data.toString(), SpecialListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -712,7 +774,8 @@ fun ECardApiCall(
             })
         )
     }
-    fun getProviderLocationListApi(model:MedicalFormModel,
+    fun getProviderLocationListApi(
+        model: MedicalFormModel,
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
     ) {
@@ -744,9 +807,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitMedicalProviderSearchResponse").optString("MobSubmitMedicalProviderSearchResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobSubmitMedicalProviderSearchResponse"
+                    ).optString("MobSubmitMedicalProviderSearchResult")
                 val itemList = gson.fromJson(data.toString(), MedicalLocationModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -756,10 +822,14 @@ fun ECardApiCall(
             })
         )
     }
-    fun getReimbursementFormApi(model:ReimbursementformModel,
+    fun getReimbursementFormApi(
+        model: ReimbursementformModel,
         response: MutableLiveData<Response>,
         disable: CompositeDisposable
     ) {
+
+        val json = gson.toJson(model.listImage)
+        var jsonArray = JSONArray(json)
 
         val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
                 "    <Body>\n" +
@@ -777,20 +847,23 @@ fun ECardApiCall(
                 "            <CurrencyID>"+model.currencyid+"</CurrencyID>\n" +
                 "            <Amount>"+model.amount+"</Amount>\n" +
                 "            <ServicePeriod>"+model.serviceperiod+"</ServicePeriod>\n" +
-                "            <AttachedDocuments>"+model.listImage+"</AttachedDocuments>\n" +
+                "            <AttachedDocuments>"+jsonArray+"</AttachedDocuments>\n" +
                 "        </MobSubmitReimbursementClaim>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
         val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
-        disable.add(api.getProviderLocationListApi(requestBody)
+        disable.add(api.getReimbursementFormApi(requestBody)
             .doOnSubscribe({ response.postValue(Response.loading()); })
             .compose(schedulersFacade.applyAsync())
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobSubmitReimbursementClaimResponse").optString("MobSubmitReimbursementClaimResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobSubmitReimbursementClaimResponse"
+                    ).optString("MobSubmitReimbursementClaimResult")
                 val itemList = gson.fromJson(data.toString(), ReimbursementsModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -824,9 +897,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobHealthTipsResponse").optString("MobHealthTipsResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobHealthTipsResponse"
+                    ).optString("MobHealthTipsResult")
                 val itemList = gson.fromJson(data.toString(), HealthTipModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -861,9 +937,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobFAQResponse").optString("MobFAQResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobFAQResponse"
+                    ).optString("MobFAQResult")
                 val itemList = gson.fromJson(data.toString(), FaqModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -897,9 +976,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobAboutUsResponse").optString("MobAboutUsResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobAboutUsResponse"
+                    ).optString("MobAboutUsResult")
                 val itemList = gson.fromJson(data.toString(), AboutModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -935,9 +1017,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetReimbursementClaimListResponse").optString("MobGetReimbursementClaimListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetReimbursementClaimListResponse"
+                    ).optString("MobGetReimbursementClaimListResult")
                 val itemList = gson.fromJson(data.toString(), ReimbursementListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -972,10 +1057,13 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetCurrencyListResponse").optString("MobGetCurrencyListResult")
-                val itemList = gson.fromJson(data.toString(),CurrencyModel::class.java)
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetCurrencyListResponse"
+                    ).optString("MobGetCurrencyListResult")
+                val itemList = gson.fromJson(data.toString(), CurrencyModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -1009,9 +1097,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobGetTreatCategoryListResponse").optString("MobGetTreatCategoryListResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobGetTreatCategoryListResponse"
+                    ).optString("MobGetTreatCategoryListResult")
                 val itemList = gson.fromJson(data.toString(), TreatCategoryListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
@@ -1045,10 +1136,16 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobReimbursementDocumentFileTypeResponse").optString("MobReimbursementDocumentFileTypeResult")
-                val itemList = gson.fromJson(data.toString(), ReimbursementTypeListModel::class.java)
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobReimbursementDocumentFileTypeResponse"
+                    ).optString("MobReimbursementDocumentFileTypeResult")
+                val itemList = gson.fromJson(
+                    data.toString(),
+                    ReimbursementTypeListModel::class.java
+                )
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -1081,9 +1178,12 @@ fun ECardApiCall(
             .doFinally { response.value = Response.dismiss() }
             .subscribe({
                 val xmlToJson = XmlToJson.Builder(it.string()).build()
-                println("enter the xml response"+xmlToJson)
+                println("enter the xml response" + xmlToJson)
                 val jondata = JSONObject(xmlToJson.toFormattedString())
-                val data =jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject("MobContactusResponse").optString("MobContactusResult")
+                val data =
+                    jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
+                        "MobContactusResponse"
+                    ).optString("MobContactusResult")
                 val itemList = gson.fromJson(data.toString(), ContactUsModel::class.java)
                 response.value = Response.success(itemList)
             }, {

@@ -240,7 +240,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
 
     override fun onDateSet(view: DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
         val datemonth= 1+monthOfYear
-        val date = "$dayOfMonth/$datemonth/$year"
+        val date = "$datemonth/$year"
         reimbursementViewModel.reimbursementformModel.serviceperiod = date
         binding.viewModel =reimbursementViewModel
 
