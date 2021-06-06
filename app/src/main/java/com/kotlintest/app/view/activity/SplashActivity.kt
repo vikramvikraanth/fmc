@@ -1,13 +1,10 @@
 package com.kotlintest.app.view.activity
 
-import android.app.Activity
-import android.os.Bundle
 import androidx.databinding.ViewDataBinding
 import com.app.washeruser.repository.Status
 import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseActivity.BaseActivity
 import com.kotlintest.app.databinding.ActivitySplashBinding
-import com.kotlintest.app.model.responseModel.LoginResponseModel
 import com.kotlintest.app.model.responseModel.UserInfoModel
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.viewModel.LoginViewModel
@@ -16,6 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 
@@ -25,10 +23,16 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
 
     protected fun callIntent(){
+        if(sharedHelper.getFromUser("lang").isEmpty()){
+            setLocale("en")
+            sharedHelper.putInUser("lang_type","EN")
+        }else{
+            setLocale(sharedHelper.getFromUser("lang"))
+        }
         if(sharedHelper.getFromUser("milsec").isEmpty()){
             sharedHelper.putInUser("milsec",System.currentTimeMillis().toString())
         }
-      sharedHelper.putInUser("user_id", "2754")
+     // sharedHelper.putInUser("user_id", "2754")
         if(sharedHelper.getFromUser("user_id").isEmpty()){
             setIntent(MainActivity::class.java,3)
         }else{
@@ -92,4 +96,5 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         }
 
     }
+
 }

@@ -17,6 +17,7 @@ import com.kotlintest.app.model.responseModel.*
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.utility.`interface`.Commoninterface
 import com.kotlintest.app.view.adapter.SelectionDocumentListAdapter
+import com.kotlintest.app.view.bottomsheetFragment.BrowseTypeFragment
 import com.kotlintest.app.view.bottomsheetFragment.FileSelectBottomSheet
 import com.kotlintest.app.view.bottomsheetFragment.SelectBottomSheetFragment
 import com.kotlintest.app.viewModel.ReimbursementViewModel
@@ -37,6 +38,8 @@ import kotlin.collections.ArrayList
 class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View.OnClickListener,
     DatePickerDialog.OnDateSetListener {
     val REQUEST_IMAGE_CAPTURE = 1
+    val PICK_FILE_PDF = 2
+    var type :String ="img"
 
     private var listCountry : ArrayList<CountryListModel.CountryResponse> = ArrayList()
     private var listcategory : ArrayList<TreatCategoryListModel.CategoryResponse> = ArrayList()
@@ -84,24 +87,30 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
         when(v?.id){
 
             R.id.category_edt->{
-                showSelectionSheet(listcategory as ArrayList<Any>,"Select Category")
+                showSelectionSheet(
+                    listcategory as ArrayList<Any>,
+                    getString(R.string.select_category)
+                )
             }
             R.id.country_edt->{
                 if(reimbursementViewModel.reimbursementformModel.category.isEmpty()){
-                    commonFunction.commonToast("Select your Category")
+                    commonFunction.commonToast(getString(R.string.select_your_category))
                     return
                 }
-                showSelectionSheet(listCountry as ArrayList<Any>,"Select Country")
+                showSelectionSheet(
+                    listCountry as ArrayList<Any>,
+                    getString(R.string.select_country)
+                )
 
 
             }
             R.id.currency_edt->{
 
                 if(reimbursementViewModel.reimbursementformModel.countryid.isEmpty()){
-                    commonFunction.commonToast("Select your Category")
+                    commonFunction.commonToast(getString(R.string.select_your_category))
                     return
                 }
-                showSelectionSheet(listcurrency as ArrayList<Any>,"Select Currency")
+                showSelectionSheet(listcurrency as ArrayList<Any>,getString(R.string.select_currency))
 
             }
             R.id.date_edit->{
@@ -109,11 +118,11 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
             }
             R.id.camera_btn->{
                 cameraornot = true
-                showSelectionSheet(listReimbursementtype as ArrayList<Any>,"Select Reimbursement Type")
+                showSelectionSheet(listReimbursementtype as ArrayList<Any>,getString(R.string.select_reimbursement_type))
             }
             R.id.browse_btn->{
                 cameraornot = false
-                showSelectionSheet(listReimbursementtype as ArrayList<Any>,"Select Reimbursement Type")
+                showSelectionSheet(listReimbursementtype as ArrayList<Any>,getString(R.string.select_reimbursement_type))
             }
         }
     }
@@ -202,8 +211,24 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                             if(bottomSheet!=null && bottomSheet!!.isAdded){
                                 bottomSheet?.dismiss()
                             }
-                            bottomSheet = FileSelectBottomSheet("")
-                            bottomSheet?.show(fragmentManagers!!,"enter image")
+                            bottomSheet = BrowseTypeFragment(object : Commoninterface{
+                                override fun onCallback(value: Any) {
+                                    when(value as String){
+                                        "image"->{
+                                            type ="img"
+                                            bottomSheet = FileSelectBottomSheet("image")
+                                            bottomSheet?.show(fragmentManagers!!,"enter image")
+                                        }
+                                        "pdf"->{
+                                            type="pdf"
+                                            bottomSheet = FileSelectBottomSheet("pdf")
+                                            bottomSheet?.show(fragmentManagers!!,"enter image")
+                                        }
+                                    }
+                                }
+
+                            })
+                            bottomSheet?.show(fragmentManagers!!,"enter type")
                         }
 
 
@@ -334,21 +359,38 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     fun onMessage(event: ImagePathEvent) {
-        if(reimbursementViewModel.reimbursementformModel.listImage.isEmpty()) {
-            reimbursementViewModel.reimbursementformModel.listImage.add(
-                ReimbursementformModel.ListImage(
-                    dataType.FileTypeShortName,
-                    dataType.FileTypeID,
-                    commonFunction.base64Convert(event.imagePath as String),
-                    File(event.imagePath as String).name,
-                    commonFunction.getMimeType(event.imagePath as String)
-                )
-            )
-            reimbursementViewModel.onUsernameTextChanged(reimbursementViewModel.reimbursementformModel)
-            selectionDocumentListAdapter?.notifyDataSetChanged()
 
-        }  else{
-            checkList(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(event.imagePath as String),File(event.imagePath as String).name,commonFunction.getMimeType(event.imagePath as String)))
+        if(type.equals("img")){
+            if(reimbursementViewModel.reimbursementformModel.listImage.isEmpty()) {
+                reimbursementViewModel.reimbursementformModel.listImage.add(
+                    ReimbursementformModel.ListImage(
+                        dataType.FileTypeShortName,
+                        dataType.FileTypeID,
+                        commonFunction.base64Convert(event.imagePath as String),
+                        File(event.imagePath as String).name,
+                        commonFunction.getMimeType(event.imagePath as String)
+                    )
+                )
+                reimbursementViewModel.onUsernameTextChanged(reimbursementViewModel.reimbursementformModel)
+                selectionDocumentListAdapter?.notifyDataSetChanged()
+
+            }  else{
+                checkList(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(event.imagePath as String),File(event.imagePath as String).name,commonFunction.getMimeType(event.imagePath as String)))
+            }
+
+        }else{
+            val file = File(event.imagePath as String)
+            val file_size = java.lang.String.valueOf(file.length() / 1024).toInt()
+            print("eneter the file size"+file_size)
+            if(reimbursementViewModel.reimbursementformModel.listImage.isEmpty()){
+                reimbursementViewModel.reimbursementformModel.listImage.add(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.encodeFileToBase64Binary(file,activity),file!!.name,commonFunction.getMimeType(file.toString())))
+                reimbursementViewModel.onUsernameTextChanged(reimbursementViewModel.reimbursementformModel)
+                selectionDocumentListAdapter?.notifyDataSetChanged()
+            }
+            else{
+                checkList(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.encodeFileToBase64Binary(file,activity),file!!.name,commonFunction.getMimeType(file.toString())))
+            }
+
         }
         EventBus.getDefault().removeStickyEvent(event)
 
@@ -388,5 +430,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
         selectionDocumentListAdapter?.notifyDataSetChanged()
 
     }
+
+
 
 }

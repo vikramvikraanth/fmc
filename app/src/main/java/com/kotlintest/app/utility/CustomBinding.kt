@@ -2,6 +2,7 @@ package com.kotlintest.app.utility
 
 import android.content.res.Resources
 import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.TypedValue
 import android.widget.ImageView
@@ -118,6 +119,15 @@ object CustomBinding {
     fun GlideApp(Images: ImageView, imagePath: Any?) {
         try {
             if (imagePath != null) {
+                if(imagePath is Drawable){
+                    Glide.with(Images.context).load(imagePath)
+                        .apply(
+                            RequestOptions()
+                                .centerCrop()
+                        )
+                        .into(Images)
+                    return
+                }
                if(imagePath is String){
 
                    val file = File(imagePath)

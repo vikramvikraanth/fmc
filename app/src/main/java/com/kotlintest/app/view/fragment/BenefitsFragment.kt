@@ -46,8 +46,8 @@ class BenefitsFragment : BaseFragment<FragmentBenefitsBinding>() {
                     is ArrayList<*> ->{
                         val data :BenefitiesModel = response.data[0] as BenefitiesModel
                         binding.data = data
-                        benefitiesListModel.add(BenefitiesListModel("OP Deductibles",data.opDeduction))
-                        benefitiesListModel.add(BenefitiesListModel("IP Deductibles",data.iPDeduction))
+                        benefitiesListModel.add(BenefitiesListModel(getString(R.string.op_deuctible),data.opDeduction))
+                        benefitiesListModel.add(BenefitiesListModel(getString(R.string.ip_decutbles),data.iPDeduction))
                         adapter?.notifyDataSetChanged()
                     }
 

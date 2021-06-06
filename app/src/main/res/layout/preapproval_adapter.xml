@@ -61,7 +61,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Provider"
+                        android:text="@string/provider"
                         android:drawablePadding="@dimen/_5sdp"
                         android:drawableStart="@drawable/ic_provider"
                         android:textColor="@color/Black"
@@ -90,7 +90,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="Service Type"
+                        android:text="@string/service_type"
                         android:drawableStart="@drawable/ic_service_type"
 
                         android:drawablePadding="@dimen/_5sdp"
@@ -119,7 +119,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="ServiceName"
+                        android:text="@string/servicename"
                         android:drawableStart="@drawable/ic_money"
 
                         android:drawablePadding="@dimen/_5sdp"
@@ -144,7 +144,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="CardNumber"
+                        android:text="@string/cardnumber"
                         android:drawableStart="@drawable/ic_referal_number"
 
                         android:drawablePadding="@dimen/_5sdp"

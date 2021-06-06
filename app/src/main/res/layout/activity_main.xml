@@ -51,14 +51,14 @@
                         android:layout_height="@dimen/_80sdp" />
 
                 <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_gravity="center"
                         android:id="@+id/header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="@string/choose_your_language"
                         android:textAppearance="@style/TextViewCustomFont_medium"
-                        android:textSize="@dimen/_20sdp"
                         android:textColor="@android:color/white"
-                        android:layout_height="wrap_content" />
+                        android:textSize="@dimen/_20sdp" />
 
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                             android:layout_weight="1"
                             android:text="English"
                             android:onClick="@{click::onClick}"
-
+                            android:id="@+id/englist_btn"
                             android:padding="@dimen/_5sdp"
                             android:textColor="@color/White"
                             android:textAllCaps="false"
@@ -91,7 +91,7 @@
                             android:layout_weight="1"
                             android:text="عربى"
                             android:onClick="@{click::onClick}"
-
+                            android:id="@+id/arabic_btn"
                             android:padding="@dimen/_5sdp"
                             android:textColor="@color/Black"
                             android:backgroundTint="@color/Gainsboro"

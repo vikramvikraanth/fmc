@@ -53,6 +53,9 @@ class MedicalProviderViewModel(var commonApi: CommonApi, var commonFunction: Com
         commonApi.getStateListApi(id,response,disable)
     }
     fun getProviderLocationListApi(id:MedicalFormModel){
+        if(id.providerTypeid!="2"){
+            id.specialityid ="0"
+        }
         commonApi.getProviderLocationListApi(id,response,disable)
     }
     fun getCityListApi(id:String){

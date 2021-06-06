@@ -32,13 +32,13 @@ class FilePickerViewModel constructor(var application: Application) : BaseViewMo
         return response
     }
 
-    fun getDataFromMedia() {
+    fun getDataFromMedia(type :Int) {
         val mediaStoreArgs = Bundle()
         mediaStoreArgs.putBoolean(
             FilePickerConst.EXTRA_SHOW_GIF,
             PickerManager.isShowGif
         )
-        mediaStoreArgs.putInt(FilePickerConst.EXTRA_FILE_TYPE, 1)
+        mediaStoreArgs.putInt(FilePickerConst.EXTRA_FILE_TYPE, type)
         application.let {
             MediaStoreHelper.getDirs(it.contentResolver, mediaStoreArgs,
                 object : FileResultCallback<PhotoDirectory> {

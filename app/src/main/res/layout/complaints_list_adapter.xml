@@ -55,7 +55,7 @@
                         android:textSize="@dimen/_12sdp"
                         android:padding="@dimen/_2sdp"
                         android:layout_weight="1"
-                        android:text="ComplaintNo"
+                        android:text="@string/complaintno"
                         android:drawablePadding="@dimen/_5sdp"
                         android:drawableStart="@drawable/ic_complaint_type"
                         android:textColor="@color/light_black"

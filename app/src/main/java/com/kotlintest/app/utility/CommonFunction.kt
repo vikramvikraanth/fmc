@@ -13,10 +13,14 @@ import android.webkit.MimeTypeMap
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.net.toUri
 import com.google.gson.Gson
 import com.kaopiz.kprogresshud.KProgressHUD
 import timber.log.Timber
 import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.IOException
+import java.io.InputStream
 
 
 class CommonFunction  constructor(private val application: Application) {
@@ -136,6 +140,14 @@ class CommonFunction  constructor(private val application: Application) {
         return  Base64.encodeToString(b, Base64.DEFAULT)
     }
 
+     fun encodeFileToBase64Binary(yourFile: File,activity: Activity): String {
+         val baos = ByteArrayOutputStream()
+         val `in`: InputStream = activity.getContentResolver().openInputStream(yourFile.toUri())!!
+         val bytes = getBytes(`in`)
+        return Base64.encodeToString(bytes,Base64.DEFAULT)
+    }
+
+
     fun getMimeType(url: String): String {
         var type: String? = ""
         val extension = MimeTypeMap.getFileExtensionFromUrl(url.replace(" ", "%20"))
@@ -147,4 +159,17 @@ class CommonFunction  constructor(private val application: Application) {
         }
         return type
     }
+
+    @Throws(IOException::class)
+    fun getBytes(inputStream: InputStream): ByteArray? {
+        val byteBuffer = ByteArrayOutputStream()
+        val bufferSize = 1024
+        val buffer = ByteArray(bufferSize)
+        var len = 0
+        while (inputStream.read(buffer).also { len = it } != -1) {
+            byteBuffer.write(buffer, 0, len)
+        }
+        return byteBuffer.toByteArray()
+    }
+
 }

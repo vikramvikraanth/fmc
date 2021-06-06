@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import com.app.washeruser.repository.Status
 import com.astrology.app.baseClass.BaseBottomSheetFragment
+import com.astrology.app.utility.imagePicker.Files.FilePickerConst
 import com.kotlintest.app.R
 import com.kotlintest.app.databinding.FragmentFileSelectBottomSheetBinding
 import com.kotlintest.app.model.eventBus.ImagePathEvent
@@ -25,7 +26,8 @@ import timber.log.Timber
 import java.io.File
 import java.io.IOException
 
-class FileSelectBottomSheet(var isimageType : String = "") : BaseBottomSheetFragment<FragmentFileSelectBottomSheetBinding>() {
+class FileSelectBottomSheet(var isimageType: String = "") :
+    BaseBottomSheetFragment<FragmentFileSelectBottomSheetBinding>() {
 
 
     lateinit var adapter: ImagePickerAdapter
@@ -33,9 +35,7 @@ class FileSelectBottomSheet(var isimageType : String = "") : BaseBottomSheetFrag
     private val filePickerViewModel by viewModel<FilePickerViewModel>()
 
 
-
     var listImage = ArrayList<String>()
-
 
 
     fun RxPermission(permission: Array<String>) {
@@ -45,10 +45,14 @@ class FileSelectBottomSheet(var isimageType : String = "") : BaseBottomSheetFrag
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({ granted ->
-                    println("enter the rx permission"+granted)
+                    println("enter the rx permission" + granted)
                     if (granted) { // Always true pre-M
                         // I can control the camera now
-                        filePickerViewModel.getDataFromMedia()
+                        if (isimageType.equals("image")) {
+                            filePickerViewModel.getDataFromMedia(FilePickerConst.MEDIA_TYPE_IMAGE)
+                        } else {
+                            filePickerViewModel.getDataFromMedia(FilePickerConst.FILE_TYPE_DOCUMENT)
+                        }
                     } else {
                         // Oups permission denied
                         Timber.d("Permission error not support")
@@ -65,9 +69,7 @@ class FileSelectBottomSheet(var isimageType : String = "") : BaseBottomSheetFrag
     }
 
 
-
-
-    private fun isFileCompression(Uri : File){
+    private fun isFileCompression(Uri: File) {
         //
 
         disposable.add(
@@ -100,28 +102,34 @@ class FileSelectBottomSheet(var isimageType : String = "") : BaseBottomSheetFrag
             override fun onCallback(value: Any) {
                 if (value is Int) {
 
-                        /*if(!isSelection)*/
-                            isFileCompression(File(filePickerViewModel.medias.value!!.get(value).path))
-                       /* else{
-                            if(filePickerViewModel.medias.value!!.get(value - 1).isSelection){
-                                listImage.add(filePickerViewModel.medias.value!!.get(value - 1).path)
-                            }else{
-                                listImage.remove(filePickerViewModel.medias.value!!.get(value - 1).path)
-                            }
-                            if(listImage.size==0){
-                                binding.selectTxt.visibility = View.GONE
-                                return
-                            }
-                            binding.selectTxt.visibility = View.VISIBLE
-                            binding.selectTxt.setText("Selected Image "+listImage.size)
+                    /*if(!isSelection)*/
+                    if (isimageType.equals("image")) {
+                        isFileCompression(File(filePickerViewModel.medias.value!!.get(value).path))
+                    }else {
+                        EventBus.getDefault()
+                            .postSticky(ImagePathEvent(filePickerViewModel.medias.value!!.get(value).path))
+                        dismiss()
+                    }
+                    /* else{
+                         if(filePickerViewModel.medias.value!!.get(value - 1).isSelection){
+                             listImage.add(filePickerViewModel.medias.value!!.get(value - 1).path)
+                         }else{
+                             listImage.remove(filePickerViewModel.medias.value!!.get(value - 1).path)
+                         }
+                         if(listImage.size==0){
+                             binding.selectTxt.visibility = View.GONE
+                             return
+                         }
+                         binding.selectTxt.visibility = View.VISIBLE
+                         binding.selectTxt.setText("Selected Image "+listImage.size)
 
-                        }*/
+                     }*/
 
 
                 }
             }
 
-        })
+        }, isimageType)
 
 
         binding.adpater = adapter

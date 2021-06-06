@@ -65,7 +65,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         nameTxt = mDrawerLayout!!.findViewById(R.id.name_txt)
         drawerFragment!!.setDrawerListener(this)
         binding.click= this
-        binding.title ="Home"
+        binding.title =getString(R.string.home)
         binding.iconstate = true
         binding.isvisible = false
         val data =  commonFunction.gsonToModel(sharedHelper.getFromUser("user_info"),UserInfoModel::class.java)
@@ -258,19 +258,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
             R.id.other_img -> {
                 println("enter the title"+binding.titleTxt.text.toString())
                 when (binding.titleTxt.text.toString()) {
-                    "Medical Provider" -> {
+                    getString(R.string.medical_provider) -> {
                         binding.isvisible = false
                         binding.title = getString(R.string.medical_provider)
                         event.post(NavigateEvent("medical_data"))
 
                     }
-                    "Reimbursement" -> {
+                    getString(R.string.reimbursement) -> {
                         event.post(NavigateEvent("reimbursements"))
                         binding.isvisible = false
                         binding.title = getString(R.string.reimbursement)
 
                     }
-                    "Complaints" -> {
+                    getString(R.string.compliant) -> {
                         binding.title = getString(R.string.compliant)
                         binding.isvisible = false
                         event.post(NavigateEvent("complaints"))

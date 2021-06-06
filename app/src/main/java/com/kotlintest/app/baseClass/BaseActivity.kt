@@ -22,6 +22,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.android.inject
+import java.util.*
 
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
 
@@ -114,6 +115,14 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
 
     }
 
+    fun setLocale(lang: String?) {
+        val myLocale = Locale(lang)
+        val res = resources
+        val dm = res.displayMetrics
+        val conf = res.configuration
+        conf.locale = myLocale
+        res.updateConfiguration(conf, dm)
+    }
 
 
 }

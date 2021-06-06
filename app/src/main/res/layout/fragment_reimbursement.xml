@@ -203,7 +203,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:text="Service Period"
+                        android:text="@string/service_period"
                         android:textAppearance="@style/TextViewCustomFont_bold"
 
                         android:textColor="@color/light_black"
@@ -246,7 +246,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:text="1. Attachment should not exceed more than 5mb."
+                        android:text="@string/_1_attachment_should_not_exceed_more_than_5mb"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
                 <TextView
@@ -255,7 +255,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:text="2. File should be in .jpg,.png or .pdf format"
+                        android:text="@string/_2_file_should_be_in_jpg_png_or_pdf_format"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
                 <TextView
@@ -264,7 +264,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:text="3. Maximum 5 attachments only."
+                        android:text="@string/_3_maximum_5_attachments_only"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
 

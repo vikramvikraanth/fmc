@@ -45,7 +45,7 @@ class CommonApi constructor(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <UserName>"+model.UserName+"</UserName>\n" +
                 "            <Password>"+model.Password+"</Password>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <AdminUserName>"+adminuserName+"</AdminUserName>\n" +
                 "            <AdminPassword>"+adminPassword+"</AdminPassword>\n" +
                 "        </MobSubmitLogIn>\n" +
@@ -84,7 +84,7 @@ class CommonApi constructor(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <Email>"+model.email+"</Email>\n" +
                 "            <CardNumber>"+model.cardNumber+"</CardNumber>\n" +
                 "        </MobSubmitForgotPassword>\n" +
@@ -130,7 +130,7 @@ class CommonApi constructor(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "        </MobSubmitLogOut>\n" +
                 "    </Body>\n" +
@@ -183,7 +183,7 @@ class CommonApi constructor(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <CardNumber>"+model.cardNumber+"</CardNumber>\n" +
                 "            <Password>"+model.Password+"</Password>\n" +
                 "            <Email>"+model.email+"</Email>\n" +
@@ -233,7 +233,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+ HomeActivity.memberid +"</MemberID>\n" +
                 "        </MobGetFMCECard>\n" +
@@ -275,7 +275,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+ HomeActivity.memberid +"</MemberID>\n" +
                 "            <FromDate>"+model.start+"</FromDate>\n" +
@@ -317,7 +317,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobGetFamilyDetails>\n" +
@@ -357,7 +357,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+ HomeActivity.memberid +"</MemberID>\n" +
                 "        </MobGetBenefitDetails>\n" +
@@ -443,7 +443,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "        </MobGetComplaintTypeList>\n" +
                 "    </Body>\n" +
@@ -486,7 +486,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobGetComplaintList>\n" +
@@ -536,7 +536,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <CardNumber>"+data.getCardNumber()+"</CardNumber>\n" +
                 "            <ComplaintBy>vikram</ComplaintBy>\n" +
                 "            <Subject>"+complaintModel.subject+"</Subject>\n" +
@@ -583,7 +583,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "        </MobGetCountryList>\n" +
                 "    </Body>\n" +
@@ -624,7 +624,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <CountryID>"+id+"</CountryID>\n" +
                 "        </MobGetStateList>\n" +
@@ -666,7 +666,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <StateID>"+id+"</StateID>\n" +
                 "        </MobGetCityList>\n" +
@@ -707,7 +707,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "        </MobGetProviderTypeList>\n" +
                 "    </Body>\n" +
@@ -747,7 +747,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "        </MobGetSpecialityList>\n" +
                 "    </Body>\n" +
@@ -788,13 +788,13 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <CountryID>"+model.countryid+"</CountryID>\n" +
                 "            <StateID>"+model.stateid+"</StateID>\n" +
                 "            <CityID>"+model.cityid+"</CityID>\n" +
                 "            <ProviderTypeID>"+model.providerTypeid+"</ProviderTypeID>\n" +
-                "            <SpecialityID>0</SpecialityID>\n" +
+                "            <SpecialityID>"+model.specialityid+"</SpecialityID>\n" +
                 "            <ProviderName>"+model.providertype+"</ProviderName>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobSubmitMedicalProviderSearch>\n" +
@@ -839,7 +839,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>1</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "            <TreatmentCategoryID>"+model.categoryid+"</TreatmentCategoryID>\n" +
@@ -886,7 +886,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "        </MobHealthTips>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -926,7 +926,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "        </MobFAQ>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -965,7 +965,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "        </MobAboutUs>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -1004,7 +1004,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobGetReimbursementClaimList>\n" +
@@ -1045,7 +1045,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "        </MobGetCurrencyList>\n" +
                 "    </Body>\n" +
@@ -1085,7 +1085,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "        </MobGetTreatCategoryList>\n" +
                 "    </Body>\n" +
@@ -1125,7 +1125,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "        </MobReimbursementDocumentFileType>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -1167,7 +1167,7 @@ fun ECardApiCall(
                 "            <Deviceuuid>1</Deviceuuid>\n" +
                 "            <Devicepushid>1</Devicepushid>\n" +
                 "            <Deviceos>1</Deviceos>\n" +
-                "            <LanguageId>EN</LanguageId>\n" +
+                "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "        </MobContactus>\n" +
                 "    </Body>\n" +
                 "</Envelope>"

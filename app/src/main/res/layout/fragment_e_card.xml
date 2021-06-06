@@ -35,7 +35,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:text="Front Picture"
+                        android:text="@string/front_picture"
                         android:padding="@dimen/_5sdp"
                         android:backgroundTint="@color/greens"
                         android:background="@drawable/ic_square_box"
@@ -59,7 +59,7 @@
                         android:background="@drawable/ic_square_box"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:padding="@dimen/_5sdp"
-                        android:text="Back Picture"
+                        android:text="@string/back_picture"
                         android:textAppearance="@style/TextViewCustomFont_medium"
                         android:textColor="@color/White"
                         android:textSize="@dimen/_15sdp" />

@@ -50,42 +50,42 @@ class MedicalProviderFragment : BaseFragment<FragmentMedicalProviderBinding>(),
             }
             R.id.city_edt->{
                 if(medicalProviderViewModel.medicalFormModel.state.isEmpty()){
-                    commonFunction.commonToast("Select your State")
+                    commonFunction.commonToast(getString(R.string.select_your_state))
                     return
                 }
 
-                showSelectionSheet(listcity as ArrayList<Any>,"Select City")
+                showSelectionSheet(listcity as ArrayList<Any>,getString(R.string.select_city))
 
             }
             R.id.state_edt->{
                 if(medicalProviderViewModel.medicalFormModel.countryid.isEmpty()){
-                    commonFunction.commonToast("Select your country")
+                    commonFunction.commonToast(getString(R.string.select_your_country))
                     return
                 }
-                showSelectionSheet(listState as ArrayList<Any>,"Select State")
+                showSelectionSheet(listState as ArrayList<Any>,getString(R.string.select_state))
 
             }
             R.id.country_edt->{
 
-                showSelectionSheet(listCountry as ArrayList<Any>,"Select County")
+                showSelectionSheet(listCountry as ArrayList<Any>,getString(R.string.select_country))
 
             }
             R.id.type_edt->{
                 if(medicalProviderViewModel.medicalFormModel.cityid.isEmpty()){
-                    commonFunction.commonToast("Select your Country")
+                    commonFunction.commonToast(getString(R.string.select_your_country))
                     return
                 }
 
-                showSelectionSheet(listProvider as ArrayList<Any>,"Select Provider Type")
+                showSelectionSheet(listProvider as ArrayList<Any>,getString(R.string.select_provider_type))
 
             }
             R.id.speciality_edt->{
                 if(medicalProviderViewModel.medicalFormModel.providerTypeid.isEmpty()){
-                    commonFunction.commonToast("Select your Select your Provider Type")
+                    commonFunction.commonToast(getString(R.string.select_your_provider_type))
                     return
                 }
 
-                showSelectionSheet(listSpecialListModel as ArrayList<Any>,"Select Speciality")
+                showSelectionSheet(listSpecialListModel as ArrayList<Any>,getString(R.string.select_speciality))
 
             }
         }

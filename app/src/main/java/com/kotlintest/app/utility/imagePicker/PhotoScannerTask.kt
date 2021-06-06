@@ -6,16 +6,18 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.provider.BaseColumns
 import android.provider.MediaStore
-import com.kotlintest.app.utility.imagePicker.Interface.FileResultCallback
+import android.webkit.MimeTypeMap
 import com.astrology.app.utility.imagePicker.Files.FilePickerConst
 import com.astrology.app.utility.imagePicker.Files.PickerManager
 import com.kotlintest.app.utility.imagePicker.Files.PhotoDirectory
+import com.kotlintest.app.utility.imagePicker.Interface.FileResultCallback
+import java.util.*
 
-import java.util.ArrayList
 
 class PhotoScannerTask(val contentResolver: ContentResolver, private val args: Bundle,
 					   private val resultCallback: FileResultCallback<PhotoDirectory>?) : AsyncTask<Void, Void, MutableList<PhotoDirectory>>() {
-	
+
+	var type =""
 	override fun doInBackground(vararg voids: Void): MutableList<PhotoDirectory> {
 		val bucketId = args.getString(FilePickerConst.EXTRA_BUCKET_ID, null)
 		val mediaType = args.getInt(FilePickerConst.EXTRA_FILE_TYPE, FilePickerConst.MEDIA_TYPE_IMAGE)
@@ -27,9 +29,12 @@ class PhotoScannerTask(val contentResolver: ContentResolver, private val args: B
 		var selection = (MediaStore.Files.FileColumns.MEDIA_TYPE + "="
 				+ MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE)
 		
-		if (mediaType == FilePickerConst.MEDIA_TYPE_VIDEO) {
+		if (mediaType == FilePickerConst.FILE_TYPE_DOCUMENT) {
+			type="pdf"
+			val mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension("pdf")
+
 			selection = (MediaStore.Files.FileColumns.MEDIA_TYPE + "="
-					+ MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO)
+					+ MediaStore.Files.FileColumns.MEDIA_TYPE_NONE)
 		}
 		
 		if (bucketId != null)
@@ -68,22 +73,39 @@ class PhotoScannerTask(val contentResolver: ContentResolver, private val args: B
 			val photoDirectory = PhotoDirectory()
 			photoDirectory.bucketId = bucketId
 			photoDirectory.name = name
-			
-			if (!directories.contains(photoDirectory)) {
-				if (path != null && path.toLowerCase().endsWith("gif")) {
-					if (PickerManager.isShowGif) {
+			if(type=="pdf"){
+				if (path != null && path.toLowerCase().endsWith("pdf")){
+					if (!directories.contains(photoDirectory)){
+						photoDirectory.addPhoto(imageId, fileName, path, mediaType)
+
+						photoDirectory.dateAdded = data.getLong(data.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_ADDED))
+						directories.add(photoDirectory)
+					}else{
+						directories[directories.indexOf(photoDirectory)]
+							.addPhoto(imageId, fileName, path, mediaType)
+					}
+
+				}
+			}
+			else{
+				if (!directories.contains(photoDirectory)) {
+
+					if (path != null && path.toLowerCase().endsWith("gif")) {
+						if (PickerManager.isShowGif) {
+							photoDirectory.addPhoto(imageId, fileName, path, mediaType)
+						}
+					} else {
 						photoDirectory.addPhoto(imageId, fileName, path, mediaType)
 					}
+					photoDirectory.dateAdded = data.getLong(data.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_ADDED))
+					directories.add(photoDirectory)
 				} else {
-					photoDirectory.addPhoto(imageId, fileName, path, mediaType)
+					directories[directories.indexOf(photoDirectory)]
+						.addPhoto(imageId, fileName, path, mediaType)
 				}
-				
-				photoDirectory.dateAdded = data.getLong(data.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_ADDED))
-				directories.add(photoDirectory)
-			} else {
-				directories[directories.indexOf(photoDirectory)]
-					.addPhoto(imageId, fileName, path, mediaType)
 			}
+
+
 		}
 		
 		return directories

@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/greens"
         android:orientation="vertical"
+        android:focusable="true"
         android:clickable="true">
     <LinearLayout
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="John Walker"
+                android:text=""
                 android:id="@+id/name_txt"
                 android:layout_gravity="center_horizontal"
                 android:textAppearance="@style/TextViewCustomFont_bold"

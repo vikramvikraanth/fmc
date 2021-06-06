@@ -32,7 +32,7 @@
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="Family Member"
+                    android:text="@string/family_member"
                     android:textAppearance="@style/TextViewCustomFont_medium"
                     android:textColor="@color/light_black"
                     android:textSize="@dimen/_14sdp" />

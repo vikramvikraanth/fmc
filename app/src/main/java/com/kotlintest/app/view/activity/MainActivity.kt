@@ -16,6 +16,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
+        when(p0?.id){
+            R.id.arabic_btn->{
+                sharedHelper.putInUser("lang","ar")
+                setLocale(sharedHelper.getFromUser("lang"))
+                sharedHelper.putInUser("lang_type","AR")
+
+            }
+            R.id.englist_btn->{
+                sharedHelper.putInUser("lang","en")
+                setLocale(sharedHelper.getFromUser("lang"))
+                sharedHelper.putInUser("lang_type","EN")
+
+            }
+        }
+
+
         setIntent(LoginActivity::class.java,0)
 
     }

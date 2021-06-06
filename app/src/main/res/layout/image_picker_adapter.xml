@@ -21,9 +21,8 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:id="@+id/selected_img"
-                vikram:srcCompat="@drawable/ic_camera"
                 android:scaleType="centerCrop"
-                url="@{image ==null? @drawable/ic_camera : image }"
+                url="@{image ==null? @drawable/ic_pdf : image }"
                 android:padding="@dimen/_5sdp"
                 android:layout_height="match_parent"/>
 

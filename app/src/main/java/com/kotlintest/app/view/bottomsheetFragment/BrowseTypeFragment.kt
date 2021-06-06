@@ -20,11 +20,11 @@ class BrowseTypeFragment(val commonInterface: Commoninterface) : BaseBottomSheet
     override fun onClick(p0: View?) {
         when(p0!!.id){
             R.id.female_txt->{
-                commonInterface.onCallback("image")
+                commonInterface.onCallback("pdf")
                 dismiss()
             }
             R.id.male_txt ->{
-                commonInterface.onCallback("pdf")
+                commonInterface.onCallback("image")
                 dismiss()
             }
 

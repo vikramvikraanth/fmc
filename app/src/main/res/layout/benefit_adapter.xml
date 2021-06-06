@@ -44,7 +44,7 @@
                     android:layout_weight="0.8"
                     android:padding="@dimen/_2sdp"
                     android:gravity="center"
-                    android:text="Doductable type"
+                    android:text="@string/doductable_type"
                     android:textColor="@color/Black"
                     android:layout_height="wrap_content"/>
             <TextView
@@ -64,7 +64,7 @@
                     android:layout_weight="1"
                     android:padding="@dimen/_2sdp"
                     android:gravity="center"
-                    android:text="Flat"
+                    android:text="@string/flat"
                     android:textColor="@color/Black"
                     android:layout_height="wrap_content"/>
             <TextView
@@ -74,7 +74,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="Remarks"
+                    android:text="@string/remarks"
                     android:textColor="@color/Black"
                     android:layout_height="wrap_content"/>
 

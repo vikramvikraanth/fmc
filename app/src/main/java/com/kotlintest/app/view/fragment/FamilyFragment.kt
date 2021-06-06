@@ -70,7 +70,10 @@ class FamilyFragment : BaseFragment<FragmentFamilyBinding>(), View.OnClickListen
     }
 
     override fun onClick(v: View?) {
-        showSelectionSheet(listFamily as ArrayList<Any>,"Select Family Memeber")
+        showSelectionSheet(
+            listFamily as ArrayList<Any>,
+            getString(R.string.select_family_member)
+        )
     }
 
     private fun processResponse(response: Response){
@@ -78,6 +81,7 @@ class FamilyFragment : BaseFragment<FragmentFamilyBinding>(), View.OnClickListen
             Status.SUCCESS -> {
                 when (response.data) {
                     is FamilyListModel ->{
+                        listFamily.clear()
                         listFamily.addAll(response.data.FamilyDetailsResponse)
                     }
 

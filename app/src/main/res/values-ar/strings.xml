@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FMC</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    //customize font
+    <string name="app_font">fonts/OpenSans-Regular.ttf</string>
+    <string name="app_font_light">fonts/OpenSans-Light.ttf</string>
+    <string name="app_font_bold">fonts/OpenSans-Bold.ttf</string>
+    <string name="login">لج</string>
+    <string name="forget_password">هل نسيت كلمة المرور؟</string>
+    <string name="password">كلمة المرور</string>
+    <string name="hello_there_n_nwelcome_back">مرحبًا بكم!</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="welcome_back">مرحباً بك مرة أخرى</string>
+    <string name="don_t_have_an_account">ليس لديك حساب؟</string>
+    <string name="register">تسجيل</string>
+    <string name="enter_the_mobile_number_associated_with_your_account">أدخل رقم الجوال المرتبط بحسابك!</string>
+    <string name="send">ارسلك</string>
+    <string name="registers">تسجيل</string>
+    <string name="re_type_password">إعادة كتابة كلمة المرور</string>
+    <string name="mobile_number">رقم الهاتف المحمول</string>
+    <string name="date_of_birth">تاريخ الميلاد</string>
+    <string name="gender">جنس</string>
+    <string name="have_an_account">هل لديك حساب؟</string>
+    <string name="my_Family">عائلتي</string>
+    <string name="benefits">فوائدي</string>
+    <string name="medical_provider">توفير الرعاية الطبية</string>
+    <string name="pre_approval">مقدم الخدمات الطبية</string>
+    <string name="reimbursement">السداد</string>
+    <string name="ecard">بطاقة إلكترونية</string>
+    <string name="compliants">الشكاوي</string>
+    <string name="faq">الأسئلة المتداولة</string>
+    <string name="about_us">من نحن</string>
+    <string name="language">اللغة</string>
+    <string name="health_tips">نصائح صحية</string>
+    <string name="logout">الخروج</string>
+    <string name="welcomes">مرحبا,</string>
+    <string name="card_number">رقم البطاقة</string>
+    <string-array name="nav_drawer_labels">
+        <item>@string/my_Family</item>
+        <item>@string/benefits</item>
+        <item>@string/medical_provider</item>
+        <item>@string/pre_approval</item>
+        <item>@string/reimbursement</item>
+        <item>@string/ecard</item>
+        <item>@string/compliants</item>
+        <item>@string/faq</item>
+        <item>@string/about_us</item>
+        <item>@string/language</item>
+        <item>@string/health_tips</item>
+        <item>@string/contact_us</item>
+        <item>@string/logout</item>
+    </string-array>
+    <string name="are_you_sure_wanna_logout">Are you sure want to a Logout ?</string>
+    <string name="no">لا</string>
+    <string name="yes">نعم</string>
+    <string name="medicine_limit">حد الطب</string>
+    <string name="total_limit">إجمالي الحد</string>
+    <string name="expiry_date">تاريخ الانتهاء</string>
+    <string name="effective_date">تاريخ النفاذ</string>
+    <string name="age">سن</string>
+    <string name="name">اسم</string>
+    <string name="emirates">الإمارات</string>
+    <string name="select_emirates">اختر طيران الإمارات</string>
+    <string name="reset">إعادة ضبط</string>
+    <string name="search">يبحث</string>
+    <string name="get_direction">احصل على اتجاه</string>
+    <string name="category">فئة</string>
+    <string name="select_category">اختر الفئة</string>
+    <string name="medical_facility_country">بلد المنشأة الطبية</string>
+    <string name="select_medical_facility_country">حدد بلد المنشأة الطبية</string>
+    <string name="currency">عملة</string>
+    <string name="select_currency">اختر العملة</string>
+    <string name="amount">كمية</string>
+    <string name="enter_amount">أدخل المبلغ</string>
+    <string name="i_ban_number">رقم الآيبان</string>
+    <string name="enter_your_i_ban_number">أدخل رقم الآيبان الخاص بك</string>
+    <string name="beneficiary_name">أسم المستفيد</string>
+    <string name="enter_your_beneficiary_name">أدخل فترة الخدمة الخاصة بك</string>
+    <string name="upload_documents">تحميل المستندات المطلوبة</string>
+    <string name="browse">تصفح</string>
+    <string name="or">أو</string>
+    <string name="submit">إرسال</string>
+    <string name="status">حالة</string>
+    <string name="compliant_type">نوع الشكوى</string>
+    <string name="select_compliant_type">حدد نوع الشكوى</string>
+    <string name="subject">موضوع</string>
+    <string name="enter_your_subject">أدخل موضوعك</string>
+    <string name="compliant">شكاوي</string>
+    <string name="enter_you_compliant">أدخل شكواك</string>
+    <string name="complaint_type">نوع الشكوى</string>
+    <string name="reference_number">رقم المرجع</string>
+    <string name="view">منظر</string>
+    <string name="home">منزل، بيت</string>
+    <string name="contact_us">اتصل بنا</string>
+    <string name="providername">اسم المزود</string>
+    <string name="data_of_visit">موعد زيارة</string>
+    <string name="choose_your_language">اختر لغتك</string>
+    <string name="choose_your_of_file">اختر ملفك</string>
+    <string name="no_file_found">لم يتم العثور على ملف</string>
+    <string name="invalid_image_format">تنسيق الصورة غير صالح</string>
+    <string name="doductable_type">نوع الخصم</string>
+    <string name="flat">مستوي</string>
+    <string name="remarks">ملاحظات</string>
+    <string name="complaintno">شكوى لا</string>
+    <string name="reach_us">تصل إلينا</string>
+    <string name="email_us">ارسل لنا عبر البريد الإلكتروني</string>
+    <string name="provider">مزود</string>
+    <string name="service_type">نوع الخدمة</string>
+    <string name="servicename">اسم الخدمة</string>
+    <string name="cardnumber">رقم البطاقة</string>
+    <string name="claim_id">معرف المطالبة</string>
+    <string name="batch_number">رقم الدفعة</string>
+    <string name="member_name">اسم عضو</string>
+    <string name="select_your_gender">اختر جنسك؟</string>
+    <string name="male">ذكر</string>
+    <string name="female">أنثى</string>
+    <string name="country">دولة</string>
+    <string name="select_country">حدد الدولة</string>
+    <string name="state">حالة</string>
+    <string name="select_state">اختر ولايه</string>
+    <string name="city">مدينة</string>
+    <string name="select_city">اختر مدينة</string>
+    <string name="provide_type">نوع المزود</string>
+    <string name="select_provide_type">حدد نوع الموفر</string>
+    <string name="speciality">تخصص</string>
+    <string name="select_speciality">حدد التخصص</string>
+    <string name="service_period">مدة الخدمة</string>
+    <string name="_1_attachment_should_not_exceed_more_than_5mb">1. يجب ألا يزيد حجم المرفقات عن 5 ميغا بايت.</string>
+    <string name="_2_file_should_be_in_jpg_png_or_pdf_format">2. يجب أن يكون الملف بتنسيق .jpg أو .png أو .pdf</string>
+    <string name="_3_maximum_5_attachments_only">3. بحد أقصى 5 مرفقات فقط.</string>
+    <string name="front_picture">الصورة الأمامية</string>
+    <string name="back_picture">عودة الصورة</string>
+    <string name="end_date">تاريخ الانتهاء</string>
+    <string name="start_date">تاريخ البدء</string>
+    <string name="no_data">لايوجد بيانات</string>
+    <string name="select_family_member">حدد عضو العائلة</string>
+    <string name="select_your_category">إختر فئتك</string>
+    <string name="select_reimbursement_type">حدد نوع السداد</string>
+    <string name="select_your_state">حدد دولتك</string>
+    <string name="select_your_country">اختر بلدك</string>
+    <string name="select_provider_type">حدد نوع الموفر</string>
+    <string name="select_your_provider_type">حدد اختر نوع المزود الخاص بك</string>
+    <string name="family_member">فرد من العائلة</string>
+    <string name="choose">إختر</string>
+    <string name="your_language">لغتك</string>
+
+    <string name="gallery">صالة عرض</string>
+    <string name="pdf">بي دي إف</string>
+    <string name="select_your_browse_type">حدد نوع التصفح الخاص بك؟</string>
+    <string name="browse_type">نوع التصفح</string>
+    <string name="op_deuctible">خصومات OP</string>
+    <string name="ip_decutbles">خصومات IP</string>
+</resources>

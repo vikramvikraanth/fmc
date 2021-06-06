@@ -12,7 +12,7 @@ import com.kotlintest.app.databinding.ImagePickerAdapterBinding
 import com.kotlintest.app.utility.`interface`.Commoninterface
 import com.kotlintest.app.utility.imagePicker.Files.Media
 
-class ImagePickerAdapter constructor(val arraydata : ArrayList<Media>, val commonInterface: Commoninterface) : BaseAdapter<Media>(arraydata) {
+class ImagePickerAdapter constructor(val arraydata : ArrayList<Media>, val commonInterface: Commoninterface,var type :String) : BaseAdapter<Media>(arraydata) {
 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
@@ -20,7 +20,11 @@ class ImagePickerAdapter constructor(val arraydata : ArrayList<Media>, val commo
         if(arraydata.isEmpty()){
             return
         }
-        binding.image = arraydata[position].path
+        if(type=="image"){
+            binding.image = arraydata[position].path
+        }else{
+            binding.image = null
+        }
         binding.isSelection = arraydata[position].isSelection
         holder.itemView.setOnClickListener {
             /*arraydata[position-1].isSelection( !arraydata[position-1].isSelection)
