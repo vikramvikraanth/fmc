@@ -187,6 +187,8 @@ class MedicalProviderFragment : BaseFragment<FragmentMedicalProviderBinding>(),
                     is ProviderListModel.ProviderCategoryResponse ->{
                         medicalProviderViewModel.medicalFormModel.providertype = value.ProviderTypeName
                         medicalProviderViewModel.medicalFormModel.providerTypeid = value.ProviderTypeID
+                        medicalProviderViewModel.medicalFormModel.speciality = ""
+                        medicalProviderViewModel.medicalFormModel.specialityid = ""
                         if(listSpecialListModel.isEmpty()){
                             medicalProviderViewModel.getSpecialityListApi()
                         }
