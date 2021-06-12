@@ -72,28 +72,67 @@
                         android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
-            <androidx.recyclerview.widget.RecyclerView
+            <RelativeLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    load_allLead="@{adapter}"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/date_picker_layout"
-                    tools:listitem="@layout/preapproval_adapter"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:layout_height="match_parent"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_gravity="center"
-                    android:visibility="@{isvisible?View.VISIBLE:View.GONE,default=gone}"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:text="@string/no_data"
-                    android:layout_centerInParent="true"
-                    android:textAppearance="@style/TextViewCustomFont_medium"
-                    android:textColor="@color/light_black"
-                    android:textSize="@dimen/_14sdp" />
+                    android:orientation="vertical">
+                <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                        <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:orientation="vertical"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                load_allLead="@{adapter}"
+                                android:nestedScrollingEnabled="false"
+                                tools:listitem="@layout/preapproval_adapter"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                android:layout_height="match_parent"/>
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_100sdp"/>
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:visibility="@{isvisible?View.VISIBLE:View.GONE,default=gone}"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:text="@string/no_data"
+                        android:layout_centerInParent="true"
+                        android:textAppearance="@style/TextViewCustomFont_medium"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_14sdp" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="@dimen/_150sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_height="@dimen/_150sdp">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ic_curve"
+                    android:scaleType="centerCrop"
+                    android:layout_height="wrap_content"/>
+
+            <ImageView
+                    android:layout_width="@dimen/_80sdp"
+                    android:src="@drawable/ic_logos"
+                    android:padding="@dimen/_25sdp"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="@dimen/_80sdp"/>
+
 
         </RelativeLayout>
 

@@ -162,6 +162,27 @@
 
         </LinearLayout>
 
+        <RelativeLayout
+                android:layout_width="@dimen/_150sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_height="@dimen/_150sdp">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ic_curve"
+                    android:scaleType="centerCrop"
+                    android:layout_height="wrap_content"/>
+
+            <ImageView
+                    android:layout_width="@dimen/_80sdp"
+                    android:src="@drawable/ic_logos"
+                    android:padding="@dimen/_25sdp"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="@dimen/_80sdp"/>
+
+
+        </RelativeLayout>
 
     </FrameLayout>
 </layout>

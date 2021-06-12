@@ -6,9 +6,7 @@ import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseFragment
 import com.kotlintest.app.databinding.FragmentECardBinding
 import com.kotlintest.app.model.responseModel.EcardModel
-import com.kotlintest.app.model.responseModel.LoginResponseModel
 import com.kotlintest.app.network.Response
-import com.kotlintest.app.view.activity.HomeActivity
 import com.kotlintest.app.viewModel.FamilyViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
