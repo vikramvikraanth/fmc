@@ -135,6 +135,40 @@
                         android:textColor="@color/light_black"
                         android:textColorHint="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:text="@string/account_type"
+
+                        android:textAppearance="@style/TextViewCustomFont_bold"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/ic_square_box"
+                        android:cursorVisible="false"
+                        android:text="@={viewModel.reimbursementformModel.accounttype}"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
+                        android:drawableEnd="@drawable/ic_drop"
+                        android:elevation="@dimen/_5sdp"
+                        android:onClick="@{click::onClick}"
+                        android:id="@+id/account_type_edt"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/select_account_type"
+                        android:padding="@dimen/_10sdp"
+                        android:shadowColor="@color/shadow_color"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
 
                 <TextView
                         android:layout_width="match_parent"
@@ -155,28 +189,27 @@
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:background="@drawable/ic_square_box"
                         android:elevation="@dimen/_5sdp"
-                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
                         android:hint="@string/enter_amount"
-                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
                         android:digits="1234567890."
                         android:inputType="numberDecimal"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
                         android:text="@={viewModel.reimbursementformModel.amount}"
                         android:padding="@dimen/_10sdp"
                         android:shadowColor="@color/shadow_color"
                         android:textColor="@color/light_black"
                         android:textColorHint="@color/Gainsboro"
                         android:textSize="@dimen/_12sdp" />
-
-<!--
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:text="@string/i_ban_number"
+                        android:text="@string/beneficiary_name"
                         android:textAppearance="@style/TextViewCustomFont_bold"
-                        android:visibility="gone"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
 
@@ -187,15 +220,145 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:background="@drawable/ic_square_box"
-                        android:visibility="gone"
                         android:elevation="@dimen/_5sdp"
-                        android:hint="@string/enter_your_i_ban_number"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
+                        android:hint="@string/enter_your_beneficiary_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@={viewModel.reimbursementformModel.beneficiary}"
                         android:padding="@dimen/_10sdp"
                         android:shadowColor="@color/shadow_color"
                         android:textColor="@color/light_black"
                         android:textColorHint="@color/Gainsboro"
                         android:textSize="@dimen/_12sdp" />
--->
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:text="@string/bank_name"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/ic_square_box"
+                        android:elevation="@dimen/_5sdp"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
+                        android:hint="@string/enter_bank_name"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:inputType="textPersonName"
+                        android:text="@={viewModel.reimbursementformModel.bankname}"
+                        android:padding="@dimen/_10sdp"
+                        android:shadowColor="@color/shadow_color"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/Gainsboro"
+                        android:textSize="@dimen/_12sdp" />
+  <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:text="Account number"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/ic_square_box"
+                        android:elevation="@dimen/_5sdp"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
+                        android:hint="Enter Account number"
+                        android:imeOptions="actionNext"
+                        android:digits="1234567890."
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:inputType="numberDecimal"
+                        android:text="@={viewModel.reimbursementformModel.accountnumber}"
+                        android:padding="@dimen/_10sdp"
+                        android:shadowColor="@color/shadow_color"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/Gainsboro"
+                        android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:text="@string/i_ban_number"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/ic_square_box"
+                        android:elevation="@dimen/_5sdp"
+                        android:hint="@string/enter_your_i_ban_number"
+                        android:padding="@dimen/_10sdp"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
+                        android:text="@={viewModel.reimbursementformModel.ibannumber}"
+                        android:shadowColor="@color/shadow_color"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/Gainsboro"
+                        android:textSize="@dimen/_12sdp" />
+ <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:text="@string/swift_code"
+                        android:textAppearance="@style/TextViewCustomFont_bold"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/ic_square_box"
+                        android:elevation="@dimen/_5sdp"
+                        android:hint="@string/enter_swift_code_no"
+                        android:padding="@dimen/_10sdp"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
+                        android:text="@={viewModel.reimbursementformModel.swiftcode}"
+                        android:shadowColor="@color/shadow_color"
+                        android:textColor="@color/light_black"
+                        android:textColorHint="@color/Gainsboro"
+                        android:textSize="@dimen/_12sdp" />
 
                 <TextView
                         android:layout_width="match_parent"
@@ -265,6 +428,15 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/_3_maximum_5_attachments_only"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp" />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:text="@string/_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
 

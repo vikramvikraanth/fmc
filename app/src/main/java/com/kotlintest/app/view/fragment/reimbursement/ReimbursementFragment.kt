@@ -324,6 +324,16 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { file: File? ->
+                        if(reimbursementViewModel.reimbursementformModel.listImage.size==5){
+                            commonFunction.commonToast(getString(R.string.morethan))
+                            return@subscribe
+                        }
+                        val file_size = file!!.length() / 1024
+                        val fileSizeInMB: Long = file_size / 1024
+                        if(fileSizeInMB>5){
+                            commonFunction.commonToast(getString(R.string.documentsize))
+                            return@subscribe
+                        }
                         if(reimbursementViewModel.reimbursementformModel.listImage.isEmpty()){
                             reimbursementViewModel.reimbursementformModel.listImage.add(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.base64Convert(file.toString()),file!!.name,commonFunction.getMimeType(file.toString())))
                         reimbursementViewModel.onUsernameTextChanged(reimbursementViewModel.reimbursementformModel)
@@ -359,7 +369,17 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     fun onMessage(event: ImagePathEvent) {
-
+        if(reimbursementViewModel.reimbursementformModel.listImage.size==5){
+            commonFunction.commonToast(getString(R.string.morethan))
+            return
+        }
+        val file = File(event.imagePath as String)
+        val file_size = file.length() / 1024
+        val fileSizeInMB: Long = file_size / 1024
+        if(fileSizeInMB>5){
+            commonFunction.commonToast(getString(R.string.documentsize))
+            return
+        }
         if(type.equals("img")){
             if(reimbursementViewModel.reimbursementformModel.listImage.isEmpty()) {
                 reimbursementViewModel.reimbursementformModel.listImage.add(
@@ -379,9 +399,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
             }
 
         }else{
-            val file = File(event.imagePath as String)
-            val file_size = java.lang.String.valueOf(file.length() / 1024).toInt()
-            print("eneter the file size"+file_size)
+
             if(reimbursementViewModel.reimbursementformModel.listImage.isEmpty()){
                 reimbursementViewModel.reimbursementformModel.listImage.add(ReimbursementformModel.ListImage(dataType.FileTypeShortName,dataType.FileTypeID ,commonFunction.encodeFileToBase64Binary(file,activity),file!!.name,commonFunction.getMimeType(file.toString())))
                 reimbursementViewModel.onUsernameTextChanged(reimbursementViewModel.reimbursementformModel)

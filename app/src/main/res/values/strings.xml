@@ -73,7 +73,7 @@
     <string name="select_currency">Select Currency</string>
     <string name="amount">Amount</string>
     <string name="enter_amount">Enter Amount</string>
-    <string name="i_ban_number">I BAN Number</string>
+    <string name="i_ban_number">IBAN No- (23 digits)</string>
     <string name="enter_your_i_ban_number">Enter your I BAN Number</string>
     <string name="beneficiary_name">Beneficiary Name</string>
     <string name="enter_your_beneficiary_name">Enter your Service Period</string>
@@ -151,4 +151,18 @@
     <string name="browse_type">Browse Type</string>
     <string name="op_deuctible">OP Deductibles</string>
     <string name="ip_decutbles">IP Deductibles</string>
+    <string name="morethan">You has\'t add more than 5 documents</string>
+    <string name="documentsize">Your documents size must be below 5mbs</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="enter_bank_name">Enter Bank Name</string>
+    <string name="enter_provider_name">Enter provider name</string>
+    <string name="select_your_visit_date">Select your visit date</string>
+    <string name="enter_complaint_type">Enter Complaint Type</string>
+    <string name="select_complaint_type">Select Complaint Type</string>
+    <string name="search_here">Search here</string>
+    <string name="account_type">Account type</string>
+    <string name="select_account_type">Select Account type</string>
+    <string name="swift_code">Swift Code No</string>
+    <string name="enter_swift_code_no">Enter Swift Code No</string>
+    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4.Salary pre-pay A/c will not be accepted. Kindly contact reimbursement@fmchealthcare.ae for more details.</string>
 </resources>

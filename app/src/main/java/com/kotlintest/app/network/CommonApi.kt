@@ -461,11 +461,8 @@ fun ECardApiCall(
                     jondata.optJSONObject("s:Envelope").optJSONObject("s:Body").optJSONObject(
                         "MobGetComplaintTypeListResponse"
                     ).optString("MobGetComplaintTypeListResult")
-                val itemType = object : TypeToken<ArrayList<ComplaintTypeListModel>>() {}.type
-                val itemList = gson.fromJson<ArrayList<ComplaintTypeListModel>>(
-                    data,
-                    itemType
-                )
+
+                val itemList = gson.fromJson(data.toString(), ComplaintTypeListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)
@@ -507,9 +504,10 @@ fun ECardApiCall(
                     ).optString("MobGetComplaintListResult")
                 val itemType = object : TypeToken<ArrayList<ComplaintListModel>>() {}.type
                 val itemList = gson.fromJson<ArrayList<ComplaintListModel>>(
-                    data,
+                     data,
                     itemType
                 )
+               // val itemList = gson.fromJson(data.toString(), ComplaintListModel::class.java)
                 response.value = Response.success(itemList)
             }, {
                 response.value = Response.error(it)

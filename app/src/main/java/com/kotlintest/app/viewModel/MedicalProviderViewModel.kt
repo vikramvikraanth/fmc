@@ -23,8 +23,8 @@ class MedicalProviderViewModel(var commonApi: CommonApi, var commonFunction: Com
         when(complaintmodel){
             is MedicalFormModel ->{
                 isvalid.postValue(complaintmodel.isValidation())
-                if(complaintmodel.speciality.isEmpty())
-                isvalid.postValue(complaintmodel.providerTypeid!="2")
+            //    if(complaintmodel.speciality.isEmpty())
+              //  isvalid.postValue(complaintmodel.providerTypeid!="2")
             }
             is String ->{
                 response.value = Response.success(complaintmodel)

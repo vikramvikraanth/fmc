@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+   <RelativeLayout
+           android:layout_width="@dimen/_200sdp"
+           android:background="@drawable/ic_curve"
+           android:layout_height="@dimen/_200sdp">
+
+      <ImageView
+              android:layout_width="@dimen/_80sdp"
+              android:src="@drawable/ic_logos"
+              android:layout_margin="@dimen/_10sdp"
+              android:layout_alignParentBottom="true"
+              android:layout_height="@dimen/_50sdp"/>
+
+
+   </RelativeLayout>
+
+</RelativeLayout>

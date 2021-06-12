@@ -37,7 +37,7 @@ interface ApiInterface {
     @POST("MobileApi.svc/")
     fun getBeneitiesApi(@Body body: RequestBody): Observable<ResponseBody>
 
-    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetComplaintList")
+    @Headers("SOAPAction:http://tempuri.org/IMobileApi/MobGetComplaintTypeList")
     @POST("MobileApi.svc/")
     fun getComplaintTypelistApi(@Body body: RequestBody): Observable<ResponseBody>
 

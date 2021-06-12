@@ -48,6 +48,24 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_gravity="center"
                     android:layout_height="@dimen/_1sdp"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:maxLines="1"
+                    android:id="@+id/search_edt"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:shadowColor="@color/shadow_color"
+                    android:hint="@string/search_here"
+                    android:textColorHint="@color/Gainsboro"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:background="@drawable/ic_square_box"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/light_black" />
 
             <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"

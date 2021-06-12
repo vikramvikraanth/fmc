@@ -7,18 +7,24 @@ import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseFragment
 import com.kotlintest.app.databinding.FragmentComplaintsBinding
 import com.kotlintest.app.model.eventBus.NavigateEvent
-import com.kotlintest.app.model.responseModel.ComplaintResponseModel
+import com.kotlintest.app.model.responseModel.*
 import com.kotlintest.app.network.Response
+import com.kotlintest.app.utility.`interface`.Commoninterface
+import com.kotlintest.app.view.bottomsheetFragment.BrowseTypeFragment
+import com.kotlintest.app.view.bottomsheetFragment.FileSelectBottomSheet
+import com.kotlintest.app.view.bottomsheetFragment.SelectBottomSheetFragment
 import com.kotlintest.app.viewModel.ComplaintViewModel
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ComplaintsFragment : BaseFragment<FragmentComplaintsBinding>(),
     DatePickerDialog.OnDateSetListener, View.OnClickListener {
 
     private val complaintViewModel by viewModel<ComplaintViewModel>()
+    private var listComplaintTypeListModel = ArrayList<ComplaintTypeListModel.ComplaintTypeResponse>()
 
     var dpd: DatePickerDialog? =null
 
@@ -32,6 +38,7 @@ class ComplaintsFragment : BaseFragment<FragmentComplaintsBinding>(),
         complaintViewModel.response().observe(this,{
             processResponse(it)
         })
+        complaintViewModel.complaintTypeListApi()
         binding.click = this
 
 
@@ -45,6 +52,11 @@ class ComplaintsFragment : BaseFragment<FragmentComplaintsBinding>(),
                         commonFunction.commonToast(response.data.ApiResponse.Details)
                         event.post(NavigateEvent("update_complaint"))
                         fragmentManagers?.popBackStackImmediate()
+                    }
+                    is ComplaintTypeListModel->{
+                        listComplaintTypeListModel.clear()
+                        listComplaintTypeListModel.addAll(response.data.ComplaintTypeListResponse)
+
                     }
                 }
             }
@@ -102,7 +114,40 @@ class ComplaintsFragment : BaseFragment<FragmentComplaintsBinding>(),
             R.id.visit_date_edt->{
                 datePicker()
             }
+            R.id.complaint_type_edt->{
+                showSelectionSheet(listComplaintTypeListModel as ArrayList<Any>,getString(R.string.select_complaint_type))
+            }
         }
 
     }
+
+    private fun showSelectionSheet(list:ArrayList<Any> , title :String){
+
+        if(bottomSheet!=null && bottomSheet!!.isAdded){
+            bottomSheet?.dismiss()
+        }
+
+
+        bottomSheet = SelectBottomSheetFragment(object : Commoninterface {
+            override fun onCallback(value: Any) {
+
+                when(value){
+                    is ComplaintTypeListModel.ComplaintTypeResponse->{
+
+                        complaintViewModel.complaintmodel.complainttype =value.ComplaintName
+                        complaintViewModel.complaintmodel.complainttypeid =value.ComplaintTypeId
+                        binding.viewModel = complaintViewModel
+                        bottomSheet?.dismiss()
+
+                    }
+
+
+                }
+
+            }
+
+        },title,list)
+        bottomSheet?.show(fragmentManagers!!,"show_select")
+    }
+
 }

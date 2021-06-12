@@ -23,17 +23,16 @@
             android:fillViewport="true">
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:background="@color/Gray"
+                android:background="@color/greencolor"
                 android:layout_height="match_parent"
                 tools:context=".view.activity.MainActivity">
 
             <RelativeLayout
                     android:layout_width="match_parent"
                     android:id="@+id/header"
-                    android:layout_above="@+id/fooder"
                     android:background="@drawable/bg"
                     android:layout_marginBottom="-30dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="@dimen/_250sdp">
 
                 <ImageView
                         android:layout_width="@dimen/_210sdp"
@@ -49,12 +48,14 @@
                     android:background="@drawable/rounded_corners_shape"
                     android:layout_alignParentBottom="true"
                     android:id="@+id/fooder"
+                    android:layout_below="@+id/header"
                     android:backgroundTint="@color/greens"
                     android:layout_height="wrap_content">
 
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_100sdp"
                         android:orientation="vertical">
 
 
@@ -189,6 +190,28 @@
 
 
             </FrameLayout>
+
+            <RelativeLayout
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="@dimen/_150sdp">
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:src="@drawable/ic_curve"
+                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:layout_width="@dimen/_80sdp"
+                        android:src="@drawable/ic_logos"
+                        android:padding="@dimen/_25sdp"
+                        android:scaleType="centerCrop"
+                        android:layout_alignParentBottom="true"
+                        android:layout_height="@dimen/_80sdp"/>
+
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
 

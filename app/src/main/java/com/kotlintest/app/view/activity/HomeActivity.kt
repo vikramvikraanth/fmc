@@ -73,7 +73,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         binding.datas = datasv
         nameTxt?.setText(datasv.getName())
         memberid =datasv!!.getMemberID()
-        isCheckLogout()
+        //isCheckLogout()
         // preparing navigation drawer items
         for (i in titles!!.indices) {
             datalist!!.add(titles!![i])
@@ -589,7 +589,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 val amountTime: Long = System.currentTimeMillis() - previous
                 val min = ((amountTime/1000) / 60) % 60
                 println("enter the current time"+min)
-                if(min>5){
+                if(min>10){
                     loginViewModel.logoutApiCall()
                 }
 

@@ -57,6 +57,10 @@ class SelectionListAdapter(val documentModel: ArrayList<Any>,var commoninterface
                 val countryResponse : ReimbursementTypeListModel.reimbursementFileType = documentModel[position] as ReimbursementTypeListModel.reimbursementFileType
                 binding.title  =countryResponse.FileTypeShortName
             }
+            is ComplaintTypeListModel.ComplaintTypeResponse->{
+                val countryResponse : ComplaintTypeListModel.ComplaintTypeResponse = documentModel[position] as ComplaintTypeListModel.ComplaintTypeResponse
+                binding.title  =countryResponse.ComplaintName 
+            }
         }
 
         holder.itemView.setOnClickListener {
@@ -69,6 +73,11 @@ class SelectionListAdapter(val documentModel: ArrayList<Any>,var commoninterface
 
 
 
+    }
+    fun changeAdapterValue( documentModel: ArrayList<Any>){
+        this.documentModel.clear()
+        this.documentModel.addAll(documentModel)
+        notifyDataSetChanged()
     }
     override fun onCreateViewHolderBase(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder(LayoutInflater
