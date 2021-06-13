@@ -113,6 +113,12 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                 showSelectionSheet(listcurrency as ArrayList<Any>,getString(R.string.select_currency))
 
             }
+            R.id.account_type_edt->{
+               var arrayLis= ArrayList<String>()
+                arrayLis.add(getString(R.string.savings))
+                arrayLis.add(getString(R.string.current))
+                showSelectionSheet(arrayLis as ArrayList<Any>,getString(R.string.select_account_type))
+            }
             R.id.date_edit->{
                 datePicker()
             }
@@ -198,6 +204,12 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                     is CurrencyModel.CountryResponse->{
                         reimbursementViewModel.reimbursementformModel.currency = value.CurrencyName
                         reimbursementViewModel.reimbursementformModel.currencyid = value.CurrencyID
+                        binding.viewModel = reimbursementViewModel
+                        bottomSheet?.dismiss()
+
+                    }
+                    is String->{
+                        reimbursementViewModel.reimbursementformModel.accounttype = value
                         binding.viewModel = reimbursementViewModel
                         bottomSheet?.dismiss()
 

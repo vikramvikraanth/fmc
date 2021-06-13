@@ -536,13 +536,14 @@ fun ECardApiCall(
                 "            <Deviceos>1</Deviceos>\n" +
                 "            <LanguageId>"+sharedHelper.getFromUser("lang_type")+"</LanguageId>\n" +
                 "            <CardNumber>"+data.getCardNumber()+"</CardNumber>\n" +
-                "            <ComplaintBy>vikram</ComplaintBy>\n" +
+                "            <ComplaintBy>"+data.getName()+"</ComplaintBy>\n" +
                 "            <Subject>"+complaintModel.subject+"</Subject>\n" +
                 "            <Message>"+complaintModel.complaint+"</Message>\n" +
                 "            <UserID>"+sharedHelper.getFromUser("user_id")+"</UserID>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "            <DataOfVisit>"+complaintModel.datevistor+"</DataOfVisit>\n" +
                 "            <ProviderName>"+complaintModel.providerName+"</ProviderName>\n" +
+                "            <ComplaintType>"+complaintModel.complainttypeid+"</ComplaintType>\n" +
                 "        </MobSubmitMemberComplaint>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
@@ -845,6 +846,11 @@ fun ECardApiCall(
                 "            <CurrencyID>"+model.currencyid+"</CurrencyID>\n" +
                 "            <Amount>"+model.amount+"</Amount>\n" +
                 "            <ServicePeriod>"+model.serviceperiod+"</ServicePeriod>\n" +
+                "            <IBANNO>"+model.ibannumber+"</IBANNO>\n" +
+                "            <BeneficiaryName>"+model.beneficiary+"</BeneficiaryName>\n" +
+                "            <BankName>"+model.bankname+"</BankName>\n" +
+                "            <AccountType>"+model.accounttype+"</AccountType>\n" +
+                "            <SwiftCode>"+model.swiftcode+"</SwiftCode>\n" +
                 "            <AttachedDocuments>"+jsonArray+"</AttachedDocuments>\n" +
                 "        </MobSubmitReimbursementClaim>\n" +
                 "    </Body>\n" +

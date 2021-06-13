@@ -91,6 +91,9 @@ class SelectBottomSheetFragment(
                         val countryResponse: ComplaintTypeListModel.ComplaintTypeResponse = dataList[item] as ComplaintTypeListModel.ComplaintTypeResponse
                         strName = countryResponse.ComplaintName
                     }
+                    is String-> {
+                        strName = dataList[item] as String
+                    }
                 }
                 if (strName.toLowerCase(Locale.ROOT).contains(s.toString().toLowerCase(Locale.ROOT))) {
                     temp.add(dataList[item])

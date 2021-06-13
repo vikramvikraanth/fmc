@@ -61,6 +61,9 @@ class SelectionListAdapter(val documentModel: ArrayList<Any>,var commoninterface
                 val countryResponse : ComplaintTypeListModel.ComplaintTypeResponse = documentModel[position] as ComplaintTypeListModel.ComplaintTypeResponse
                 binding.title  =countryResponse.ComplaintName 
             }
+            is String->{
+                binding.title  =documentModel[position] as String
+            }
         }
 
         holder.itemView.setOnClickListener {

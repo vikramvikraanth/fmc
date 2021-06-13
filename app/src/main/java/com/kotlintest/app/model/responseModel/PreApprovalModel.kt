@@ -39,6 +39,14 @@ class PreApprovalModel {
         @Expose
         var providerName: String = ""
 
+        @SerializedName("PrcessedTime")
+        @Expose
+        var prcessedTime: String = ""
+
+        @SerializedName("RequestTime")
+        @Expose
+        var requestTime: String = ""
+
         @SerializedName("ServiceType")
         @Expose
         var serviceType: Any? = null

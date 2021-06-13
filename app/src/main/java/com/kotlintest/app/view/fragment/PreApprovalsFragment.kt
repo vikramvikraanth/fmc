@@ -38,7 +38,7 @@ class PreApprovalsFragment : BaseFragment<FragmentPreApprovalsBinding>(), View.O
         familyViewModel.response().observe(this,{
             processResponse(it)
         })
-      //  familyViewModel.getpreApprovalsApiCall(familyViewModel.model)
+        familyViewModel.getpreApprovalsApiCall(familyViewModel.model)
         binding.click = this
     }
     private fun processResponse(response: Response){
