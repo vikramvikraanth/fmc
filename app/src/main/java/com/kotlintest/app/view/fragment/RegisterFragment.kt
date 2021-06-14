@@ -31,10 +31,22 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         binding.click = this
         this.binding.loginViewModel =loginViewModel
         data.length
-
+        binding.istateid = false
         loginViewModel.response().observe(this, {
             processResponse(it)
         })
+        binding.radioButton.isChecked = true
+        binding.radioButton.setOnClickListener {
+            binding.istateid = false
+            loginViewModel.registerModel.cardNumber =""
+            this.binding.loginViewModel =loginViewModel
+        }
+        binding.radioButton2.setOnClickListener {
+            binding.istateid = true
+            loginViewModel.registerModel.cardNumber =""
+            this.binding.loginViewModel =loginViewModel
+
+        }
 
     }
 
@@ -59,6 +71,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
 
                 })
                 bottomSheet!!.show(fragmentManagers!!, "gender")
+            }
+            R.id.termc_condition_txt->{
+                moveTOFragment(WebviewFragment(),R.id.register_container)
             }
         }
     }

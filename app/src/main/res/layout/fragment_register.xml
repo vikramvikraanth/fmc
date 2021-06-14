@@ -3,6 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="click"
                 type="android.view.View.OnClickListener" />
@@ -11,6 +12,10 @@
                 name="loginViewModel"
                 type="com.kotlintest.app.viewModel.LoginViewModel" />
 
+        <variable
+                name="istateid"
+                type="Boolean" />
+
 
     </data>
 
@@ -18,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/White"
+            android:id="@+id/register_container"
             tools:context=".view.fragment.ForgotPasswordFragment">
 
         <ScrollView
@@ -185,13 +191,63 @@
                                 android:background="@drawable/ic_square_box"
                                 android:padding="@dimen/_10sdp"
                                 android:textColor="@color/Black" />
-                         <TextView
+                        <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/_15sdp"
                                 android:layout_marginTop="@dimen/_15sdp"
                                 android:layout_marginEnd="@dimen/_15sdp"
-                                android:text="@string/card_number"
+                                android:text="@string/choose_id_type"
+                                android:textAppearance="@style/TextViewCustomFont_medium"
+                                android:textColor="@color/White"
+                                android:textSize="@dimen/_14sdp" />
+                        <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="2"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:id="@+id/radioGroup"
+                                >
+
+                            <RadioButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/e_id"
+                                    android:id="@+id/radioButton"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:checked="false"
+                                    android:buttonTint="@color/colorPrimary"
+                                    android:textColor="@color/White"
+                                    android:layout_weight="1"
+                                    />
+
+                            <RadioButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/member_card"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:id="@+id/radioButton2"
+                                    android:textColor="@color/White"
+                                    android:buttonTint="@color/colorPrimary"
+                                    android:layout_gravity="center_horizontal"
+                                    android:checked="false"
+                                    android:layout_weight="1" />
+                        </RadioGroup>
+
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:text="@string/e_id"
+                                android:visibility="@{istateid?View.GONE:View.VISIBLE}"
+
                                 android:textAppearance="@style/TextViewCustomFont_medium"
                                 android:textColor="@color/White"
                                 android:textSize="@dimen/_14sdp" />
@@ -202,9 +258,40 @@
                                 android:layout_marginStart="@dimen/_15sdp"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_marginEnd="@dimen/_15sdp"
+                                android:visibility="@{istateid?View.GONE:View.VISIBLE}"
                                 android:afterTextChanged="@{(text) -> loginViewModel.onUsernameTextChanged(loginViewModel.registerModel)}"
                                 android:text="@={loginViewModel.registerModel.cardNumber}"
                                 android:imeOptions="actionDone"
+                                android:singleLine="true"
+                                android:maxLength="15"
+                                android:inputType="number"
+                                android:digits="0987654321"
+                                android:background="@drawable/ic_square_box"
+                                android:padding="@dimen/_10sdp"
+                                android:textColor="@color/Black" />
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:text="@string/card_number"
+                                android:visibility="@{istateid?View.VISIBLE:View.GONE}"
+                                android:textAppearance="@style/TextViewCustomFont_medium"
+                                android:textColor="@color/White"
+                                android:textSize="@dimen/_14sdp" />
+
+                        <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:visibility="@{istateid?View.VISIBLE:View.GONE}"
+                                android:afterTextChanged="@{(text) -> loginViewModel.onUsernameTextChanged(loginViewModel.registerModel)}"
+                                android:text="@={loginViewModel.registerModel.cardNumber}"
+                                android:imeOptions="actionDone"
+                                android:maxLength="50"
                                 android:singleLine="true"
                                 android:background="@drawable/ic_square_box"
                                 android:padding="@dimen/_10sdp"
@@ -266,6 +353,32 @@
                                 android:background="@drawable/ic_square_box"
                                 android:padding="@dimen/_10sdp"
                                 android:textColor="@color/Black" />
+
+                        <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_height="wrap_content">
+                            <CheckBox
+                                    android:layout_width="wrap_content"
+                                    android:buttonTint="@color/colorPrimary"
+                                    android:id="@+id/checkbox"
+                                    android:checked="@={loginViewModel.registerModel.ischeck}"
+                                    android:layout_height="wrap_content"/>
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/i_have_read_and_agree_with_the_terms_and_condtions"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/termc_condition_txt"
+                                    android:onClick="@{click::onClick}"
+                                    android:layout_toEndOf="@+id/checkbox"
+                                    android:textColor="@color/White"
+                                    android:clickable="false"
+                                    android:textSize="@dimen/_12sdp" />
+
+                        </RelativeLayout>
 
 
                         <com.google.android.material.button.MaterialButton

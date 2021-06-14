@@ -829,7 +829,6 @@ fun ECardApiCall(
 
         val json = gson.toJson(model.listImage)
         var jsonArray = JSONArray(json)
-
         val requestBodyText = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
                 "    <Body>\n" +
                 "        <MobSubmitReimbursementClaim xmlns=\"http://tempuri.org/\">\n" +
@@ -849,7 +848,7 @@ fun ECardApiCall(
                 "            <IBANNO>"+model.ibannumber+"</IBANNO>\n" +
                 "            <BeneficiaryName>"+model.beneficiary+"</BeneficiaryName>\n" +
                 "            <BankName>"+model.bankname+"</BankName>\n" +
-                "            <AccountType>"+model.accounttype+"</AccountType>\n" +
+                "            <AccountType>"+model.accounttypeid+"</AccountType>\n" +
                 "            <SwiftCode>"+model.swiftcode+"</SwiftCode>\n" +
                 "            <AttachedDocuments>"+jsonArray+"</AttachedDocuments>\n" +
                 "        </MobSubmitReimbursementClaim>\n" +

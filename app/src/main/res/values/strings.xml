@@ -165,8 +165,14 @@
     <string name="swift_code">Swift Code No</string>
     <string name="enter_swift_code_no">Enter Swift Code No</string>
     <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4.Salary pre-pay A/c will not be accepted. Kindly contact reimbursement@fmchealthcare.ae for more details.</string>
-    <string name="prcessed_time">Prcessed Time</string>
+    <string name="prcessed_time">Processed Time</string>
     <string name="request_time">Request Time</string>
     <string name="savings">Savings</string>
     <string name="current">Current</string>
+    <string name="i_have_read_and_agree_with_the_terms_and_condtions">I have read and agree with the terms and conditions</string>
+    <string name="profile">Profile</string>
+    <string name="terms_and_condition">Terms and condition</string>
+    <string name="choose_id_type">Choose ID type</string>
+    <string name="e_id">E ID</string>
+    <string name="member_card">Member Card</string>
 </resources>

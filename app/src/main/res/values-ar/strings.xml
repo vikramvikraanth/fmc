@@ -153,8 +153,30 @@
     <string name="ip_decutbles">خصومات IP</string>
 
     <string name="morethan">لم تقم بإضافة أكثر من 5 مستندات</string>
-    <string name="documentsize">Your documents size must be below 5mbs</string>
+    <string name="documentsize">Your يجب أن يكون حجم المستندات أدناه5mbs</string>
 
     <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4.ملاحظة: لن يتم قبول حساب الراتب المدفوع مسبقًا. يرجى التواصل مع reimbursement@fmchealthcare.ae لمزيد من التفاصيل.</string>
 
+
+    <string name="bank_name">اسم البنك</string>
+    <string name="enter_bank_name">أدخل اسم البنك</string>
+    <string name="enter_provider_name">أدخل اسم المزود</string>
+    <string name="select_your_visit_date">حدد تاريخ زيارتك</string>
+    <string name="enter_complaint_type">أدخل نوع الشكوى</string>
+    <string name="select_complaint_type">حدد نوع الشكوى</string>
+    <string name="search_here">ابحث هنا</string>
+    <string name="account_type">نوع الحساب</string>
+    <string name="select_account_type">حدد نوع الحساب</string>
+    <string name="swift_code">سويفت كود لا</string>
+    <string name="enter_swift_code_no">أدخل رمز سويفت لا</string>
+    <string name="prcessed_time">وقت المعالجة</string>
+    <string name="request_time">وقت الطلب</string>
+    <string name="savings">مدخرات</string>
+    <string name="current">تيار</string>
+    <string name="i_have_read_and_agree_with_the_terms_and_condtions">لقد قرأت ووافقت على الشروط والأحكام</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="terms_and_condition">أحكام وشروط</string>
+    <string name="choose_id_type">اختر نوع الهوية</string>
+    <string name="e_id">الهوية الإلكترونية</string>
+    <string name="member_card">بطاقة عضوية</string>
 </resources>

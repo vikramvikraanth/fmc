@@ -10,7 +10,8 @@ data class RegisterModel(
     var countrycode: String = "+91",
     var mobile: String = "",
     var dob: String = "",
-    var gender:String =""
+    var gender:String ="",
+    var ischeck:Boolean =false
 
 ):BaseValidatorClass(){
 

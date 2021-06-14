@@ -26,7 +26,7 @@
                     app:navigationIcon="@drawable/ic_back"
                     android:elevation="@dimen/_5sdp"
                     android:id="@+id/toolbar"
-                    app:title="Profile"
+                    app:title="@string/profile"
                     android:layout_height="wrap_content"/>
 
             <LinearLayout

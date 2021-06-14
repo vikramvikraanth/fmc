@@ -437,7 +437,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details"
-                        android:textColor="@color/light_black"
+                        android:textColor="@color/red"
                         android:textSize="@dimen/_12sdp" />
 
                 <LinearLayout

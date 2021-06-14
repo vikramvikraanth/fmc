@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.kotlintest.app.viewModel.StaticViewModel"
+                />
+
+    </data>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/White"
+            android:clickable="true"
+            android:focusable="true"
+            tools:context=".view.fragment.WebviewFragment">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+            <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    app:navigationIcon="@drawable/ic_back"
+                    android:elevation="@dimen/_5sdp"
+                    android:id="@+id/toolbar"
+                    app:title="@string/terms_and_condition"
+                    android:layout_height="wrap_content"/>
+
+            <WebView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:loadUrl="@{viewModel.url}"
+                    app:setWebViewClient="@{viewModel.webViewClient}" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>

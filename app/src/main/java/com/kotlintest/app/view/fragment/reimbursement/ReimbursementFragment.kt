@@ -210,6 +210,11 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                     }
                     is String->{
                         reimbursementViewModel.reimbursementformModel.accounttype = value
+                        if(value.equals(activity.resources.getString(R.string.savings))){
+                            reimbursementViewModel.reimbursementformModel.accounttypeid = "1"
+                        }else{
+                            reimbursementViewModel.reimbursementformModel.accounttypeid = "2"
+                        }
                         binding.viewModel = reimbursementViewModel
                         bottomSheet?.dismiss()
 

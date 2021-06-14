@@ -5,6 +5,8 @@ import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.TypedValue
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -163,4 +165,17 @@ object CustomBinding {
         }
 
     }
+
+    @BindingAdapter("setWebViewClient")
+    @JvmStatic
+    fun setWebViewClient(view: WebView, client: WebViewClient?) {
+        view.webViewClient = client!!
+    }
+
+    @BindingAdapter("loadUrl")
+    @JvmStatic
+    fun loadUrl(view: WebView, url: String?) {
+        view.loadUrl(url!!)
+    }
+
 }
