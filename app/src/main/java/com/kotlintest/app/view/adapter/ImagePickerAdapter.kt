@@ -11,6 +11,7 @@ import com.kotlintest.app.baseClass.BaseAdapter
 import com.kotlintest.app.databinding.ImagePickerAdapterBinding
 import com.kotlintest.app.utility.`interface`.Commoninterface
 import com.kotlintest.app.utility.imagePicker.Files.Media
+import java.io.File
 
 class ImagePickerAdapter constructor(val arraydata : ArrayList<Media>, val commonInterface: Commoninterface,var type :String) : BaseAdapter<Media>(arraydata) {
 
@@ -22,8 +23,11 @@ class ImagePickerAdapter constructor(val arraydata : ArrayList<Media>, val commo
         }
         if(type=="image"){
             binding.image = arraydata[position].path
+            binding.title = ""
         }else{
             binding.image = null
+            binding.title = File(arraydata[position].path).name
+
         }
         binding.isSelection = arraydata[position].isSelection
         holder.itemView.setOnClickListener {

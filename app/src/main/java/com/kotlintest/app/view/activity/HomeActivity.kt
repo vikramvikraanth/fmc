@@ -73,7 +73,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         binding.datas = datasv
         nameTxt?.setText(datasv.getName())
         memberid =datasv!!.getMemberID()
-        //isCheckLogout()
+        isCheckLogout()
         // preparing navigation drawer items
         for (i in titles!!.indices) {
             datalist!!.add(titles!![i])

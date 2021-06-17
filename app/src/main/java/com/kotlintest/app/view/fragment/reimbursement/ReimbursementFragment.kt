@@ -256,6 +256,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
             }
 
         },title,list)
+
         bottomSheet?.show(fragmentManagers!!,"show_select")
     }
 
@@ -341,7 +342,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { file: File? ->
-                        if(reimbursementViewModel.reimbursementformModel.listImage.size==5){
+                        if(reimbursementViewModel.reimbursementformModel.listImage.size==9){
                             commonFunction.commonToast(getString(R.string.morethan))
                             return@subscribe
                         }
@@ -386,7 +387,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     fun onMessage(event: ImagePathEvent) {
-        if(reimbursementViewModel.reimbursementformModel.listImage.size==5){
+        if(reimbursementViewModel.reimbursementformModel.listImage.size==9){
             commonFunction.commonToast(getString(R.string.morethan))
             return
         }

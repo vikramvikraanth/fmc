@@ -34,12 +34,15 @@
                     android:orientation="vertical">
 
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/category"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
@@ -68,11 +71,14 @@
                         android:textSize="@dimen/_12sdp" />
 
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:text="@string/medical_facility_country"
                         android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textColor="@color/light_black"
@@ -102,13 +108,15 @@
                         android:textSize="@dimen/_12sdp" />
 
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/currency"
-
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
@@ -136,13 +144,15 @@
                         android:textColorHint="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/account_type"
-
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
@@ -171,12 +181,15 @@
                         android:textSize="@dimen/_12sdp" />
 
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/amount"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
@@ -203,11 +216,14 @@
                         android:textColorHint="@color/Gainsboro"
                         android:textSize="@dimen/_12sdp" />
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:text="@string/beneficiary_name"
                         android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textColor="@color/light_black"
@@ -234,12 +250,15 @@
                         android:textColorHint="@color/Gainsboro"
                         android:textSize="@dimen/_12sdp" />
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/bank_name"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:textAppearance="@style/TextViewCustomFont_bold"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
@@ -264,6 +283,7 @@
                         android:textColor="@color/light_black"
                         android:textColorHint="@color/Gainsboro"
                         android:textSize="@dimen/_12sdp" />
+<!--
   <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -296,12 +316,16 @@
                         android:textColor="@color/light_black"
                         android:textColorHint="@color/Gainsboro"
                         android:textSize="@dimen/_12sdp" />
+-->
 
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/i_ban_number"
                         android:textAppearance="@style/TextViewCustomFont_bold"
@@ -361,14 +385,16 @@
                         android:textSize="@dimen/_12sdp" />
 
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:text="@string/service_period"
                         android:textAppearance="@style/TextViewCustomFont_bold"
-
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_star"
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/_12sdp" />
 

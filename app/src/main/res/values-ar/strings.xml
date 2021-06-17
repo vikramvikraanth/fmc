@@ -152,10 +152,10 @@
     <string name="op_deuctible">خصومات OP</string>
     <string name="ip_decutbles">خصومات IP</string>
 
-    <string name="morethan">لم تقم بإضافة أكثر من 5 مستندات</string>
+    <string name="morethan">لم تقم بإضافة أكثر من 9 مستندات</string>
     <string name="documentsize">Your يجب أن يكون حجم المستندات أدناه5mbs</string>
 
-    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4.ملاحظة: لن يتم قبول حساب الراتب المدفوع مسبقًا. يرجى التواصل مع reimbursement@fmchealthcare.ae لمزيد من التفاصيل.</string>
+    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4.يرجى التواصل مع reimbursement@fmchealthcare.ae لمزيد من التفاصيل.</string>
 
 
     <string name="bank_name">اسم البنك</string>

@@ -1,9 +1,15 @@
 package com.kotlintest.app.view.bottomsheetFragment
 
+import android.app.Dialog
+import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.view.WindowManager
 import androidx.databinding.ViewDataBinding
 import com.astrology.app.baseClass.BaseBottomSheetFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kotlintest.app.R
 import com.kotlintest.app.databinding.FragmentSelectBottomSheetBinding
 import com.kotlintest.app.model.responseModel.*
@@ -25,12 +31,18 @@ class SelectBottomSheetFragment(
     var temp: ArrayList<Any> = ArrayList()
     var listdata: ArrayList<Any> = ArrayList()
     var strName: String = ""
+
+    private val mBehavior: BottomSheetBehavior<*>? = null
+
     override fun initView(mViewDataBinding: ViewDataBinding?) {
         binding.title = title
         listdata.addAll(dataList)
         adapter = SelectionListAdapter(listdata, commoninterface)
         binding.adapter = adapter
         binding.searchEdt.addTextChangedListener(passwordWatcher)
+
+
+
         temp = ArrayList()
     }
 
@@ -106,4 +118,27 @@ class SelectBottomSheetFragment(
 
         }
     }
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = BottomSheetDialog(requireContext(), theme)
+        dialog.setOnShowListener {
+
+            val bottomSheetDialog = it as BottomSheetDialog
+            val parentLayout =
+                bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            parentLayout?.let { it ->
+                val behaviour = BottomSheetBehavior.from(it)
+                setupFullHeight(it)
+                behaviour.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+        return dialog
+    }
+
+    private fun setupFullHeight(bottomSheet: View) {
+        val layoutParams = bottomSheet.layoutParams
+        layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
+        bottomSheet.layoutParams = layoutParams
+    }
+
+
 }

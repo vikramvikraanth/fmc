@@ -28,7 +28,7 @@
     <string name="reimbursement">Reimbursement</string>
     <string name="ecard">E-card</string>
     <string name="compliants">Complaints</string>
-    <string name="faq">FAQ</string>
+    <string name="faq">FAQs</string>
     <string name="about_us">About us</string>
     <string name="language">Language</string>
     <string name="health_tips">Health tips</string>
@@ -75,7 +75,7 @@
     <string name="enter_amount">Enter Amount</string>
     <string name="i_ban_number">IBAN No- (23 digits)</string>
     <string name="enter_your_i_ban_number">Enter your I BAN Number</string>
-    <string name="beneficiary_name">Beneficiary Name</string>
+    <string name="beneficiary_name">Account Holder\'s Name</string>
     <string name="enter_your_beneficiary_name">Enter your Service Period</string>
     <string name="upload_documents">Upload Required Documents</string>
     <string name="browse">Browse</string>
@@ -100,7 +100,7 @@
     <string name="choose_your_of_file">Choose your of File</string>
     <string name="no_file_found">No file Found</string>
     <string name="invalid_image_format">Invalid image format</string>
-    <string name="doductable_type">Doductable type</string>
+    <string name="doductable_type">Deductible type</string>
     <string name="flat">Flat</string>
     <string name="remarks">Remarks</string>
     <string name="complaintno">ComplaintNo</string>
@@ -151,7 +151,7 @@
     <string name="browse_type">Browse Type</string>
     <string name="op_deuctible">OP Deductibles</string>
     <string name="ip_decutbles">IP Deductibles</string>
-    <string name="morethan">You has\'t add more than 5 documents</string>
+    <string name="morethan">You has\'t add more than 9 documents</string>
     <string name="documentsize">Your documents size must be below 5mbs</string>
     <string name="bank_name">Bank Name</string>
     <string name="enter_bank_name">Enter Bank Name</string>
@@ -164,7 +164,7 @@
     <string name="select_account_type">Select Account type</string>
     <string name="swift_code">Swift Code No</string>
     <string name="enter_swift_code_no">Enter Swift Code No</string>
-    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4.Salary pre-pay A/c will not be accepted. Kindly contact reimbursement@fmchealthcare.ae for more details.</string>
+    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4. Kindly contact reimbursement@fmchealthcare.ae for more details.</string>
     <string name="prcessed_time">Processed Time</string>
     <string name="request_time">Request Time</string>
     <string name="savings">Savings</string>
