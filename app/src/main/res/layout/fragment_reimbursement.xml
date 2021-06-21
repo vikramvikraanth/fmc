@@ -238,7 +238,7 @@
                         android:background="@drawable/ic_square_box"
                         android:elevation="@dimen/_5sdp"
                         android:afterTextChanged="@{(text) -> viewModel.onUsernameTextChanged(viewModel.reimbursementformModel)}"
-                        android:hint="@string/enter_your_beneficiary_name"
+                        android:hint="@string/enter_account_holder_s_name"
                         android:imeOptions="actionNext"
                         android:inputType="textPersonName"
                         android:maxLines="1"

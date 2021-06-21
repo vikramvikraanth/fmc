@@ -117,7 +117,7 @@
     <string name="female">أنثى</string>
     <string name="country">دولة</string>
     <string name="select_country">حدد الدولة</string>
-    <string name="state">حالة</string>
+    <string name="state">الدولة / الإمارات</string>
     <string name="select_state">اختر ولايه</string>
     <string name="city">مدينة</string>
     <string name="select_city">اختر مدينة</string>
@@ -128,7 +128,7 @@
     <string name="service_period">مدة الخدمة</string>
     <string name="_1_attachment_should_not_exceed_more_than_5mb">1. يجب ألا يزيد حجم المرفقات عن 5 ميغا بايت.</string>
     <string name="_2_file_should_be_in_jpg_png_or_pdf_format">2. يجب أن يكون الملف بتنسيق .jpg أو .png أو .pdf</string>
-    <string name="_3_maximum_5_attachments_only">3. بحد أقصى 5 مرفقات فقط.</string>
+    <string name="_3_maximum_5_attachments_only">3. بحد أقصى 9 مرفقات فقط.</string>
     <string name="front_picture">الصورة الأمامية</string>
     <string name="back_picture">عودة الصورة</string>
     <string name="end_date">تاريخ الانتهاء</string>
@@ -155,7 +155,7 @@
     <string name="morethan">لم تقم بإضافة أكثر من 9 مستندات</string>
     <string name="documentsize">Your يجب أن يكون حجم المستندات أدناه5mbs</string>
 
-    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4.يرجى التواصل مع reimbursement@fmchealthcare.ae لمزيد من التفاصيل.</string>
+    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">يرجى التواصل مع reimbursement@fmchealthcare.ae لمزيد من التفاصي</string>
 
 
     <string name="bank_name">اسم البنك</string>
@@ -179,4 +179,8 @@
     <string name="choose_id_type">اختر نوع الهوية</string>
     <string name="e_id">الهوية الإلكترونية</string>
     <string name="member_card">بطاقة عضوية</string>
+    <string name="enter_account_holder_s_name">أدخل اسم صاحب الحساب</string>
+    <string name="salary_pre_pay_a_c">لن يتم قبول حساب الراتب المدفوع مسبقًا.</string>
+    <string name="ok">نعم</string>
+    <string name="cancel">يلغي</string>
 </resources>

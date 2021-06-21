@@ -45,6 +45,7 @@
                            android:textAppearance="@style/TextViewCustomFont_bold"
                            android:textSize="@dimen/_12sdp"
                            android:padding="@dimen/_2sdp"
+                           android:textAlignment="textStart"
                            android:layout_weight="1"
                            android:text="@string/name"
                            android:textColor="@color/Black"
@@ -53,6 +54,8 @@
                            android:layout_width="match_parent"
                            android:textSize="@dimen/_12sdp"
                             android:layout_weight="1"
+                            android:textAlignment="textEnd"
+
                             android:text="@{data.policyHolderName}"
                             android:padding="@dimen/_2sdp"
                            android:textColor="@color/Black"
@@ -70,6 +73,8 @@
                            android:textAppearance="@style/TextViewCustomFont_bold"
                            android:textSize="@dimen/_12sdp"
                            android:padding="@dimen/_2sdp"
+                           android:textAlignment="textStart"
+
                            android:layout_weight="1"
                            android:text="@string/card_number"
                            android:textColor="@color/Black"
@@ -77,6 +82,7 @@
                     <TextView
                            android:layout_width="match_parent"
                            android:textSize="@dimen/_12sdp"
+                            android:textAlignment="textEnd"
                             android:layout_weight="1"
                             android:text="@{data.cardNumber}"
                             android:padding="@dimen/_2sdp"
@@ -122,6 +128,7 @@
                            android:textSize="@dimen/_12sdp"
                            android:padding="@dimen/_2sdp"
                            android:layout_weight="1"
+                           android:textAlignment="textStart"
                            android:text="@string/age"
                            android:textColor="@color/Black"
                            android:layout_height="wrap_content"/>
@@ -129,6 +136,7 @@
                            android:layout_width="match_parent"
                            android:textSize="@dimen/_12sdp"
                             android:layout_weight="1"
+                            android:textAlignment="textEnd"
                             android:text="@{data.age}"
                             android:padding="@dimen/_2sdp"
                            android:textColor="@color/Black"
@@ -147,6 +155,7 @@
                            android:textSize="@dimen/_12sdp"
                            android:padding="@dimen/_2sdp"
                            android:layout_weight="1"
+                           android:textAlignment="textStart"
                            android:text="@string/effective_date"
                            android:textColor="@color/Black"
                            android:layout_height="wrap_content"/>
@@ -154,6 +163,7 @@
                            android:layout_width="match_parent"
                            android:textSize="@dimen/_12sdp"
                             android:layout_weight="1"
+                            android:textAlignment="textEnd"
                             android:text="@{data.effectiveDate}"
                             android:padding="@dimen/_2sdp"
                            android:textColor="@color/Black"
@@ -172,6 +182,7 @@
                            android:textSize="@dimen/_12sdp"
                            android:padding="@dimen/_2sdp"
                            android:layout_weight="1"
+                           android:textAlignment="textStart"
                            android:text="@string/expiry_date"
                            android:textColor="@color/Black"
                            android:layout_height="wrap_content"/>
@@ -179,6 +190,7 @@
                            android:layout_width="match_parent"
                            android:textSize="@dimen/_12sdp"
                             android:layout_weight="1"
+                            android:textAlignment="textEnd"
                             android:text="@{data.expiryDate}"
                             android:padding="@dimen/_2sdp"
                            android:textColor="@color/Black"
@@ -197,6 +209,7 @@
                            android:textSize="@dimen/_12sdp"
                            android:padding="@dimen/_2sdp"
                            android:layout_weight="1"
+                           android:textAlignment="textStart"
                            android:text="@string/total_limit"
                            android:textColor="@color/Black"
                            android:layout_height="wrap_content"/>
@@ -204,6 +217,7 @@
                            android:layout_width="match_parent"
                            android:textSize="@dimen/_12sdp"
                             android:layout_weight="1"
+                            android:textAlignment="textEnd"
                             android:text="@{data.totalLimit}"
                             android:padding="@dimen/_2sdp"
                            android:textColor="@color/Black"
@@ -222,6 +236,7 @@
                            android:textSize="@dimen/_12sdp"
                            android:padding="@dimen/_2sdp"
                            android:layout_weight="1"
+                           android:textAlignment="textStart"
                            android:text="@string/medicine_limit"
                            android:textColor="@color/Black"
                            android:layout_height="wrap_content"/>
@@ -231,6 +246,7 @@
                             android:layout_weight="1"
                             android:text="@{data.PHLimit}"
                             android:ellipsize="end"
+                            android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:padding="@dimen/_2sdp"
                            android:textColor="@color/Black"
@@ -272,6 +288,7 @@
                     android:layout_width="@dimen/_80sdp"
                     android:src="@drawable/ic_logos"
                     android:padding="@dimen/_25sdp"
+                    android:clickable="true"
                     android:scaleType="centerCrop"
                     android:layout_alignParentBottom="true"
                     android:layout_height="@dimen/_80sdp"/>

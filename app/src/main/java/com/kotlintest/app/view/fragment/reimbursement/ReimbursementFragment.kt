@@ -211,6 +211,7 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
                     is String->{
                         reimbursementViewModel.reimbursementformModel.accounttype = value
                         if(value.equals(activity.resources.getString(R.string.savings))){
+                            commonFunction.commonToast(getString(R.string.salary_pre_pay_a_c))
                             reimbursementViewModel.reimbursementformModel.accounttypeid = "1"
                         }else{
                             reimbursementViewModel.reimbursementformModel.accounttypeid = "2"
@@ -277,6 +278,8 @@ class ReimbursementFragment : BaseFragment<FragmentReimbursementBinding>(), View
         cal[Calendar.DAY_OF_MONTH]
 
         dpd?.maxDate = cal
+        dpd?.setOkText(getString(R.string.ok))
+        dpd?.setCancelText(getString(R.string.cancel))
         dpd!!.show(fragmentManagers!!, "Datepickerdialog")
 
     }

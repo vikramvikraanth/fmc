@@ -189,6 +189,7 @@
                                 android:layout_width="@dimen/_80sdp"
                                 android:src="@drawable/ic_logos"
                                 android:padding="@dimen/_25sdp"
+                                android:clickable="true"
                                 android:scaleType="centerCrop"
                                 android:layout_alignParentBottom="true"
                                 android:layout_height="@dimen/_80sdp"/>

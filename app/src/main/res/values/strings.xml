@@ -74,7 +74,7 @@
     <string name="amount">Amount</string>
     <string name="enter_amount">Enter Amount</string>
     <string name="i_ban_number">IBAN No- (23 digits)</string>
-    <string name="enter_your_i_ban_number">Enter your I BAN Number</string>
+    <string name="enter_your_i_ban_number">Enter your IBAN Number</string>
     <string name="beneficiary_name">Account Holder\'s Name</string>
     <string name="enter_your_beneficiary_name">Enter your Service Period</string>
     <string name="upload_documents">Upload Required Documents</string>
@@ -118,7 +118,7 @@
     <string name="female">Female</string>
     <string name="country">Country</string>
     <string name="select_country">Select Country</string>
-    <string name="state">State</string>
+    <string name="state">State/Emirates</string>
     <string name="select_state">Select State</string>
     <string name="city">City</string>
     <string name="select_city">Select City</string>
@@ -129,13 +129,13 @@
     <string name="service_period">Service Period</string>
     <string name="_1_attachment_should_not_exceed_more_than_5mb">1. Attachment should not exceed more than 5mb.</string>
     <string name="_2_file_should_be_in_jpg_png_or_pdf_format">2. File should be in .jpg,.png or .pdf format</string>
-    <string name="_3_maximum_5_attachments_only">3. Maximum 5 attachments only.</string>
+    <string name="_3_maximum_5_attachments_only">3. Maximum 9 attachments only.</string>
     <string name="front_picture">Front Picture</string>
     <string name="back_picture">Back Picture</string>
     <string name="end_date">End Date</string>
     <string name="start_date">Start Date</string>
     <string name="no_data">No Data</string>
-    <string name="select_family_member">Select Family Memeber</string>
+    <string name="select_family_member">Select Family Member</string>
     <string name="select_your_category">Select your Category</string>
     <string name="select_reimbursement_type">Select Reimbursement Type</string>
     <string name="select_your_state">Select your State</string>
@@ -164,7 +164,7 @@
     <string name="select_account_type">Select Account type</string>
     <string name="swift_code">Swift Code No</string>
     <string name="enter_swift_code_no">Enter Swift Code No</string>
-    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">4. Kindly contact reimbursement@fmchealthcare.ae for more details.</string>
+    <string name="_4_salary_pre_pay_a_c_will_not_be_accepted_kindly_contact_reimbursement_fmchealthcare_ae_for_more_details">Kindly contact reimbursement@fmchealthcare.ae for more details.</string>
     <string name="prcessed_time">Processed Time</string>
     <string name="request_time">Request Time</string>
     <string name="savings">Savings</string>
@@ -175,4 +175,8 @@
     <string name="choose_id_type">Choose ID type</string>
     <string name="e_id">E ID</string>
     <string name="member_card">Member Card</string>
+    <string name="enter_account_holder_s_name">Enter account holder\'s name</string>
+    <string name="salary_pre_pay_a_c">Salary pre-pay A/c will not be accepted.</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 </resources>

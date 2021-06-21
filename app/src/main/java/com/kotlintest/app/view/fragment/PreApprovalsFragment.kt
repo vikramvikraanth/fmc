@@ -46,6 +46,7 @@ class PreApprovalsFragment : BaseFragment<FragmentPreApprovalsBinding>(), View.O
             Status.SUCCESS -> {
                 when (response.data) {
                     is PreApprovalModel ->{
+                        data.clear()
                         response.data.preApprovalDetailsResponse?.let { data.addAll(it) }
                         binding.isvisible =data.isEmpty()
 
@@ -99,7 +100,8 @@ class PreApprovalsFragment : BaseFragment<FragmentPreApprovalsBinding>(), View.O
         cal[Calendar.YEAR]
         cal[Calendar.MONTH]
         cal[Calendar.DAY_OF_MONTH]
-
+        dpd?.setOkText(getString(R.string.ok))
+        dpd?.setCancelText(getString(R.string.cancel))
         dpd?.maxDate = cal
         dpd!!.show(fragmentManagers!!, "Datepickerdialog")
 

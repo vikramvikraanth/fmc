@@ -80,6 +80,9 @@ class MedicalProviderFragment : BaseFragment<FragmentMedicalProviderBinding>(),
 
             }
             R.id.speciality_edt->{
+                if(medicalProviderViewModel.medicalFormModel.providerTypeid=="2"){
+                    return
+                }
                 if(medicalProviderViewModel.medicalFormModel.providerTypeid.isEmpty()){
                     commonFunction.commonToast(getString(R.string.select_your_provider_type))
                     return

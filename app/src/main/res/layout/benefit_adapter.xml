@@ -28,6 +28,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:padding="@dimen/_8sdp"
                 android:text="@{title}"
+                android:textAlignment="textStart"
                 android:textColor="@color/White"
                 android:layout_height="wrap_content"/>
         <LinearLayout
