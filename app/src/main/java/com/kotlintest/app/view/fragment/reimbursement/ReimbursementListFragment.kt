@@ -86,7 +86,9 @@ class ReimbursementListFragment : BaseFragment<FragmentReimbursementListBinding>
             Status.SUCCESS -> {
                 when (response.data) {
                     is ReimbursementListModel ->{
+                        listModel.clear()
                         listModel.addAll(response.data.ReimbursementListResponse)
+                        binding.isvisible = listModel.isEmpty()
                         adapter?.notifyDataSetChanged()
                     }
 

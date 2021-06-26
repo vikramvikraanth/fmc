@@ -4,6 +4,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
+        <variable
+                name="isvisible"
+                type="Boolean" />
+
         <variable
                 name="adapter"
                 type="com.kotlintest.app.view.adapter.ReimbursementAdapter" />
@@ -60,6 +65,19 @@
 
 
         </RelativeLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:visibility="@{isvisible?View.VISIBLE:View.GONE,default=gone}"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/no_data"
+                android:layout_centerInParent="true"
+                android:textAppearance="@style/TextViewCustomFont_medium"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14sdp" />
 
     </FrameLayout>
 </layout>

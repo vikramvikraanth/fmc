@@ -12,21 +12,26 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:layoutDirection="locale"
             android:layout_height="wrap_content">
         <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:layoutDirection="locale"
+
                 android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_margin="@dimen/_15sdp"
+                    android:layoutDirection="locale"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="@dimen/_5sdp"
                     app:cardBackgroundColor="@color/White">
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layoutDirection="locale"
                         android:orientation="vertical">
                     <TextView
                             android:layout_width="match_parent"
@@ -38,6 +43,8 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:padding="@dimen/_5sdp"
+                            android:textDirection="locale"
+                            android:textAlignment="textStart"
                             android:textAppearance="@style/TextViewCustomFont_bold"
                             android:textColor="@color/Black"
                             android:textSize="@dimen/_14sdp" />
@@ -47,6 +54,9 @@
                             android:text="@{data.address_PO+` `+data.address_Building+` `+data.address_Flat+` `+data.address_LandMark+``+data.address_Street_1+` `+data.address_Street_2+` `+data.address_City+` `+data.address_Country}"
                             android:lineSpacingExtra="@dimen/_5sdp"
                             android:layout_margin="@dimen/_10sdp"
+                            android:textAlignment="textStart"
+                            android:textDirection="locale"
+
                             android:padding="@dimen/_5sdp"
                             android:textColor="@color/light_black"
                             android:textSize="@dimen/_12sdp" />
@@ -54,6 +64,7 @@
                     <LinearLayout
                             android:layout_width="match_parent"
                             android:padding="@dimen/_5sdp"
+                            android:layoutDirection="locale"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                         <TextView
@@ -63,6 +74,8 @@
                                 android:clickable="false"
                                 android:drawableStart="@drawable/ic_call"
                                 android:padding="@dimen/_5sdp"
+                                android:textAlignment="textStart"
+                                android:textDirection="locale"
                                 android:textAppearance="@style/TextViewCustomFont_bold"
                                 android:textColor="@color/Black"
                                 android:drawablePadding="@dimen/_5sdp"
@@ -72,6 +85,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="@{data.contactNo}"
                                 android:clickable="false"
+                                android:textAlignment="textStart"
+                                android:textDirection="locale"
                                 android:gravity="center_vertical"
                                 android:padding="@dimen/_5sdp"
                                 android:textColor="@color/light_black"
@@ -91,6 +106,8 @@
                                 android:layout_gravity="center_vertical"
                                 android:drawableStart="@drawable/ic_email"
                                 android:padding="@dimen/_5sdp"
+                                android:textAlignment="textStart"
+                                android:textDirection="locale"
                                 android:textAppearance="@style/TextViewCustomFont_bold"
                                 android:textColor="@color/Black"
                                 android:drawablePadding="@dimen/_5sdp"
@@ -100,6 +117,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="@{data.EMail}"
+                                android:textAlignment="textStart"
+                                android:textDirection="locale"
                                 android:gravity="center_vertical"
                                 android:padding="@dimen/_5sdp"
                                 android:textColor="@color/light_black"
@@ -117,6 +136,7 @@
                     android:src="@drawable/ic_abudabi"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_30sdp"
+                    android:layoutDirection="locale"
                     android:layout_gravity="end"
                     android:elevation="@dimen/_5sdp"
                     android:layout_height="wrap_content"/>

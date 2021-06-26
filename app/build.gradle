@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "com.kotlintest.app"
+        applicationId "com.fmc.app"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -17,10 +17,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "baseUrl", '"https://testapi.fmcnetwork.net/"'
+          //  buildConfigField "String", "baseUrl", '"https://testapi.fmcnetwork.net/"'
+            buildConfigField "String", "baseUrl", '"https://api.fmcnetwork.net/"'
         }
         debug {
-            buildConfigField "String", "baseUrl", '"https://testapi.fmcnetwork.net/"'
+            buildConfigField "String", "baseUrl", '"https://api.fmcnetwork.net/"'
         }
     }
     compileOptions {

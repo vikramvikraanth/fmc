@@ -169,7 +169,7 @@
     <string name="request_time">Request Time</string>
     <string name="savings">Savings</string>
     <string name="current">Current</string>
-    <string name="i_have_read_and_agree_with_the_terms_and_condtions">I have read and agree with the terms and conditions</string>
+    <string name="i_have_read_and_agree_with_the_terms_and_condtions">I have read and agree with the <u>terms and conditions</u></string>
     <string name="profile">Profile</string>
     <string name="terms_and_condition">Terms and condition</string>
     <string name="choose_id_type">Choose ID type</string>
@@ -179,4 +179,6 @@
     <string name="salary_pre_pay_a_c">Salary pre-pay A/c will not be accepted.</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
+    <string name="only_number">only 15 number</string>
+    <string name="maximum_characters">Maximum 50 characters</string>
 </resources>
