@@ -33,12 +33,12 @@ import com.kotlintest.app.view.fragment.reimbursement.ReimbursementListFragment
 import com.kotlintest.app.viewModel.LoginViewModel
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.w3c.dom.Text
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
@@ -52,6 +52,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
     override fun layoutId(): Int = R.layout.activity_home
     private val loginViewModel by viewModel<LoginViewModel>()
     var nameTxt : TextView ? =null
+    var disablecompsite : CompositeDisposable ?=null
     companion object {
         var memberid :String =""
     }
@@ -59,6 +60,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
     override fun initView(mViewDataBinding: ViewDataBinding?) {
         // drawer labels
         mDrawerLayout = binding.drawerLayout
+        disablecompsite = CompositeDisposable()
         titles = activity.getResources().getStringArray(R.array.nav_drawer_labels)
         drawerFragment = supportFragmentManager.findFragmentById(R.id.fragment_navigation_drawer) as FragmentDrawer
         drawerFragment!!.setUp(R.id.fragment_navigation_drawer, mDrawerLayout, null)
@@ -343,6 +345,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
         if(EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().unregister(this)
         }
+        if (disablecompsite!=null&&disablecompsite!!.isDisposed) {
+            disablecompsite?.clear()
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
@@ -571,8 +576,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
 
     }
     private fun isCheckLogout(){
-        disposable.add(
-            Observable.timer(15, TimeUnit.SECONDS)
+        if(disablecompsite!=null ){
+            disablecompsite?.clear()
+        }
+        disablecompsite = CompositeDisposable()
+        disablecompsite?.add(
+            Observable.timer(10, TimeUnit.MINUTES)
             .subscribeOn(Schedulers.io())
                 .repeat()
             .observeOn(AndroidSchedulers.mainThread())
@@ -582,18 +591,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), FragmentDrawer.Fragmen
                 }
             }
             .subscribe { aLong ->
-                if(sharedHelper.getFromUser("milsec").isEmpty()){
-                    return@subscribe
-                }
-                val previous : Long = sharedHelper.getFromUser("milsec").toLong()
-                val amountTime: Long = System.currentTimeMillis() - previous
-                val min = ((amountTime/1000) / 60) % 60
-                println("enter the current time"+min)
-                if(min>10){
-                    loginViewModel.logoutApiCall()
-                }
-
+                loginViewModel.logoutApiCall()
             })
+    }
+    override fun onUserInteraction() {
+        super.onUserInteraction()
+        isCheckLogout()
 
     }
+
 }
