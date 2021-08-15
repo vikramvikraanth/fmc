@@ -262,7 +262,6 @@
                                 android:afterTextChanged="@{(text) -> loginViewModel.onUsernameTextChanged(loginViewModel.registerModel)}"
                                 android:text="@={loginViewModel.registerModel.cardNumber}"
                                 android:imeOptions="actionDone"
-                                android:singleLine="true"
                                 android:hint="@string/only_number"
                                 android:maxLength="15"
                                 android:inputType="number"
@@ -295,7 +294,6 @@
                                 android:imeOptions="actionDone"
                                 android:maxLength="50"
                                 android:hint="@string/maximum_characters"
-                                android:singleLine="true"
                                 android:background="@drawable/ic_square_box"
                                 android:padding="@dimen/_10sdp"
                                 android:textColor="@color/Black" />
