@@ -30,7 +30,7 @@ import javax.net.ssl.*
 val viewModelModule = module {
 
     viewModel { FilePickerViewModel(get()) }
-    viewModel { LoginViewModel(get(),get()) }
+    viewModel { LoginViewModel(get(),get(),get ()) }
     viewModel { FamilyViewModel(get(),get()) }
     viewModel { ComplaintViewModel(get(),get()) }
     viewModel { MedicalProviderViewModel(get(),get()) }

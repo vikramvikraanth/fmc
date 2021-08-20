@@ -181,4 +181,5 @@
     <string name="cancel">Cancel</string>
     <string name="only_number">only 15 number</string>
     <string name="maximum_characters">Maximum 50 characters</string>
+    <string name="password_mis">Password mismatch , please check your password</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.kotlintest.app.viewModel
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import com.kotlintest.app.R
 import com.kotlintest.app.baseClass.BaseViewModel
 import com.kotlintest.app.model.localModel.ForgotPasswordModel
 import com.kotlintest.app.model.localModel.LoginModel
@@ -9,7 +11,7 @@ import com.kotlintest.app.network.CommonApi
 import com.kotlintest.app.network.Response
 import com.kotlintest.app.utility.CommonFunction
 
-class LoginViewModel(var commonApi: CommonApi,var commonFunction: CommonFunction)  : BaseViewModel() {
+class LoginViewModel(var commonApi: CommonApi,var commonFunction: CommonFunction,var application: Application)  : BaseViewModel() {
 
     var loginModel = LoginModel()
     var forgotPasswordModel = ForgotPasswordModel()
@@ -40,7 +42,12 @@ class LoginViewModel(var commonApi: CommonApi,var commonFunction: CommonFunction
         commonApi.loginApiCall(response, disable, loginRegisterModel)
     }
     fun registerApiCall(loginRegisterModel: RegisterModel) {
-        commonApi.registerApiCall(response, disable, loginRegisterModel)
+        if(loginRegisterModel.Password.equals(loginRegisterModel.confirmPassword)){
+            commonApi.registerApiCall(response, disable, loginRegisterModel)
+        }else{
+            commonFunction.commonToast(application.getString(R.string.password_mis))
+        }
+
     }
     fun forgotPassswordApiCall(loginRegisterModel: ForgotPasswordModel) {
        // commonFunction.commonToast("Thank you for submiting")

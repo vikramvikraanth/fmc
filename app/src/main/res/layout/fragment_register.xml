@@ -177,20 +177,42 @@
                                 android:textAppearance="@style/TextViewCustomFont_medium"
                                 android:textColor="@color/White"
                                 android:textSize="@dimen/_14sdp" />
-
-                        <EditText
+                        <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@drawable/ic_square_box"
                                 android:layout_marginStart="@dimen/_15sdp"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_marginEnd="@dimen/_15sdp"
-                                android:afterTextChanged="@{(text) -> loginViewModel.onUsernameTextChanged(loginViewModel.registerModel)}"
-                                android:text="@={loginViewModel.registerModel.mobile}"
-                                android:imeOptions="actionNext"
-                                android:inputType="number"
-                                android:background="@drawable/ic_square_box"
-                                android:padding="@dimen/_10sdp"
-                                android:textColor="@color/Black" />
+                                android:orientation="horizontal">
+                            <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="+971"
+                                    android:inputType="number"
+                                    android:background="@null"
+                                    android:focusable="false"
+                                    android:clickable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:cursorVisible="false"
+                                    android:maxLength="12"
+                                    android:padding="@dimen/_10sdp"
+                                    android:textColor="@color/Black" />
+                            <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:afterTextChanged="@{(text) -> loginViewModel.onUsernameTextChanged(loginViewModel.registerModel)}"
+                                    android:text="@={loginViewModel.registerModel.mobile}"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number"
+                                    android:maxLength="12"
+                                    android:background="@null"
+                                    android:padding="@dimen/_10sdp"
+                                    android:textColor="@color/Black" />
+
+
+                        </LinearLayout>
+
                         <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -247,7 +269,6 @@
                                 android:layout_marginEnd="@dimen/_15sdp"
                                 android:text="@string/e_id"
                                 android:visibility="@{istateid?View.GONE:View.VISIBLE}"
-
                                 android:textAppearance="@style/TextViewCustomFont_medium"
                                 android:textColor="@color/White"
                                 android:textSize="@dimen/_14sdp" />
@@ -263,9 +284,9 @@
                                 android:text="@={loginViewModel.registerModel.cardNumber}"
                                 android:imeOptions="actionDone"
                                 android:hint="@string/only_number"
-                                android:maxLength="15"
+                                android:maxLength="18"
                                 android:inputType="number"
-                                android:digits="0987654321"
+                                android:digits="0987654321-"
                                 android:background="@drawable/ic_square_box"
                                 android:padding="@dimen/_10sdp"
                                 android:textColor="@color/Black" />

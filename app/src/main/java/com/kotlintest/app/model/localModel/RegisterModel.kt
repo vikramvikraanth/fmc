@@ -15,5 +15,5 @@ data class RegisterModel(
 
 ):BaseValidatorClass(){
 
-    fun isValiator() =  isValidEmail(email) && isempty(Password) && isempty(cardNumber) &&isempty(mobile) &&isempty(dob) && isempty(gender)&&isCompare(Password,confirmPassword)
+    fun isValiator() =  isValidEmail(email) && isempty(Password) && isempty(cardNumber) &&isempty(mobile) &&isempty(dob) && isempty(gender)
 }
