@@ -183,4 +183,7 @@
     <string name="salary_pre_pay_a_c">لن يتم قبول حساب الراتب المدفوع مسبقًا.</string>
     <string name="ok">نعم</string>
     <string name="cancel">يلغي</string>
+    <string name="only_number">15 رقم فقط</string>
+    <string name="maximum_characters">بحد أقصى 50 حرفًا</string>
+    <string name="password_mis">كلمة المرور غير متطابقة ، يرجى التحقق من كلمة المرور الخاصة بك</string>
 </resources>
