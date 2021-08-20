@@ -38,12 +38,12 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
         binding.radioButton.isChecked = true
         binding.radioButton.setOnClickListener {
             binding.istateid = false
-            loginViewModel.registerModel.cardNumber =""
+            loginViewModel.registerModel.value!!.cardNumber =""
             this.binding.loginViewModel =loginViewModel
         }
         binding.radioButton2.setOnClickListener {
             binding.istateid = true
-            loginViewModel.registerModel.cardNumber =""
+            loginViewModel.registerModel.value!!.cardNumber =""
             this.binding.loginViewModel =loginViewModel
 
         }
@@ -62,10 +62,14 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
                 datePicker()
             }
             R.id.gender_edit -> {
+                binding.cardNumberTxt.clearFocus()
+                activity.window.getDecorView().clearFocus()
+
                 bottomSheet = GenderFragment(object : Commoninterface {
                     override fun onCallback(value: Any) {
-                        loginViewModel.registerModel.gender = value as String
-                        binding.loginViewModel = loginViewModel
+                        //loginViewModel.registerModel.value!!.gender = value as String
+                       // loginViewModel.registerModel.value = loginViewModel.registerModel.value
+                        binding.genderEdit.setText(value as String)
 
                     }
 
@@ -155,8 +159,20 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), View.OnClickLi
 
     override fun onDateSet(view: DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
         val datemonth= 1+monthOfYear
-        val date = "$dayOfMonth/$datemonth/$year"
-        loginViewModel.registerModel.dob = date
+        var dates =""
+        var datemonths =""
+        if(dayOfMonth>9){
+            dates = dayOfMonth.toString()
+        }else{
+            dates="0"+dayOfMonth
+        }
+        if(datemonth>9){
+            datemonths = datemonth.toString()
+        }else{
+            datemonths="0"+datemonth
+        }
+        val date = "$dates-$datemonths-$year"
+        loginViewModel.registerModel.value!!.dob = date
         binding.loginViewModel =loginViewModel
 
     }

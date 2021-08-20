@@ -13,7 +13,7 @@ class LoginViewModel(var commonApi: CommonApi,var commonFunction: CommonFunction
 
     var loginModel = LoginModel()
     var forgotPasswordModel = ForgotPasswordModel()
-    var registerModel = RegisterModel()
+    var registerModel = MutableLiveData(RegisterModel())
 
     var isvalid = MutableLiveData<Boolean>();
 

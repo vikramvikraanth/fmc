@@ -854,6 +854,7 @@ fun ECardApiCall(
                 "        </MobSubmitReimbursementClaim>\n" +
                 "    </Body>\n" +
                 "</Envelope>"
+        println("enter the json"+requestBodyText)
         val requestBody = RequestBody.create("text/xml".toMediaTypeOrNull(), requestBodyText)
         disable.add(api.getReimbursementFormApi(requestBody)
             .doOnSubscribe({ response.postValue(Response.loading()); })

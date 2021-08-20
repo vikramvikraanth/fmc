@@ -90,7 +90,7 @@
                     android:padding="@dimen/_5sdp"
                     android:onClick="@{click::onClick}"
                     android:id="@+id/others_txt"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
