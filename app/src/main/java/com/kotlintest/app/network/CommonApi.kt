@@ -794,7 +794,7 @@ fun ECardApiCall(
                 "            <CityID>"+model.cityid+"</CityID>\n" +
                 "            <ProviderTypeID>"+model.providerTypeid+"</ProviderTypeID>\n" +
                 "            <SpecialityID>"+model.specialityid+"</SpecialityID>\n" +
-                "            <ProviderName>"+model.providertype+"</ProviderName>\n" +
+                "            <ProviderName></ProviderName>\n" +
                 "            <MemberID>"+sharedHelper.getFromUser("member_id")+"</MemberID>\n" +
                 "        </MobSubmitMedicalProviderSearch>\n" +
                 "    </Body>\n" +

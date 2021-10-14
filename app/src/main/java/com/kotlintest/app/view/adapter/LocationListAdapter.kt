@@ -14,9 +14,10 @@ import com.kotlintest.app.databinding.LocationListAdapterBinding
 import com.kotlintest.app.databinding.MainMenuAdapterBinding
 import com.kotlintest.app.model.localModel.BenefitiesListModel
 import com.kotlintest.app.model.responseModel.MedicalLocationModel
+import com.kotlintest.app.utility.`interface`.Commoninterface
 
 
-class LocationListAdapter(var documentModel: ArrayList<MedicalLocationModel.MedicalProviderResponse>) : BaseAdapter<MedicalLocationModel.MedicalProviderResponse>(documentModel) {
+class LocationListAdapter(var documentModel: ArrayList<MedicalLocationModel.MedicalProviderResponse>,var commoninterface: Commoninterface) : BaseAdapter<MedicalLocationModel.MedicalProviderResponse>(documentModel) {
 
 
     override fun onBindViewHolderBase(holder: RecyclerView.ViewHolder, position: Int) {
@@ -25,6 +26,9 @@ class LocationListAdapter(var documentModel: ArrayList<MedicalLocationModel.Medi
 
         if(documentModel.isEmpty()){
             return
+        }
+        binding.locationBtn.setOnClickListener {
+            commoninterface.onCallback(documentModel[holder.absoluteAdapterPosition])
         }
 
 
